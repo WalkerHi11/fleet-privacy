@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: fleet-privacy
+    runtime: static
+    buildCommand: "echo no build step - static files served as-is"
+    staticPublishPath: .
+    pullRequestPreviewsEnabled: false
+    autoDeploy: true
+    headers:
+      - path: /*
+        name: X-Content-Type-Options
+        value: nosniff
