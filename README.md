@@ -25,6 +25,7 @@ Base: `https://fleet-privacy.onrender.com/`
 | NIGHTFORGE | `/nightforge/privacy.html` |
 | Tee'd Off: Battle Golf | `/teed-off-battle-golf/privacy.html` |
 | Trivia Munchers | `/trivia-munchers/privacy.html` |
+| Bar Flip: Rhyme Duel | `/bar-flip/privacy.html` |
 
 Capeless (`capeless.onrender.com/privacy.html`) and WYRMJOUST (`wyrmjoust.onrender.com/privacy.html`)
 are hosted from their own game repos and linked from `index.html`.
