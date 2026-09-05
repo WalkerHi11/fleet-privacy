@@ -24,6 +24,7 @@ Base: `https://fleet-privacy.onrender.com/`
 | Empire Heat: Crime Tycoon | `/empire-heat-crime-tycoon/privacy.html` |
 | NIGHTFORGE | `/nightforge/privacy.html` |
 | Tee'd Off: Battle Golf | `/teed-off-battle-golf/privacy.html` |
+| Tidy Town: Pack & Restore | `/tidy-town/privacy.html` |
 | Trivia Munchers | `/trivia-munchers/privacy.html` |
 | Bar Flip: Rhyme Duel | `/bar-flip/privacy.html` |
 
