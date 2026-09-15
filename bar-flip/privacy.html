@@ -1,8 +1,27 @@
-<!-- Self-contained privacy page for BAR FLIP. Every statement below was read off the barflip repo at
-     commit 7216ad64533421e38a33a1b50e17d002f0a777e3 (the release-signed AAB's own tip), not assumed:
-     the release bundle manifest's permission set, the rails census (all seven measurement/commerce
-     rails dark), the null PostHog transport, and OfflineLeaderboard as the only shipped leaderboard
-     client. Dizzywalk fleet pattern, mirroring the-last-mirror/privacy.html. -->
+<!-- Self-contained privacy page for BAR FLIP.
+
+     REWRITTEN 2026-09-15. The previous revision of this page was honest when it was written: it was
+     read off the barflip repo at commit 7216ad64 and described the WEB build, in which every rail was
+     dark, the PostHog transport was null, and nothing left the device. That build is being retired.
+     The native Unity build takes over the same Play package (com.dizzywalk.barflip) and it is a
+     different program: it has a configured analytics transport, a consent gate, a letter wheel
+     instead of a keyboard, and no leaderboard or ghost opponents at all. EIGHT statements on the old
+     page became false or materially incomplete under it - seven false outright, and the
+     "no third-party analytics SDK" line true-but-incomplete once our own transport began posting to
+     a third-party processor. So the page is re-derived rather than patched.
+
+     Every statement below was read off the native build at commit 2f34d0e6 (the tip the versionCode
+     303 release bundle was built from), not assumed:
+       - analytics transport + live key: Resources/Barflip/Config/telemetry.json,
+         Scripts/Services/Telemetry/PostHogTelemetry.cs
+       - consent rule: AppFlow.MayCollect = ConsentAcceptedEpoch > 0 && AnalyticsOptIn
+       - event surface and every property dimension: docs/native-aaa/TELEMETRY-EVENT-MAP.md,
+         whose contract test resolves every emit call site against the map in both directions
+       - "never the word itself": TELEMETRY-EVENT-MAP.md word_submitted row
+       - crash reporting armed by the telemetry install: Scripts/Services/Diagnostics/CrashReporter.cs
+       - rails dark: AdGatewayFactory -> UnavailableAdGateway, StoreGatewayFactory -> UnavailableStoreGateway
+       - clipboard card carries the player's bars: Scripts/Content/Compete/DuelCard.cs (DuelBar.Word)
+     Dizzywalk fleet pattern, mirroring the-last-mirror/privacy.html. -->
 <meta charset="utf-8">
 <title>BAR FLIP — Privacy Policy</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -23,15 +42,22 @@ ul{padding-left:22px}
 a{color:#0a58ca;word-break:break-word}
 .callout{background:#fff;border:1px solid #e4e4e7;border-left:4px solid #7f5828;border-radius:8px;
 padding:12px 16px;margin:16px 0}
+.changed{background:#fffaf0;border:1px solid #e8d9bd;border-left:4px solid #c08a2e;border-radius:8px;
+padding:12px 16px;margin:16px 0}
 code{background:#ececf0;padding:1px 5px;border-radius:4px;font-size:.9em}
+table{border-collapse:collapse;width:100%;margin:12px 0;font-size:.95rem}
+th,td{border:1px solid #e4e4e7;padding:7px 10px;text-align:left;vertical-align:top}
+th{background:#f0f0f2}
 footer{margin-top:48px;padding-top:16px;border-top:1px solid #ddd;color:#888;font-size:.85rem}
 @media (prefers-color-scheme:dark){
  body{color:#e6e6e8;background:#0f1012}
  .sub{color:#a1a1aa}.meta{color:#8a8a92}
  .callout{background:#17181b;border-color:#2a2b30;border-left-color:#bea789}
+ .changed{background:#1c1813;border-color:#3a3228;border-left-color:#c08a2e}
  code{background:#26272c}
  a{color:#6ea8fe}
  header{border-bottom-color:#bea789}
+ th{background:#1c1d21}th,td{border-color:#2a2b30}
  footer{border-top-color:#2a2b30;color:#8a8a92}
 }
 </style>
@@ -39,64 +65,112 @@ footer{margin-top:48px;padding-top:16px;border-top:1px solid #ddd;color:#888;fon
 <header>
 <h1>BAR FLIP — Privacy Policy</h1>
 <p class="sub">Published by Dizzywalk</p>
-<p class="meta">Effective date: 2026-08-15 &middot; Last updated: 2026-08-15</p>
+<p class="meta">Effective date: 2026-09-15 &middot; Last updated: 2026-09-15 &middot; Previous version: 2026-08-15</p>
 </header>
+
+<div class="changed"><strong>What changed on 2026-09-15, and why.</strong>
+<p>BAR FLIP has been rebuilt. Earlier versions of the app — up to and including version code 200 —
+transmitted nothing off your device, and the previous version of this page said so correctly. The
+rebuilt app <strong>can</strong> send anonymous gameplay analytics, but <strong>only if you turn
+them on</strong>: it asks on the first screen, and it sends nothing at all until you answer. This
+page has been rewritten to describe the rebuilt app honestly rather than edited around the change.</p>
+<p>If you are still running an older version, nothing has started leaving your device because this
+page changed. The behaviour described below arrives with the update.</p></div>
+
 <p>This Privacy Policy explains how Dizzywalk ("we", "us") handles information in connection with the
 game <strong>BAR FLIP</strong> (the "Game", package <code>com.dizzywalk.barflip</code>) on Google Play
-and related platforms. BAR FLIP is a rhyme-duel word game. This page describes exactly what the Game
-does and does not collect, and it was written by reading the shipping build rather than by describing
-an intention.</p>
-<div class="callout"><strong>Short version.</strong><ul><li>No account and no login — there is nothing to sign up for.</li><li>This version of the Game <strong>transmits no data off your device at all</strong>. Your words, scores, streaks and settings stay on your device.</li><li>No advertising, no third-party advertising or analytics SDKs, and no in-app purchases in this version.</li><li>We do not sell your data, and the Game never uploads the words you type.</li></ul></div>
+and related platforms. BAR FLIP is a rhyme-duel word game: a rival throws you a word and you swipe
+letters off a wheel to spell one that rhymes. This page describes exactly what the Game does and does
+not collect, and it was written by reading the shipping build rather than by describing an intention.</p>
 
-<h2>Information we collect</h2>
-<p>In this version, <strong>we collect nothing</strong>. Your daily runs, scores, streaks, mastery
-progress, profile and settings are created and stored <strong>only on your device</strong>, and they
-stay there until you delete them, reset your profile, or remove the Game (subject to your platform's
-own backup behaviour). There is no server that receives them.</p>
+<div class="callout"><strong>Short version.</strong><ul>
+<li>No account and no login — there is nothing to sign up for.</li>
+<li>Analytics are <strong>off until you say yes</strong>. The Game asks on the first screen and sends
+nothing before you answer. You can change the answer at any time in Settings.</li>
+<li>If you say yes, the Game sends <strong>anonymous gameplay events</strong> — which screens you
+opened, which shows you started and finished, how long a word was — and crash reports.</li>
+<li><strong>It never sends the words you play.</strong> It sends how many letters a word had, never
+the word.</li>
+<li>No name, email, contacts, photos, location, or advertising identifier — ever, on any setting.</li>
+<li>No advertising and no in-app purchases in this version.</li>
+<li>We do not sell your data.</li>
+</ul></div>
 
-<h2>We do not collect personal information</h2>
-<p>The Game has <strong>no account system and no login</strong>. We do not ask for or collect your
-name, email address, phone number, contacts, photos, location, advertising identifier, or any
-government identifier. You can play the entire Game without providing any personal information.</p>
+<h2>The choice you make on the first screen</h2>
+<p>The first time you open the Game it explains what it would like to record and gives you a switch.
+<strong>Until you answer, the Game installs no network reporting and sends nothing</strong> — not a
+screen view, not an app-open, nothing. A switch sitting in its default position is not an answer, and
+the Game does not treat it as one. The disclosure comes before any collection.</p>
+<p>If you answer <strong>no</strong>, no reporting is created at all: there is nothing to disable
+later because nothing was ever started. If you answer <strong>yes</strong>, you can withdraw at any
+time from <em>Settings → Share anonymous play data</em>. Withdrawing stops collection and discards
+anything the Game was still holding to send.</p>
 
-<h2>The words you type</h2>
-<p>BAR FLIP is played by typing words. Every word you type is judged <strong>on your device</strong>
-against a bundled pronunciation dictionary — nothing you type is sent anywhere for judging, scoring,
-or any other purpose. The Game deliberately holds this line in its sharing feature too: a share
-never carries the words you invented, only your score summary, and the Game says so on screen before
-anything is shared.</p>
+<h2>What we collect if you say yes</h2>
+<table>
+<tr><th>What</th><th>Examples</th></tr>
+<tr><td><strong>Gameplay events</strong></td><td>the app was opened; a show was started, won or lost;
+a screen was opened; a daily was claimed; a bar was submitted, whether it scored, and
+<strong>how many letters it had</strong></td></tr>
+<tr><td><strong>An anonymous identifier</strong></td><td>a random id the Game generates on your device
+the first time it runs, so that two events from the same install can be counted as one session. It is
+not your device's advertising id, it is not derived from any hardware identifier, and it is not joined
+to a person</td></tr>
+<tr><td><strong>App and session context</strong></td><td>app version, platform, a per-run session id,
+which launch this is for this install, and how many days since the install first opened</td></tr>
+<tr><td><strong>Crash reports</strong></td><td>diagnostics about a crash or error, so we can fix it.
+These follow the same switch: they are armed when you opt in and cleared when you opt out</td></tr>
+</table>
+<p>That is the whole list. The Game keeps a written map of every event and every property it is
+allowed to send, and an automated check compares that map against the source code in both directions,
+so an event the map does not describe fails the build.</p>
 
-<h2>Sharing</h2>
-<p>If you choose to share a result, the Game hands a short line of text to <strong>your device's own
-share sheet or clipboard</strong>. You pick the destination, and nothing is sent until you do. We
-never see the share and we receive nothing from it.</p>
+<h2>The words you play</h2>
+<p>BAR FLIP is played by swiping letters off a wheel to spell words. Every word is judged
+<strong>on your device</strong> against a bundled pronunciation dictionary — nothing you spell is sent
+anywhere to be judged or scored. <strong>The words themselves are never sent to us.</strong> When
+analytics are on, a submitted bar is reported as a length and a result — for example "8 letters,
+scored" — and never as text.</p>
 
-<h2>Network access</h2>
-<p>The Game declares the standard Android <code>INTERNET</code> permission. In this version
-<strong>no shipped feature uses it to transmit anything</strong>: the leaderboard client bundled in
-this build is the offline one, which reports rank and percentile as unknown and displays "&mdash;"
-rather than inventing a number, and the ghost opponents you play against are <strong>bundled
-recordings shipped inside the app</strong>, clearly labelled <code>GHOST&nbsp;&middot;&nbsp;SEED</code>,
-not live players. The Game never disguises a recorded ghost or a bot as a live human.</p>
+<h2>What we never collect</h2>
+<p>On any setting, the Game does not ask for or collect your name, email address, phone number,
+contacts, photos, camera, microphone, location, or any government identifier, and
+<strong>it does not use an advertising identifier</strong>. The Game has no account system and no
+login. The Android permission it declares is vibration; the standard network permission is used only
+for the analytics described above.</p>
 
-<h2>Analytics</h2>
-<p>The Game contains a first-party analytics transport that is <strong>disabled and unconfigured in
-this build</strong>: with no analytics key present, the transport is never created and no events are
-generated or sent. There is no third-party analytics SDK embedded in the Game. If a future version
-enables analytics, it would collect pseudonymous gameplay events (such as run starts and completions)
-and never the words you type; we would update this page and the Play Data Safety declaration before
+<h2>Who processes the data</h2>
+<p>If you opt in, events are sent over <strong>HTTPS</strong> to <strong>PostHog</strong>, the product-
+analytics service we use as our data processor, on its United States infrastructure
+(<code>us.i.posthog.com</code>). If you are outside the United States, this means the anonymous event
+data described above is transferred there. The Game embeds <strong>no third-party advertising,
+attribution, or analytics SDK</strong> — the reporting is the Game's own code posting to that service —
+and the Game is configured so that <strong>no personal profile is created</strong> on the analytics
+side. We do not share data with advertising networks or data brokers, and we do not sell your data.</p>
+
+<h2>Sharing a card</h2>
+<p>The Game has a card feature: you can copy a short code for the bars you played on a given day to
+<strong>your device's clipboard</strong>, and paste in a code someone sent you so your device can
+re-score their bars. <strong>That code contains the words that were played</strong> — that is how the
+receiving device can check them. It goes to your clipboard and nowhere else: there is no server behind
+this feature, we never see the code, and you choose entirely whether and where to paste it. A card
+carries no name and no profile.</p>
+
+<h2>Advertising</h2>
+<p>This version shows <strong>no advertising</strong> and contains no advertising or attribution SDK.
+If advertising is ever added, this page and the Play Data Safety declaration would be updated before
 that version ships.</p>
 
-<h2>Advertising and third parties</h2>
-<p>The Game shows <strong>no advertising</strong> and embeds <strong>no third-party advertising,
-attribution, or analytics SDKs</strong>. We do not share data with advertising networks or data
-brokers, and the Game does not use an advertising identifier.</p>
-
 <h2>Purchases</h2>
-<p>This version contains <strong>no in-app purchases</strong> and no billing integration — the
-shipping app requests no billing permission and offers nothing for sale. If purchases are added in a
-future version, they would be processed by Google Play, we would never see or store your payment-card
-data, and this page would be updated before that version ships.</p>
+<p>This version contains <strong>no in-app purchases</strong> and no billing integration — the shipping
+app offers nothing for sale and no transaction can be completed. If purchases are added in a future
+version, they would be processed by Google Play, we would never see or store your payment-card data,
+and this page would be updated before that version ships.</p>
+
+<h2>Other players</h2>
+<p>There is <strong>no leaderboard, no rank and no matchmaking</strong>, and the Game never presents a
+recorded or authored opponent as a live person. The rivals you face are written characters shipped
+inside the app.</p>
 
 <h2>AI-assisted development</h2>
 <p>Some of the Game's art and audio were created with the help of AI-assisted tools during
@@ -107,21 +181,25 @@ same position always scores the same. Players cannot prompt the Game to generate
 personal information is used for any AI processing.</p>
 
 <h2>Children's privacy</h2>
-<p>BAR FLIP is a word game with a stylised bar-room setting, intended for teens and older; it is not
-directed to children under 13. We do not knowingly collect personal information from children — and
-in this version we do not collect personal information from anyone.</p>
+<p>BAR FLIP is a word game with a stylised stage-and-crowd setting, intended for teens and older; it is
+not directed to children under 13. We do not knowingly collect personal information from children. If
+you believe a child has provided information to us, contact us and we will delete it.</p>
 
 <h2>Data retention and security</h2>
-<p>On-device data lives only on your device until you remove it. Because this version transmits
-nothing, there is no server-side copy of your data to retain, breach, or disclose. We honour Google
-Play's Data Safety declarations for the Game.</p>
+<p>Your tour progress, gear, records and settings are stored <strong>only on your device</strong> and
+stay there until you clear the app's data or uninstall it (subject to your platform's own backup
+behaviour). If you opted in, the anonymous event data described above is held by our analytics
+processor under its own retention schedule and is not joined to a personal profile. Data is encrypted
+in transit. We honour Google Play's Data Safety declarations for the Game.</p>
 
 <h2>Your choices and rights</h2>
-<p>Because the Game stores its data on your device, you can clear it at any time by clearing the app's
-data or uninstalling the Game. If any optional online feature is enabled in a future version, it will
-use only a minimised or anonymous identifier, and you will be able to opt out and request export or
-deletion. Depending on where you live (for example under GDPR or the CCPA/CPRA), you may have rights
-to access, delete, or object to processing of information about you; contact us to exercise them.</p>
+<p>You can turn analytics off at any time in <em>Settings → Share anonymous play data</em>, which stops
+collection and discards anything still held to send. You can clear everything the Game has stored by
+clearing the app's data or uninstalling it. Because the identifier we use is anonymous and is not
+joined to a person, we generally cannot look up an individual's events from a name or an email — but
+if you contact us with the relevant details we will help as far as that identifier allows. Depending on
+where you live (for example under GDPR or the CCPA/CPRA), you may have rights to access, delete, or
+object to processing of information about you; contact us to exercise them.</p>
 
 <h2>Contact us</h2>
 <p>Questions about this policy or your data? Email us at
@@ -129,9 +207,10 @@ to access, delete, or object to processing of information about you; contact us 
 
 <h2>Changes to this policy</h2>
 <p>If we change how the Game handles data, we will update this page and revise the "Last updated" date
-above. Material changes will be reflected here before they take effect.</p>
+above. Material changes will be reflected here before they take effect, and called out at the top of
+the page as the 2026-09-15 change is.</p>
 <footer>
-<p>BAR FLIP &middot; Dizzywalk &middot; Effective 2026-08-15.
+<p>BAR FLIP &middot; Dizzywalk &middot; Effective 2026-09-15.
 This policy applies only to BAR FLIP and not to any third-party site or service it may link to.</p>
 </footer>
 </main>
