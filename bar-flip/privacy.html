@@ -203,16 +203,21 @@ settings under <em>Privacy &rarr; Ads</em>; the Game keeps working either way.</
 <p>The Game does not ask the ad network to personalise anything. At startup, for every player, in every
 region, it tells the SDK that it does <strong>not</strong> have consent to use your data for personalised
 advertising, and that your personal information must <strong>not</strong> be sold or shared. The Game
-applies both signals before the advertising SDK starts, for every player and every region. No screen
-offers you a control over them, and nothing in this version changes them. That is also why you are not shown an advertising-consent dialog: the Game has already
-taken the most restrictive position available to it on your behalf, so there is no decision left for a
-dialog to collect. The Game never sends your
+applies both signals before the advertising SDK starts, for every player and every region. The Game's
+own screens offer you no control over them, and nothing in this version changes them. The Game never sends your
 advertising ID to us, and it is not in any analytics or purchase payload.</p>
 <p>You are told about this before you play. <strong>The first screen in the Game describes the advertising
 SDK and the advertising ID</strong>, alongside the analytics question, and the Game does not start the
 advertising SDK until you have dismissed that screen. Being told is not the same as being asked, and this
 page does not pretend otherwise: there is no choice on that screen about advertising, because there is no
 setting whose alternatives would produce a different signal.</p>
+<h3>Where consent is required, a separate form asks you</h3>
+<p>In regions whose law requires your consent before advertising may use your data — the EEA and the UK —
+you are shown <strong>a consent form provided by Google's User Messaging Platform</strong>, presented by
+our advertising partner before ads are requested. <strong>The Game does not draw that form, does not
+style it and does not store your answer</strong>; your choice is recorded by that platform and read by the
+advertising networks directly. It is a different thing from the first screen described above, which tells
+you what happens and asks you nothing about advertising.</p>
 
 <h2>Attribution and measurement</h2>
 <p>The Game does <strong>not</strong> measure which advertisement or campaign brought you to it. No
