@@ -1,8 +1,33 @@
-<!-- Self-contained privacy page for BAR FLIP. Every statement below was read off the barflip repo at
-     commit 7216ad64533421e38a33a1b50e17d002f0a777e3 (the release-signed AAB's own tip), not assumed:
-     the release bundle manifest's permission set, the rails census (all seven measurement/commerce
-     rails dark), the null PostHog transport, and OfflineLeaderboard as the only shipped leaderboard
-     client. Dizzywalk fleet pattern, mirroring the-last-mirror/privacy.html. -->
+<!-- Self-contained privacy page for BAR FLIP. Dizzywalk fleet pattern, mirroring the-last-mirror/privacy.html.
+
+     READ THIS BEFORE EDITING, AND READ THIS PARAGRAPH FIRST, because the obvious reading of it is wrong.
+     The version of this page dated 2026-08-15 is STILL TRUE OF THE BUILD PLAYERS HAVE. Measured 2026-09-15
+     by pulling versionCode 200 — the only build on the production track — back out of Google Play and
+     reading it: it is a Capacitor web wrapper whose dex defines 5,146 classes, 125 of them Capacitor (the
+     positive control for that read) and ZERO under AppLovin, Play Billing, Tenjin, Firebase, Sentry or the
+     Unity player; its manifest asks for INTERNET and nothing else — no billing permission, no AD_ID; and
+     no PostHog project key was ever inlined into its bundle, so its transport constructor returns null and
+     the game transmits nothing. Every headline claim in the 2026-08-15 page holds against that artifact.
+
+     What is true is that those claims go false THE MOMENT versionCode 304 REACHES PRODUCTION. The Unity
+     native lane began on 2026-09-12, a month after 200 shipped, and it brought telemetry, Play Billing and
+     AppLovin MAX with it. So the deadline on this page is not "now", it is "the same release as 304" —
+     publish it early and it describes capabilities the live build does not have, which is its own defect
+     and the one the ledger's ClaimsMoreThanTheBuildDoes direction exists to catch.
+
+     The 2026-08-15 page was not careless. It was read off a named commit and it was right. It would have
+     gone false without anyone touching it, because the build moves and prose does not.
+
+     So a more careful reading is not the cure, because a more careful reading produces exactly that document
+     again. The cure is in the barflip repo: `unity/Assets/Barflip/Editor/Build/PrivacyPolicyLedger.cs` holds
+     every factual sentence below beside a predicate read out of the shipping Android artifact, and
+     `unity/Assets/Tests/EditMode/PrivacyPolicyClaimTests.cs` fails when the two disagree — in EITHER
+     direction, so this page cannot go live describing capabilities the build does not yet have, and cannot
+     survive a build that gains one.
+
+     The canonical copy of this file is `store/play/privacy-policy.html` in the barflip repo. Edit it there,
+     run the EditMode suite, and copy the result here. Editing this copy alone puts the two out of step and
+     the claim ledger is auditing the other one. -->
 <meta charset="utf-8">
 <title>BAR FLIP — Privacy Policy</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -39,64 +64,184 @@ footer{margin-top:48px;padding-top:16px;border-top:1px solid #ddd;color:#888;fon
 <header>
 <h1>BAR FLIP — Privacy Policy</h1>
 <p class="sub">Published by Dizzywalk</p>
-<p class="meta">Effective date: 2026-08-15 &middot; Last updated: 2026-08-15</p>
+<p class="meta">Effective date: 2026-09-15 &middot; Last updated: 2026-09-15</p>
 </header>
 <p>This Privacy Policy explains how Dizzywalk ("we", "us") handles information in connection with the
 game <strong>BAR FLIP</strong> (the "Game", package <code>com.dizzywalk.barflip</code>) on Google Play
-and related platforms. BAR FLIP is a rhyme-duel word game. This page describes exactly what the Game
-does and does not collect, and it was written by reading the shipping build rather than by describing
-an intention.</p>
-<div class="callout"><strong>Short version.</strong><ul><li>No account and no login — there is nothing to sign up for.</li><li>This version of the Game <strong>transmits no data off your device at all</strong>. Your words, scores, streaks and settings stay on your device.</li><li>No advertising, no third-party advertising or analytics SDKs, and no in-app purchases in this version.</li><li>We do not sell your data, and the Game never uploads the words you type.</li></ul></div>
+and related platforms. BAR FLIP is a rhyme-duel word game. This page describes what the Game does and
+does not collect, and the factual claims in it are checked against the shipping Android build by an
+automated test that fails when the two disagree.</p>
+<div class="callout"><strong>Short version.</strong><ul><li>No login, no password, no email, and no third-party sign-in. The Game does create one thing that behaves like an account: a random <em>recovery code</em>, so a purchase can be restored after a reinstall.</li><li>The Game sends anonymous gameplay analytics to PostHog, <strong>only after you answer the question it asks before your first show</strong>, and you can turn it off at any time in Settings.</li><li>It offers in-app purchases through Google Play, and opt-in rewarded video ads through AppLovin. It asks for non-personalised ads for every player, everywhere.</li><li>Your daily runs, scores, streaks, profile and settings live on your device. The words you type are judged on your device and are never sent to us.</li><li>We do not sell your data.</li></ul></div>
 
-<h2>Information we collect</h2>
-<p>In this version, <strong>we collect nothing</strong>. Your daily runs, scores, streaks, mastery
-progress, profile and settings are created and stored <strong>only on your device</strong>, and they
-stay there until you delete them, reset your profile, or remove the Game (subject to your platform's
-own backup behaviour). There is no server that receives them.</p>
+<h2>The question we ask before your first show</h2>
+<p>The first screen in the Game, before you can play, asks whether you are willing to share anonymous
+play data. You cannot dismiss it with the back gesture; you have to answer it. <strong>Until you
+answer, nothing is transmitted</strong> — the handful of events the Game generates while it starts up
+are held in memory and are discarded if you decline.</p>
+<p>The switch on that screen starts in the "on" position, so accepting without changing it opts you in.
+Your answer is stored on your device, and you can change it whenever you like in <strong>Settings &rarr;
+SHARE ANONYMOUS PLAY DATA</strong>. Turning it off stops delivery, empties the queue held in memory, and
+deletes the queue file on disk, so nothing that was waiting to be sent survives the decision.</p>
 
-<h2>We do not collect personal information</h2>
-<p>The Game has <strong>no account system and no login</strong>. We do not ask for or collect your
-name, email address, phone number, contacts, photos, location, advertising identifier, or any
-government identifier. You can play the entire Game without providing any personal information.</p>
+<h2>Analytics</h2>
+<p>When you have opted in, the Game sends product analytics to <strong>PostHog</strong>
+(<code>https://us.i.posthog.com</code>), our data processor. There is no PostHog SDK inside the Game and
+no autocapture, session recording, or cookies: the Game builds its own batches and posts them itself, so
+what follows is the whole of what is sent.</p>
+<h3>What is in an event</h3>
+<p>Gameplay and interface facts, as numbers and short labels — which screen you opened, that a show
+started or ended, how many bars landed, how long a run took, which tactic you chose, that a purchase or
+a rewarded ad was started, completed or failed, and how far you have progressed. Every event carries a
+build identifier, the platform, a session identifier, how many sessions you have played, how many days
+it has been since you first opened the Game, and a <code>distinct_id</code>.</p>
+<h3>What is not in an event</h3>
+<p>Never the words you type. The Game reports the <em>length</em> of a submitted word and never the word
+itself. There is also no name, email address, phone number, contacts, photos, precise location,
+government identifier, or advertising identifier in any analytics payload, and no field that carries
+free text you have entered. There is nowhere in the Game to type a name: your profile carries a fixed
+stage name the Game gives every player, which you cannot change and which is never sent anywhere.</p>
+<h3>The identifier</h3>
+<p>The <code>distinct_id</code> is a random identifier generated on your device when your profile is
+created. It is not your advertising ID, not an Android device ID, and not shared with any other app: it
+lives in the Game's own storage on your device — its save file, or, before a profile has been loaded, the
+app's own preferences — and reinstalling the Game or clearing its data produces a new one. We
+ask PostHog not to build a person profile against it. As with any internet request, PostHog observes the
+network address the request came from at the moment it arrives; we do not put your address in a payload
+and do not use it to locate you.</p>
+<h3>Where events wait</h3>
+<p>Events are queued in the Game's own private storage on your device (a file the OS removes when you
+uninstall) and sent in batches. The queue holds at most 500 events and drops the oldest when it is full.
+It is deleted outright if you withdraw consent.</p>
+
+<h2>Crash reports</h2>
+<p>The Game contains no third-party crash-reporting SDK — no Sentry, no Crashlytics, no Bugsnag, and
+Unity's own cloud diagnostics are switched off. Instead, when the Game hits an unhandled error it records
+a first-party report and sends it, <strong>under the same consent as analytics and only if you have opted
+in</strong>, through the same PostHog transport.</p>
+<p>A report carries the error type, the exception message (clipped to 300 characters), the stack trace
+(clipped to 2,000 characters), whether it was fatal, whether the Game was in the foreground, and how long
+the session had been running. File paths are stripped out of the message and stack before sending,
+because on Android those paths embed your device account name. The Game reads only its own in-process
+errors and Android's own record of why the app last exited; it does not read the system log or crash
+dumps, and it asks for no permission to do either. A report that arrives before we know your consent
+answer is held in memory for a few seconds and then discarded — it is never written to disk and never
+sent.</p>
 
 <h2>The words you type</h2>
 <p>BAR FLIP is played by typing words. Every word you type is judged <strong>on your device</strong>
-against a bundled pronunciation dictionary — nothing you type is sent anywhere for judging, scoring,
-or any other purpose. The Game deliberately holds this line in its sharing feature too: a share
-never carries the words you invented, only your score summary, and the Game says so on screen before
-anything is shared.</p>
+against a pronunciation dictionary bundled inside the app — about 56,000 entries derived from the
+Carnegie Mellon Pronouncing Dictionary. Nothing you type is sent anywhere for judging, scoring, or any
+other purpose, and there is no network call anywhere in the path that decides whether a word is a word or
+whether it rhymes.</p>
 
-<h2>Sharing</h2>
-<p>If you choose to share a result, the Game hands a short line of text to <strong>your device's own
-share sheet or clipboard</strong>. You pick the destination, and nothing is sent until you do. We
-never see the share and we receive nothing from it.</p>
-
-<h2>Network access</h2>
-<p>The Game declares the standard Android <code>INTERNET</code> permission. In this version
-<strong>no shipped feature uses it to transmit anything</strong>: the leaderboard client bundled in
-this build is the offline one, which reports rank and percentile as unknown and displays "&mdash;"
-rather than inventing a number, and the ghost opponents you play against are <strong>bundled
-recordings shipped inside the app</strong>, clearly labelled <code>GHOST&nbsp;&middot;&nbsp;SEED</code>,
-not live players. The Game never disguises a recorded ghost or a bot as a live human.</p>
-
-<h2>Analytics</h2>
-<p>The Game contains a first-party analytics transport that is <strong>disabled and unconfigured in
-this build</strong>: with no analytics key present, the transport is never created and no events are
-generated or sent. There is no third-party analytics SDK embedded in the Game. If a future version
-enables analytics, it would collect pseudonymous gameplay events (such as run starts and completions)
-and never the words you type; we would update this page and the Play Data Safety declaration before
-that version ships.</p>
-
-<h2>Advertising and third parties</h2>
-<p>The Game shows <strong>no advertising</strong> and embeds <strong>no third-party advertising,
-attribution, or analytics SDKs</strong>. We do not share data with advertising networks or data
-brokers, and the Game does not use an advertising identifier.</p>
+<h2>Sharing a duel card</h2>
+<p>If you choose to share a duel card, the Game puts a short code on <strong>your device's clipboard</strong>.
+You choose where to paste it, and the card itself is never uploaded: we never see it. If you have opted in
+to analytics, the Game records <em>that</em> a card was shared — the date, the score to beat, and how many
+characters the code ran to — never the code, and never the words inside it.</p>
+<p>Be aware of what the card contains. So that another player can replay your show, <strong>the code
+encodes the bars you wrote</strong>. It carries no score — a reader recomputes that from the words — but the
+words themselves are in there, and it is not encrypted — anyone you give
+the code to, or anyone who gets it afterwards, can decode it and read those words. That is the feature
+working as intended, but it is the one place where words you typed can leave your device, and it happens
+only when you copy a card and paste it somewhere yourself.</p>
 
 <h2>Purchases</h2>
-<p>This version contains <strong>no in-app purchases</strong> and no billing integration — the
-shipping app requests no billing permission and offers nothing for sale. If purchases are added in a
-future version, they would be processed by Google Play, we would never see or store your payment-card
-data, and this page would be updated before that version ships.</p>
+<p>The Game offers in-app purchases, processed by <strong>Google Play</strong>. There are seven items:
+a starter bundle, a tour pass, a consumables pack, and four sizes of gem pack. They are one-time or
+consumable purchases. <strong>There are no subscriptions</strong> and nothing renews automatically. There
+are no loot boxes, gacha pulls, or randomised rewards of any kind — every paid item grants a fixed,
+stated set of contents. Prices are always the ones Google Play reports for your country; the Game never
+displays a price of its own invention, and it does not vary prices between players. Where Google Play has no
+price for your country, the item is not offered at all, rather than shown at a price you could not be
+charged — so in some countries there is currently nothing in the Game to buy.</p>
+<p>We never see or store your payment-card details. Google Play handles the payment and tells the Game
+that a purchase happened.</p>
+<h3>Checking a purchase</h3>
+<p>To make sure a purchase is genuine before the Game grants it, the Game sends the <strong>Google Play
+purchase token</strong> — and nothing else — to our purchase-verification service over HTTPS. The request
+carries your recovery code (described below) as its authorisation credential. The service asks Google
+whether the token is valid and returns a short signed statement naming the item and whether it was
+granted; the Game checks that signature against a key built into the app before it grants anything.</p>
+<p>The verification request contains no name, email address, device identifier, advertising identifier, or
+analytics identifier. The signed statement is held in memory only and is never written to your save file.
+What the save file records is the transaction's identifier, so the Game does not grant the same purchase
+twice.</p>
+
+<h2>Your recovery code</h2>
+<p>The Game has <strong>no account system and no login</strong>. It does not ask for your name, email
+address, phone number, contacts, photos, or location, and there is no sign-in with Google, Facebook, or
+anyone else. You can play the entire Game without providing any personal information.</p>
+<p>It does, however, create one identifier that works a little like an account, and you should know it
+exists. The first time you open the Game it generates a random 64-character <strong>recovery code</strong>
+and stores it in your save file. It is generated from your device's random number source — it is not
+derived from your device, your hardware, or anything about you, and it carries no name, address, or device
+identifier. Its purpose is narrow: it is the credential that lets our verification service confirm a
+purchase belongs to you, so that if you reinstall the Game or move to a new phone you can get back what
+you paid for.</p>
+<p>The Game shows it to you after your first purchase and lets you copy it. Keep it somewhere safe; it is
+the only way to restore a purchase. A one-way hash of the code — not the code itself — is also handed to
+Google Play as the obfuscated account identifier attached to your purchases, which is how Play associates
+a transaction with a player without being told who the player is. The code itself is sent only to our
+verification service, only as the authorisation header on a purchase check, and nowhere else.</p>
+
+<h2>Advertising</h2>
+<p>The Game offers <strong>opt-in rewarded video ads</strong> through <strong>AppLovin MAX</strong>. A
+rewarded ad appears only where the Game offers you one in exchange for something — a second chance after
+a loss, a fresh letter rack, extra time on the clock, or doubled credits — and only if you choose to
+watch it. <strong>Rewarded video is the only ad format in the Game</strong>: there are no banners, no
+interstitials between screens, and no ads that open when you launch it.</p>
+<p>AppLovin is the only advertising network in the Game; no other ad network's software is bundled with
+it. AppLovin's own privacy policy is at
+<a href="https://www.applovin.com/privacy/">https://www.applovin.com/privacy/</a>.</p>
+<h3>The advertising ID, and what we tell the ad network</h3>
+<p>Because the advertising SDK is present, the app declares Android's advertising-ID permission
+(<code>com.google.android.gms.permission.AD_ID</code>), and AppLovin may read your device's advertising
+ID to serve, cap, and measure an ad. You can reset that ID, or delete it entirely, in your Android
+settings under <em>Privacy &rarr; Ads</em>; the Game keeps working either way.</p>
+<p>The Game does not ask the ad network to personalise anything. At startup, for every player, in every
+region, it tells the SDK that it does <strong>not</strong> have consent to use your data for personalised
+advertising, and that your personal information must <strong>not</strong> be sold or shared. The Game
+applies both signals before the advertising SDK starts, for every player and every region. No screen
+exposes them, and nothing in this version changes them. That is also why you are not shown an advertising-consent dialog: the Game has already
+taken the most restrictive position available to it on your behalf. The Game never sends your
+advertising ID to us, and it is not in any analytics or purchase payload.</p>
+
+<h2>Attribution and measurement</h2>
+<p>The Game does <strong>not</strong> measure which advertisement or campaign brought you to it. No
+attribution or mobile-measurement SDK is built into this release — there is no such library in the app,
+and the Game never creates an attribution client of any kind. You will not find a setting for this, because
+there is nothing to switch on. If that ever changes, we will update this page and the Play Data Safety
+declaration in the same release that changes it.</p>
+
+<h2>Reminders</h2>
+<p>The Game can send you reminders: that the day's new word is up, and that a daily streak is about to
+end. These are <strong>off by default</strong>. They turn on only when you switch on
+<strong>Settings &rarr; REMINDERS</strong> and grant Android's notification permission, and you can
+switch them off again in either place.</p>
+<p>Reminders are scheduled by the Game on your device, by your device's own clock. There is no push
+service, no push token, and no Firebase or other messaging SDK in the app; a reminder itself never leaves your
+device. If you have opted in to analytics, switching reminders on or off is reported as one of the settings
+events described above — that is the only part of this feature that is ever sent.</p>
+
+<h2>Leaderboards and other players</h2>
+<p>There is <strong>no leaderboard, no rank, no league, and no percentile</strong> in the Game, and no
+server behind it that could hold one. No score of yours is ever submitted to a ranking, published, or shown
+to another player. If you have opted in to analytics, the score of a finished run is one of the numbers in
+the event that records the run ending, exactly as described under Analytics above — that is the only place
+it goes. The opponents you play against are not people and are not recordings of people: they are
+deterministic patterns the Game works out on your own device from the day's seed, and the Game never
+presents one as a live human. The one way to play against another
+person's run is the duel card described above, which travels by clipboard between the two of you and not
+through us.</p>
+
+<h2>Network access</h2>
+<p>The Game declares the standard Android <code>INTERNET</code>, <code>ACCESS_NETWORK_STATE</code> and
+<code>ACCESS_WIFI_STATE</code> permissions; the last of those comes with the advertising SDK. In this
+version they are used for exactly three things:
+delivering analytics and crash reports if you have opted in, checking a purchase with our verification
+service, and the advertising SDK's own requests when you choose to watch a rewarded ad. Nothing else in
+the Game makes a network request.</p>
 
 <h2>AI-assisted development</h2>
 <p>Some of the Game's art and audio were created with the help of AI-assisted tools during
@@ -108,20 +253,45 @@ personal information is used for any AI processing.</p>
 
 <h2>Children's privacy</h2>
 <p>BAR FLIP is a word game with a stylised bar-room setting, intended for teens and older; it is not
-directed to children under 13. We do not knowingly collect personal information from children — and
-in this version we do not collect personal information from anyone.</p>
+directed to children under 13, and it is not distributed in Google Play's programmes for families. We do
+not knowingly collect personal information from children. If you believe a child has provided us with
+personal information, contact us and we will delete it.</p>
+
+<h2>Who receives data</h2>
+<ul>
+<li><strong>PostHog</strong> — product analytics and crash reports, only if you have opted in.</li>
+<li><strong>Our purchase-verification service</strong> — a Google Play purchase token and your recovery
+code, only when you make a purchase. It talks to Google's Play Developer API to confirm the purchase.</li>
+<li><strong>Google Play</strong> — processes your payment and receives a one-way hash of your recovery
+code as the obfuscated account identifier on a transaction.</li>
+<li><strong>AppLovin</strong> — serves and measures rewarded video ads, and may read your device's
+advertising ID when you choose to watch one.</li>
+</ul>
+<p>We do not sell your personal information, and we do not share it with data brokers. We do not share
+analytics data with advertising networks.</p>
 
 <h2>Data retention and security</h2>
-<p>On-device data lives only on your device until you remove it. Because this version transmits
-nothing, there is no server-side copy of your data to retain, breach, or disclose. We honour Google
-Play's Data Safety declarations for the Game.</p>
+<p>On-device data — your progress, profile, settings, recovery code and queued analytics — lives only on
+your device, in the Game's own private storage, until you clear the app's data or uninstall it (subject to
+your platform's own backup behaviour). Analytics events wait on your device until they are delivered or
+dropped, and are deleted immediately if you withdraw consent. Transmitted data is sent over HTTPS.
+Analytics held by PostHog is retained under our agreement with them and is not tied to a name or an email
+address, because we never collect one. We honour Google Play's Data Safety declarations for the Game.</p>
 
 <h2>Your choices and rights</h2>
-<p>Because the Game stores its data on your device, you can clear it at any time by clearing the app's
-data or uninstalling the Game. If any optional online feature is enabled in a future version, it will
-use only a minimised or anonymous identifier, and you will be able to opt out and request export or
-deletion. Depending on where you live (for example under GDPR or the CCPA/CPRA), you may have rights
-to access, delete, or object to processing of information about you; contact us to exercise them.</p>
+<ul>
+<li><strong>Analytics and crash reports</strong> — Settings &rarr; SHARE ANONYMOUS PLAY DATA. Turning it
+off stops delivery and deletes what was queued.</li>
+<li><strong>Reminders</strong> — Settings &rarr; REMINDERS, or Android's own notification settings.</li>
+<li><strong>Advertising ID</strong> — reset or delete it in Android's <em>Privacy &rarr; Ads</em> settings.
+Ads in the Game are non-personalised regardless.</li>
+<li><strong>Everything else</strong> — clearing the app's data or uninstalling the Game removes the
+on-device copy, including your recovery code. Save it first if you have made a purchase.</li>
+</ul>
+<p>Because we hold no name, email address, or account, we generally cannot identify you in our analytics
+in order to find your records. Depending on where you live (for example under GDPR or the CCPA/CPRA), you
+may have rights to access, delete, or object to processing of information about you; contact us with your
+<code>distinct_id</code> or recovery code and we will do what we can to honour a request.</p>
 
 <h2>Contact us</h2>
 <p>Questions about this policy or your data? Email us at
@@ -129,9 +299,10 @@ to access, delete, or object to processing of information about you; contact us 
 
 <h2>Changes to this policy</h2>
 <p>If we change how the Game handles data, we will update this page and revise the "Last updated" date
-above. Material changes will be reflected here before they take effect.</p>
+above, in the same release that changes the Game. Material changes will be reflected here before they
+take effect.</p>
 <footer>
-<p>BAR FLIP &middot; Dizzywalk &middot; Effective 2026-08-15.
+<p>BAR FLIP &middot; Dizzywalk &middot; Effective 2026-09-15.
 This policy applies only to BAR FLIP and not to any third-party site or service it may link to.</p>
 </footer>
 </main>
