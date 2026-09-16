@@ -192,9 +192,16 @@ rewarded ad appears only where the Game offers you one in exchange for something
 a loss, a fresh letter rack, extra time on the clock, or doubled credits — and only if you choose to
 watch it. <strong>Rewarded video is the only ad format in the Game</strong>: there are no banners, no
 interstitials between screens, and no ads that open when you launch it.</p>
-<p>AppLovin is the only advertising network in the Game; no other ad network's software is bundled with
-it. AppLovin's own privacy policy is at
-<a href="https://www.applovin.com/privacy/">https://www.applovin.com/privacy/</a>.</p>
+<p><strong>AppLovin MAX chooses between several advertising networks</strong> to fill each rewarded ad,
+and their software is bundled with the Game. Besides AppLovin's own network they are
+<strong>Google AdMob</strong>, <strong>Meta Audience Network</strong>, <strong>Unity Ads</strong> and
+<strong>Vungle (Liftoff)</strong>. Whichever one serves you an ad may read your device's advertising ID
+for that ad, on the same terms described below. Their privacy policies:
+<a href="https://www.applovin.com/privacy/">AppLovin</a>,
+<a href="https://policies.google.com/technologies/ads">Google</a>,
+<a href="https://www.facebook.com/about/privacy/">Meta</a>,
+<a href="https://unity.com/legal/game-player-and-app-user-privacy-policy">Unity</a>,
+<a href="https://liftoff.io/privacy-policy/">Liftoff</a>.</p>
 <h3>The advertising ID, and what we tell the ad network</h3>
 <p>Because the advertising SDK is present, the app declares Android's advertising-ID permission
 (<code>com.google.android.gms.permission.AD_ID</code>), and AppLovin may read your device's advertising
@@ -276,8 +283,9 @@ personal information, contact us and we will delete it.</p>
 code, only when you make a purchase. It talks to Google's Play Developer API to confirm the purchase.</li>
 <li><strong>Google Play</strong> — processes your payment and receives a one-way hash of your recovery
 code as the obfuscated account identifier on a transaction.</li>
-<li><strong>AppLovin</strong> — serves and measures rewarded video ads, and may read your device's
-advertising ID when you choose to watch one.</li>
+<li><strong>AppLovin, and the advertising networks it mediates — Google AdMob, Meta Audience Network,
+Unity Ads and Vungle (Liftoff)</strong> — serve and measure rewarded video ads, and may read your
+device's advertising ID when you choose to watch one.</li>
 </ul>
 <p>We do not sell your personal information, and we do not share it with data brokers. We do not share
 analytics data with advertising networks.</p>
