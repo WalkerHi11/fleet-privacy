@@ -27,6 +27,7 @@ Base: `https://fleet-privacy.onrender.com/`
 | Tidy Town: Pack & Restore | `/tidy-town/privacy.html` |
 | Trivia Munchers | `/trivia-munchers/privacy.html` |
 | Bar Flip: Rhyme Duel | `/bar-flip/privacy.html` |
+| SCRAPWARD | `/scrapward/privacy.html`, `/scrapward/terms.html` (source: scrapward repo `public/`) |
 
 Capeless (`capeless.onrender.com/privacy.html`) and WYRMJOUST (`wyrmjoust.onrender.com/privacy.html`)
 are hosted from their own game repos and linked from `index.html`.

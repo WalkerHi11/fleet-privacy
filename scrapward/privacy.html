@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SCRAPWARD Privacy Policy</title>
+<style>
+body{max-width:780px;margin:48px auto;padding:0 20px;background:#10211e;color:#f7f0dc;font:17px/1.65 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+h1{line-height:1.15;font-size:32px;margin:8px 0 16px}
+h2{margin-top:36px;font-size:22px;border-top:1px solid #2a4640;padding-top:20px}
+h3{margin-top:22px;font-size:18px}
+a{color:#90ead1}
+.notice{border-left:3px solid #e8b65a;padding:12px 18px;background:#19302b}
+small{color:#b4c9bf}
+li{margin:6px 0}
+code{background:#19302b;padding:1px 5px;border-radius:4px;font-size:15px}
+table{border-collapse:collapse;width:100%;font-size:15px;margin:12px 0}
+th,td{border:1px solid #2a4640;padding:8px;text-align:left;vertical-align:top}
+th{background:#19302b}
+.wrap{overflow-x:auto}
+nav ul{columns:2;padding-left:18px}
+@media (max-width:560px){body{font-size:16px;margin:28px auto}h1{font-size:26px}nav ul{columns:1}}
+</style>
+</head>
+<body>
+<main>
+<small>DIZZYWALK · Effective September 26, 2026</small>
+<h1>SCRAPWARD Privacy Policy</h1>
+<p class="notice">This policy covers the Android game <strong>SCRAPWARD</strong> (package <strong>com.dizzywalk.scrapward</strong>), published by DIZZYWALK RECORDS LLC (“Dizzywalk”, “we”, “us”, “our”). It explains what information the game and its partners collect, why, who receives it and the choices you have. Please also read our <a href="https://fleet-privacy.onrender.com/scrapward/terms.html">Terms of Service</a>.</p>
+
+<nav><ul>
+<li><a href="#summary">Summary</a></li>
+<li><a href="#device">Data kept on your device</a></li>
+<li><a href="#analytics">Analytics (PostHog)</a></li>
+<li><a href="#diagnostics">Crash diagnostics</a></li>
+<li><a href="#ads">Advertising (AppLovin MAX)</a></li>
+<li><a href="#partners">Ad partners</a></li>
+<li><a href="#attribution">Attribution (Tenjin)</a></li>
+<li><a href="#purchases">Purchases and subscriptions</a></li>
+<li><a href="#notifications">Notifications</a></li>
+<li><a href="#choices">Your choices</a></li>
+<li><a href="#sharing">Who receives data</a></li>
+<li><a href="#bases">Legal bases (EEA/UK)</a></li>
+<li><a href="#retention">Retention</a></li>
+<li><a href="#requests">Access and deletion requests</a></li>
+<li><a href="#transfers">International transfers</a></li>
+<li><a href="#gdpr">EEA, UK and Swiss rights</a></li>
+<li><a href="#us">U.S. state privacy rights</a></li>
+<li><a href="#children">Children</a></li>
+<li><a href="#security">Security</a></li>
+<li><a href="#changes">Changes</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul></nav>
+
+<h2 id="summary">Summary</h2>
+<ul>
+<li>SCRAPWARD has <strong>no sign-in and no account</strong>. Your progress is saved <strong>only on your device</strong>; this version has no cloud save.</li>
+<li>We never ask for your name, email address, phone number, contacts, photos, camera, microphone or precise location.</li>
+<li>The game shows <strong>ads through AppLovin MAX</strong>. AppLovin and the ad partners that bid through it use your device’s advertising ID and device data to show and measure ads.</li>
+<li>We use <strong>PostHog</strong> for gameplay analytics under a random install identifier, and <strong>Tenjin</strong> to measure which ad campaigns bring players and what those players spend and earn in ads.</li>
+<li>Purchases go through <strong>Google Play Billing</strong>. We never receive your card or bank details.</li>
+<li>In the EEA, UK and Switzerland, Google’s consent form asks before ads are personalized. Everywhere, <strong>Settings → PRIVACY CHOICES</strong> lets you opt out of personalized ads and of the sharing described below.</li>
+</ul>
+
+<h2 id="device">Data kept on your device</h2>
+<p>The game stores on your device: your progress, currencies and items, purchase records (Google Play product IDs and order/transaction IDs, so a purchase is never granted twice), subscription status, ad frequency counters, your privacy and consent choices, notification settings, and your sound, vibration, text-size, colour-vision and language settings. This save file is not uploaded to us.</p>
+<p><strong>Install identifier.</strong> On first launch the game creates a random identifier for this installation. It is not derived from your advertising ID, phone number, email or any hardware identifier. We use it to link analytics events from the same installation, to fetch the game’s configuration, and to place the installation in a fixed test group (about 10% of installations never see between-expedition ads, so we can measure how ads affect play). Clearing the game’s storage or reinstalling creates a new identifier.</p>
+
+<h2 id="analytics">Analytics and remote configuration (PostHog)</h2>
+<p>We use PostHog, Inc. as our analytics service provider. The game sends events over HTTPS to PostHog’s United States cloud (<code>us.i.posthog.com</code>). Analytics runs for every player of the released game; there is no in-app switch to turn it off. Each event carries:</p>
+<ul>
+<li>the random install identifier and a random per-session identifier;</li>
+<li>build details: game version and build number, platform, your in-game language setting and a coarse device memory tier (low, mid or high);</li>
+<li>a flag marking internal test traffic and whether the installation is in the ads test group.</li>
+</ul>
+<p>The events describe how the game is played and how its store and ads perform: first launch, sessions, the tutorial, expedition starts and results (outcome, duration, score, mission), level-ups and perk choices, missions, login and event rewards, in-game currency spending, offers shown, tapped or dismissed, purchase attempts, completions, failures and restores (the product ID and the game’s list price, never your payment details), subscription starts, renewals and cancellations, rewarded-ad offers and completions, ad impressions and the ad revenue AppLovin reports for each one, your consent and privacy choices, notification permission answers and reminder opens, and the result of the configuration check.</p>
+<p>We do not create PostHog person profiles, and we do not send your advertising ID, name, email or payment details to PostHog. Like any internet service, PostHog receives your IP address with each request and may use it to estimate an approximate location (such as country), according to our project settings.</p>
+<p><strong>Remote configuration.</strong> At launch the game asks PostHog’s feature-flag service for the game’s current configuration, sending the install identifier. The answer can adjust game tuning, offers, events, ad settings and ad frequency limits (always within fixed limits built into the game). It is saved on your device.</p>
+
+<h2 id="diagnostics">Crash diagnostics</h2>
+<p>When the game hits an error, it sends at most five short error reports per session to PostHog, each with the error type and the first line of the error message (no more than 200 characters). The game does not currently include a separate crash-reporting service, and Unity’s cloud diagnostics are turned off. If we add a dedicated crash-reporting service, it would collect crash diagnostics such as stack traces, device model, operating-system and app version; we will name it in this policy before the release that includes it. Google Play and Android may also collect crash and performance data under their own settings and policies.</p>
+
+<h2 id="ads">Advertising (AppLovin MAX)</h2>
+<p>SCRAPWARD shows optional <strong>rewarded ads</strong>, which you choose to watch for an in-game reward, and some full-screen <strong>interstitial ads between expeditions</strong>. Interstitials are never shown during an expedition, are not shown in your first session, and are not shown if you own Remove Ads or the Ad-Free Salvage Pack. The Salvage Pass subscription does not remove ads.</p>
+<p>Ads are served by the AppLovin MAX software development kit (SDK 13.2.0) from AppLovin Corporation. AppLovin runs an auction in which AppLovin’s own demand and other ad partners (listed below) can bid to fill each ad. The game declares Android’s advertising ID permission. When the ad SDK runs, AppLovin and the ad partners that serve an ad may collect your device’s <strong>advertising ID</strong> and similar identifiers, <strong>device and network information</strong> (such as device model, operating system, language, carrier, connection type, IP address and the approximate location derived from it), and your <strong>ad interactions</strong> (impressions, clicks, installs). They use it to deliver, personalize and measure ads, to limit how often you see an ad, and to prevent fraud, under their own privacy policies (<a href="https://legal.applovin.com/privacy/">AppLovin privacy policy</a>). The game passes your consent and opt-out choices to AppLovin, which relays them to the bidding partners.</p>
+<p>For players who appear to be in the EEA, UK or Switzerland on a first install, the ad SDK (and with it any consent form) starts only after the first expedition, back on the home screen. Until then no ad or attribution service runs.</p>
+
+<h2 id="partners">Ad partners</h2>
+<p>We may work with the following ad partners through AppLovin MAX. Which of them can bid on a given ad depends on our mediation setup, which changes over time. Each partner’s use of data is covered by its own policy:</p>
+<ul>
+<li>AppLovin (AppLovin Exchange, AppLovin demand) — <a href="https://legal.applovin.com/privacy/">privacy policy</a></li>
+<li>Google AdMob / Google Ad Manager — <a href="https://policies.google.com/technologies/partner-sites">how Google uses data from partner apps</a>, <a href="https://policies.google.com/privacy">Google privacy policy</a></li>
+<li>Meta Audience Network — <a href="https://www.facebook.com/privacy/policy/">privacy policy</a></li>
+<li>Unity Ads — <a href="https://unity.com/legal/game-player-and-app-user-privacy-policy">privacy policy</a></li>
+<li>Liftoff / Vungle — <a href="https://liftoff.io/privacy-policy/">privacy policy</a></li>
+<li>Mintegral — <a href="https://www.mintegral.com/en/privacy">privacy policy</a></li>
+<li>Pangle — <a href="https://www.pangleglobal.com/privacy/enduser-en">privacy policy</a></li>
+<li>Moloco — <a href="https://www.moloco.com/terms-and-policies/privacy-portal">privacy policy</a></li>
+<li>InMobi — <a href="https://advertising.inmobi.com/privacy-policy">privacy policy</a></li>
+<li>DT Exchange (Digital Turbine) — <a href="https://www.digitalturbine.com/legal/privacy-policy">privacy policy</a></li>
+</ul>
+
+<h2 id="attribution">Attribution and revenue measurement (Tenjin)</h2>
+<p>We use <strong>Tenjin, Inc.</strong> for install attribution and for measuring purchase and ad revenue, so we can tell which ad campaigns bring players and whether they pay for themselves. Tenjin starts only after your consent decision (see <a href="#choices">Your choices</a>) and receives nothing while you have opted out. When it runs, Tenjin’s SDK may collect:</p>
+<ul>
+<li>your advertising ID and Android App Set ID, IP address, and device information such as model, operating system, language, carrier, connection type and screen size;</li>
+<li>the Google Play install referrer, and the Meta install referrer where Facebook or Instagram is installed, to see which ad led to the install;</li>
+<li>app opens and sessions;</li>
+<li>for each verified purchase: the product ID, the price charged and currency, the Google Play order ID and the Google Play purchase receipt (purchase data and signature), which Tenjin uses to check the purchase is genuine;</li>
+<li>for each ad shown: the ad revenue AppLovin reports, the ad network, format, ad unit, placement and country.</li>
+</ul>
+<p>Tenjin may forward attributed installs, purchases and ad revenue to the advertising networks we buy ads from (for example AppLovin, Google and Meta) so they can measure and optimize our campaigns. See <a href="https://tenjin.com/privacy/">Tenjin’s privacy policy</a>. The game also records one PostHog analytics row per forwarded purchase, containing a one-way hash of the order ID rather than the order ID itself. We may also enable direct measurement integrations with Google (Firebase Analytics) or Meta (app events) for the same purchase and ad-revenue measurements; if we do, we will update this policy first, and they will follow the same consent and opt-out choices.</p>
+
+<h2 id="purchases">Purchases, subscriptions and randomized items</h2>
+<p>Optional in-app purchases are processed by <strong>Google Play Billing</strong>. Google handles your payment method and billing details under the <a href="https://policies.google.com/privacy">Google privacy policy</a>; we never receive your card or bank details. For each purchase, the game receives from Google Play the product ID, price and currency, order ID, purchase time and purchase token, checks the purchase on your device, grants the item and stores the product and order IDs in the local save. We also receive purchase and revenue reports in the Google Play Console. <strong>Restore Purchases</strong> in Settings asks Google Play for your owned permanent items and active subscription and re-applies them.</p>
+<p>The <strong>Salvage Pass</strong> is an auto-renewing monthly subscription billed by Google Play. The game reads its status (active, renewing, cancelled or expired) from Google Play to grant its benefits; you manage or cancel it in Google Play.</p>
+<p>Some items, such as Elite Crates, Supply Crates and Gem Chests, contain <strong>randomly selected rewards</strong>. Their odds are shown in the game, and Elite Crates have a guaranteed (“hard pity”) result. The count toward that guarantee is kept in your local save.</p>
+
+<h2 id="notifications">Notifications</h2>
+<p>The game can send local reminders (for example when the Salvage Yard is full, a daily supply is ready, or an event is ending). They are scheduled on your device; no push service, notification token or server is involved. On Android 13 and later, the game asks for notification permission only after your first expedition win, and asks at most twice. You can turn reminders off in Settings → NOTIFICATIONS or in Android settings. The game records whether you allowed notifications and which reminder opened the game, as analytics events.</p>
+
+<h2 id="choices">Your choices</h2>
+<ul>
+<li><strong>EEA, UK and Switzerland.</strong> Google’s consent form (Google User Messaging Platform, run through AppLovin MAX’s Terms &amp; Privacy flow) asks whether ads may be personalized and whether ad data may be used for measurement. Your choice is stored on your device in the standard IAB consent format and passed to AppLovin and its partners. Ads are personalized, and Tenjin runs, only if you consent. If the form cannot be shown or you make no choice, the game treats it as “no”.</li>
+<li><strong>Everywhere else.</strong> Ads may be personalized and Tenjin measurement runs by default. No prompt is shown; you can opt out at any time.</li>
+<li><strong>Settings → PRIVACY CHOICES.</strong> This row appears once the ad service has started (before that, no advertising data is shared). In the EEA, UK and Switzerland it reopens Google’s consent form. Elsewhere it lets you <strong>OPT OUT</strong> of personalized ads and sharing: the game tells AppLovin you do not consent to personalized ads and sets its “Do Not Sell” signal, and stops sending data to Tenjin (and, if enabled, to Google or Meta measurement). You can opt back in from the same row.</li>
+<li><strong>Advertising ID.</strong> You can reset or delete your advertising ID in Android Settings → Privacy → Ads (the path varies by device).</li>
+<li><strong>Delete local data.</strong> Android Settings → Apps → SCRAPWARD → Storage → Clear storage, or uninstall the game. This deletes your progress, settings, choices and the install identifier.</li>
+</ul>
+<p>After opting out, you still see ads, but they are not personalized. Non-personalized ads may still use device and network data for delivery, frequency limits, measurement and fraud prevention. Analytics with PostHog continues, because PostHog processes data only on our behalf.</p>
+
+<h2 id="sharing">Who receives data</h2>
+<ul>
+<li><strong>Service providers</strong> that process data only for us: PostHog (analytics and configuration) and Render (hosting of this page and of our game service).</li>
+<li><strong>Advertising partners</strong>: AppLovin and the ad partners listed above, for their own advertising, measurement and fraud-prevention purposes as well as ours.</li>
+<li><strong>Attribution partner</strong>: Tenjin, and through Tenjin the advertising networks we buy campaigns from.</li>
+<li><strong>Google</strong>, which provides Google Play, Google Play Billing and the consent platform.</li>
+<li><strong>Others when required</strong>: where the law requires it, to protect rights, safety or security, or as part of a merger, acquisition or sale of the game, in which case this policy continues to apply.</li>
+</ul>
+<p>We do not sell your data for money. Sharing with advertising and attribution partners may count as “selling” or “sharing” under some U.S. state laws; see <a href="#us">U.S. state privacy rights</a>.</p>
+
+<h2 id="bases">Legal bases (EEA, UK and Switzerland)</h2>
+<ul>
+<li><strong>Consent</strong>: personalized advertising and attribution measurement with Tenjin, and notification permission. You can withdraw consent at any time in Settings → PRIVACY CHOICES.</li>
+<li><strong>Contract</strong>: processing your purchases and subscription and delivering what you bought.</li>
+<li><strong>Legitimate interests</strong>: gameplay analytics, remote configuration, error reports, serving non-personalized ads that fund the free game, frequency limits, security and fraud prevention. You can object by contacting us.</li>
+<li><strong>Legal obligation</strong>: keeping transaction records required by tax and accounting law, and responding to lawful requests.</li>
+</ul>
+
+<h2 id="retention">Retention</h2>
+<p>Local data stays on your device until you clear it or uninstall the game. We keep analytics events in PostHog for as long as we need them to run and improve the game, and delete them when they are no longer needed or when the retention settings of our PostHog project expire them. AppLovin, the ad partners, Tenjin and Google keep data under their own retention policies. Purchase and revenue records in the Google Play Console are kept as long as tax and accounting law requires.</p>
+
+<h2 id="requests">Access and deletion requests</h2>
+<p>To ask for a copy of your data or for its deletion, email <a href="mailto:michael@dizzywalk.com">michael@dizzywalk.com</a>. Because the game has no account, analytics data is tied only to a random install identifier; to find your records we may ask for details such as the approximate date you installed, your device model, or a Google Play order ID. We will delete the matching records we hold and ask Tenjin to delete attribution data linked to your device. To remove data held by ad partners, use Settings → PRIVACY CHOICES and reset your advertising ID, or contact the partner using its policy above. Clearing the game’s storage deletes all local data immediately.</p>
+
+<h2 id="transfers">International transfers</h2>
+<p>We and our partners process data in the United States and other countries whose data-protection laws may differ from yours. PostHog processes our analytics in the United States. Where we transfer personal data out of the EEA, UK or Switzerland, we rely on the partner’s adequacy status (for example certification under the EU–U.S. Data Privacy Framework and its UK and Swiss extensions) or on the European Commission’s Standard Contractual Clauses and the UK Addendum.</p>
+
+<h2 id="gdpr">EEA, UK and Swiss rights</h2>
+<p>You have the right to access, correct, delete or port your personal data, to restrict or object to its use, and to withdraw consent at any time (without affecting earlier processing). You also have the right to complain to your data-protection authority. To use these rights, email us. Dizzywalk is the controller of the data described in this policy that the game sends to us; our partners are independent controllers of the data they collect for their own purposes.</p>
+
+<h2 id="us">U.S. state privacy rights</h2>
+<p>Residents of California and other U.S. states with privacy laws (such as Colorado, Connecticut, Virginia, Utah, Texas and Oregon) have these rights.</p>
+<div class="wrap"><table>
+<tr><th>Category we collect</th><th>Examples</th><th>Sold or shared for targeted advertising?</th></tr>
+<tr><td>Identifiers</td><td>Random install ID, advertising ID, App Set ID, IP address</td><td>Yes, advertising ID, App Set ID and IP address with AppLovin, ad partners and Tenjin</td></tr>
+<tr><td>Commercial information</td><td>Products bought, price, order ID</td><td>Yes, with Tenjin and, through it, ad networks for campaign measurement</td></tr>
+<tr><td>Internet or other electronic network activity</td><td>Gameplay events, ad impressions and clicks</td><td>Yes, ad interactions and revenue with AppLovin, ad partners and Tenjin</td></tr>
+<tr><td>Approximate geolocation</td><td>Country or region derived from IP</td><td>Yes, with AppLovin, ad partners and Tenjin</td></tr>
+<tr><td>Inferences</td><td>Ad-interest profiles built by ad partners</td><td>Made by partners under their policies</td></tr>
+</table></div>
+<p>We collect no sensitive personal information. Sources: you and your device, and Google Play. Purposes: operating the game, analytics, advertising, measurement, security and fraud prevention. Retention: see <a href="#retention">Retention</a>.</p>
+<ul>
+<li><strong>Opt out of sale, sharing and targeted advertising</strong>: Settings → PRIVACY CHOICES → OPT OUT, or email us.</li>
+<li><strong>Know, access, correct and delete</strong>: email us. We will verify your request using the details described in <a href="#requests">Access and deletion requests</a>, and respond within the time the law allows.</li>
+<li><strong>Authorized agents</strong> may submit a request with your signed permission.</li>
+<li><strong>Appeals</strong>: if we decline a request, reply to our answer to appeal; if you remain unhappy you may contact your state attorney general.</li>
+<li>We will not discriminate against you for using these rights.</li>
+</ul>
+
+<h2 id="children">Children</h2>
+<p>SCRAPWARD is not directed at children under 13 and is not part of Google Play’s Families program. We do not knowingly collect personal information from children under 13. If you believe a child under 13 has used the game, contact us and we will delete the related data we hold.</p>
+
+<h2 id="security">Security</h2>
+<p>The game sends data only over encrypted connections (HTTPS). The local save carries an integrity check. No method of transmission or storage is perfectly secure, but we limit what we collect to what the game needs.</p>
+
+<h2 id="earlier">Earlier development test accounts</h2>
+<p>Earlier development test builds could connect to an optional test account on Dizzywalk’s SCRAPWARD game service (hosted on Render, with encrypted recovery snapshots in Google Cloud Storage). The current game does not connect to that service and does not create accounts. Records from earlier testing stay until we remove them or you ask us to delete them; recovery snapshots are scheduled for deletion after seven days, with a further seven-day recovery period. When you open this page, the web host processes standard request data, such as your IP address, to deliver it.</p>
+
+<h2 id="changes">Changes</h2>
+<p>We will update this policy before the game adds new kinds of data collection, new recipients, accounts or cloud saves, and we will change the effective date above. Where the law requires, we will ask for your consent again.</p>
+
+<h2 id="contact">Contact</h2>
+<p>DIZZYWALK RECORDS LLC, 930 S 4th St Ste 209, Las Vegas, NV 89101-6845, USA. Email <a href="mailto:michael@dizzywalk.com">michael@dizzywalk.com</a>. If you email us, we use your message and reply address only to answer you.</p>
+<p><small>Terms of Service: <a href="https://fleet-privacy.onrender.com/scrapward/terms.html">https://fleet-privacy.onrender.com/scrapward/terms.html</a></small></p>
+</main>
+</body>
+</html>
