@@ -1,5 +1,10 @@
 <!-- Self-contained privacy page for BAR FLIP. Dizzywalk fleet pattern, mirroring the-last-mirror/privacy.html.
 
+     CONSENT-LTV VERSION (2026-09-25). This text describes the consent-ltv build: no game-owned privacy card,
+     Google's UMP form only in the EEA/UK/CH (after the first show), opt-out controls in Settings elsewhere,
+     and AppLovin's consent flow OFF. It becomes true when that build reaches production; publish it with that
+     release (rails/publish_privacy_on_go.sh, owner's go) and re-date it on the day it goes live.
+
      READ THIS BEFORE EDITING, AND READ THIS PARAGRAPH FIRST, because the obvious reading of it is wrong.
      The version of this page dated 2026-08-15 is STILL TRUE OF THE BUILD PLAYERS HAVE. Measured 2026-09-15
      by pulling versionCode 200 — the only build on the production track — back out of Google Play and
@@ -64,16 +69,17 @@ footer{margin-top:48px;padding-top:16px;border-top:1px solid #ddd;color:#888;fon
 <header>
 <h1>BAR FLIP — Privacy Policy</h1>
 <p class="sub">Published by Dizzywalk</p>
-<p class="meta">Effective date: 2026-09-18 &middot; Last updated: 2026-09-18</p>
+<p class="meta">Effective date: 2026-09-25 &middot; Last updated: 2026-09-25</p>
 </header>
 <p>This policy explains how Dizzywalk handles information for BAR FLIP, Android package
 <code>com.dizzywalk.barflip</code>. Capabilities depend on your installed version. The older
-keyboard-based Android release, version code 200, does not contain the Unity billing, rewarded-ad
-or attribution integrations described below. Those sections apply to the newer Unity game when
-the relevant feature is enabled.</p>
+keyboard-based Android release, version code 200, does not contain the Unity billing, advertising
+or attribution integrations described below. Those sections apply to the newer Unity game.</p>
 <div class="callout"><strong>At a glance</strong><ul>
 <li>Your words are judged on your device. Ordinary gameplay progress and settings are stored locally.</li>
-<li>Gameplay analytics is a choice. Advertising and attribution have a separate, combined choice where supported.</li>
+<li>BAR FLIP is free and supported by ads. Our advertising partners and our measurement partner, Tenjin, use your device's advertising ID and related data to show, personalise and measure ads.</li>
+<li>In the EEA, the UK and Switzerland, Google's consent form asks for your choice after your first show, and until you answer the game does not request personalised ads or connect Tenjin. You can change your answer in Settings &rarr; Privacy choices.</li>
+<li>Everywhere else there is no privacy prompt. You can turn off sale and sharing of your information for advertising, and turn off gameplay analytics, in Settings.</li>
 <li>Google Play and Unity In-App Purchasing handle purchases. Our commerce service keeps purchase records,
 remaining purchased balances and purchased equipment ownership for verification and recovery.</li>
 <li>A private recovery code identifies your purchase account. There is no email/password login in the game.</li>
@@ -81,29 +87,68 @@ remaining purchased balances and purchased equipment ownership for verification 
 held by us or by payment, analytics and advertising providers.</li>
 </ul></div>
 
+<h2>What we collect and who receives it</h2>
+<ul>
+<li><strong>Device identifiers:</strong> your device's resettable advertising ID, read by the advertising SDKs and by Tenjin; the app set ID and similar SDK installation identifiers, read by the advertising SDKs; a random identifier the game creates for this installation and attaches to gameplay analytics (it persists until you reinstall or clear the app's data); and a random installation identifier that Sentry creates for crash counts.</li>
+<li><strong>Gameplay and ad activity:</strong> screens, shows, progression, scores, durations, and purchase and ad outcomes (analytics); ad requests, impressions, clicks and rewards (advertising SDKs); and a small set of named milestones, purchases and ad revenue (Tenjin).</li>
+<li><strong>Purchase information:</strong> product, price, currency, order and purchase-token details, used by Google Play, Unity, our commerce service and, for measurement, Tenjin.</li>
+<li><strong>Device and diagnostic information:</strong> device model, operating-system and app version, language, time zone, connection type, performance and crash information.</li>
+<li><strong>Network address and approximate location:</strong> every service the game connects to receives your IP address. Advertising partners, Tenjin, Unity and PostHog may use it to estimate your country or region. The game does not request GPS or precise location.</li>
+</ul>
+<p>Recipients: AppLovin (MAX mediation) and the ad networks it mediates in this release, which are Google (AdMob), Meta Audience Network and Vungle (Liftoff); Tenjin (install attribution and ad measurement); PostHog (gameplay analytics and game-tuning settings, processed on our behalf); Sentry (crash reporting, processed on our behalf); Google Play and Unity (purchases); and Google's User Messaging Platform (the consent tool).</p>
+<p>We do not collect your name, email address, phone number, contacts, photos, files, messages or precise location through the game, and we never collect the words you play.</p>
+
 <h2>Your choices</h2>
-<p>The Unity game asks whether you want to share gameplay analytics. Its advertising/attribution choice,
-when available, is separate from that analytics choice. You can change these choices in Settings.
-Declining gameplay analytics stops our PostHog event delivery and clears queued events. It does not
-disable billing or guarantee that every SDK makes no network connection.</p>
-<p>The game applies available consent choices to Unity's purchasing SDK. Its advertising consent is
-granted only after the advertising question is answered and both stored personalization and attribution
-choices permit it. Ad-network signals are also limited by the game's configured privacy settings.
-Provider consent or privacy forms may be shown where required; the provider handles those choices.
-The MAX advertising SDK starts after the initial disclosure is answered, which is different from
-agreeing to analytics or choosing to watch an ad.</p>
+<h3>EEA, UK and Switzerland</h3>
+<p>If you are in a region where Google's consent tool determines that consent is required (currently the European Economic Area, the United Kingdom and Switzerland), the game shows Google's consent form the first time you leave your first show. On later launches after your first show, it shows the form right after start-up, until you answer.</p>
+<p>Until you answer, the game does not start the advertising SDK or connect Tenjin, and it keeps gameplay events in memory on your device only.</p>
+<p>After you answer, your choices are recorded in the industry-standard IAB Transparency and Consent Framework format. The advertising SDKs and Tenjin read them directly:</p>
+<ul>
+<li>Personalised ads are allowed only if you consent to storing or accessing information on your device, to creating and using an advertising profile, and to AppLovin as a vendor. Otherwise you still get ads and rewards, but they are not personalised.</li>
+<li>Install attribution and ad measurement (Tenjin) run only if you consent to storing or accessing information on your device.</li>
+<li>Gameplay analytics runs only if you consent to storing or accessing information on your device and to measuring content performance, and the analytics switch in Settings is on. Otherwise the events held in memory are discarded.</li>
+</ul>
+<p>You can change or withdraw your consent at any time in <strong>Settings &rarr; Privacy choices</strong>, which reopens Google's form. Withdrawing consent affects future processing, not processing that already took place with your consent.</p>
+<p>When Google's consent tool asks for your choice again (for example after your earlier answer expires), the game shows the form again at the next opportunity, and your earlier choices stay in effect until you answer.</p>
+
+<h3>Everywhere else</h3>
+<p>Outside those regions the game does not show a privacy prompt. Gameplay analytics, personalised advertising and install attribution are on by default, and you can change them in Settings:</p>
+<ul>
+<li><strong>DO NOT SELL OR SHARE MY PERSONAL INFORMATION</strong> (off by default). If you turn it on, the game tells AppLovin not to sell or share your information, which it passes on to the ad networks it mediates, and it switches Tenjin to opted-out mode and withholds Google's ad-data and ad-personalisation permissions. Ads and rewards keep working.</li>
+<li><strong>SHARE PLAY DATA</strong> (on by default). Turning gameplay analytics off stops our PostHog event delivery and clears queued events.</li>
+</ul>
+<p>Turning gameplay analytics off does not disable billing or guarantee that every SDK makes no network connection.</p>
+<p>While the game is waiting for Google's consent tool to tell it which rules apply to you, it does not start the advertising SDK or connect Tenjin, and it keeps gameplay events in memory only. It checks again on the next launch and when you return to the game.</p>
+<p>If Google's consent tool reports an error or does not answer within a few seconds, the game uses your device's SIM, network or language country instead. If that country is clearly outside the EEA, the UK and Switzerland, the defaults described above apply. Otherwise the game does not start the advertising SDK or connect Tenjin, keeps gameplay events in memory only, and asks Google's consent tool again until it answers.</p>
+
+<h3>Everywhere</h3>
+<p>If you delete your advertising ID in Android's settings (Settings &rarr; Privacy &rarr; Ads, on most devices), Android gives apps an ID made only of zeros. When the game sees an all-zero ID, or Android reports that ad tracking is limited, it switches Tenjin to opted-out mode. The game itself does not replace a deleted advertising ID with another identifier for advertising.</p>
+<p>The game passes its privacy signals to the advertising SDK before initialising it and updates them when your choices change. It applies the same decision to Unity's purchasing SDK: Unity receives an analytics grant only while gameplay analytics is on, and an advertising grant only while personalised ads and attribution are both allowed.</p>
 
 <h2>Gameplay analytics and crash reports</h2>
-<p>When you opt in, our first-party transport sends events to PostHog at
-<code>us.i.posthog.com</code>. Events describe screen visits, shows,
-progression, tactics, scores, durations, and purchase or rewarded-ad outcomes. They include build,
-platform, session information and a random app-specific identifier. They do not include the words
-you play, your recovery code or payment-card details. We do not use PostHog autocapture, session
-recording or tracking cookies in the game.</p>
-<p>Our crash reports use the same opt-in transport. They contain bounded error and stack information
+<p>While gameplay analytics is on, our first-party transport sends events to PostHog at
+<code>us.i.posthog.com</code>.</p>
+<p>Events describe screen visits, shows,
+progression, tactics, scores, durations, and purchase or ad outcomes. They include build,
+platform and session information, and the random identifier the game creates for this installation.</p>
+<p>They do not include the words you play, your recovery code or payment-card details.</p>
+<p>Until the game knows which privacy rules apply to you, and in the EEA, UK and Switzerland until you answer Google's form, it keeps gameplay events in memory on your device. They are sent only if gameplay analytics is then on, and are discarded otherwise.</p>
+<p>We do not use PostHog autocapture, session recording or tracking cookies in the game.</p>
+<p>While gameplay analytics is on, the game also asks PostHog at launch for game-tuning settings (for example event timing and offer rules). That request carries the same installation identifier.</p>
+<p>Our in-game crash events use the same transport and follow the same analytics setting. They contain bounded error and stack information
 with file paths removed, plus app/session context. Events wait in a bounded queue in private app storage;
-withdrawing consent clears it. PostHog also receives the network address used to connect. These
+turning gameplay analytics off, or withdrawing consent where consent is required, clears it.</p>
+<p>PostHog also receives the network address used to connect, and may use it to estimate an approximate location. These
 statements describe our own transport, not every operation of the SDKs listed below. See <a href="https://posthog.com/privacy">PostHog’s privacy policy</a>.</p>
+<p>Separately, to find and fix crashes, the Unity game sends crash and error diagnostics to Sentry
+(Functional Software, Inc.) at <code>sentry.io</code>, whether or not gameplay analytics is on.</p>
+<p>A diagnostic contains the error or crash stack, recent in-app log messages and technical device details
+(hardware, language, time zone, connection type), device model, operating-system version, app version and
+build, and whether each play session ended normally or crashed, counted against a random installation
+identifier that Sentry generates for this purpose only. It does not contain the words you play,
+your recovery code, an advertising ID or payment details, no screenshots are attached, and our Sentry
+project is set not to store IP addresses. See <a href="https://sentry.io/privacy/">Sentry’s privacy policy</a>.</p>
+<p>The AppLovin SDK also includes its own crash reporter, which sends information about crashes to AppLovin.</p>
 
 <h2>Your words and sharing</h2>
 <p>In the Unity game you swipe or tap a letter wheel. A bundled pronunciation dictionary and deterministic
@@ -133,23 +178,25 @@ each launch. Ordinary earned progress remains local. Refunds and cancellations c
 paid balances or purchased benefits according to the product rules.</p>
 
 <h2>Unity In-App Purchasing</h2>
-<p>Native updates starting with version code316 use Unity IAP 5.4 or later. Unity can process installation/device/session identifiers,
+<p>Native updates starting with version code 316 use Unity IAP 5.4 or later. Unity can process installation/device/session identifiers,
 purchase information, diagnostics and network-derived approximate location, depending on the native
-service path and applicable consent. Optional SDK consent intents follow the choices described above.
-BAR FLIP does not ask for an email login or operate a Unity webshop. See Unity's
+service path and applicable consent. Unity's consent intents follow the privacy decision described under "Your choices".</p>
+<p>BAR FLIP does not ask for an email login or operate a Unity webshop. See Unity's
 <a href="https://unity.com/legal/game-player-and-app-user-privacy-policy">Game Player and App User Privacy Policy</a>
 and <a href="https://unity.com/legal/privacy-policy">Privacy Policy</a> for its handling and rights channels.</p>
 
-<h2>Rewarded advertising</h2>
+<h2>Advertising</h2>
 <p>The Unity game uses AppLovin MAX for optional rewarded video offered for a stated game benefit.
-It does not use banners or forced interstitials during play. Installed mediation adapters may include
+It does not use banners. A full-screen ad may appear between shows, never during one. Installed mediation adapters may include
 Google AdMob, Meta Audience Network and Vungle (Liftoff); the serving network depends on availability
 and provider configuration.</p>
 <p>Advertising SDKs can process advertising/device identifiers, network address, device/app information,
-ad interactions and diagnostics for delivery, measurement and fraud prevention. Ad-enabled Android
-builds declare the advertising-ID permission. Non-personalized ads may still use operational or device
-data. The game passes its privacy signals before initialization and updates them when your app choices
-change. The gameplay analytics choice is not consent to every advertising use.</p>
+ad interactions and diagnostics for delivery, measurement and fraud prevention.</p>
+<p>Unless you are in a consent region and declined, or you turned on Do Not Sell or Share, these partners may also use that information to personalise the ads you see, including based on your activity in other apps.</p>
+<p>Ad-enabled Android builds declare the advertising-ID permission. The ad SDKs in this build can also use Android's Privacy Sandbox advertising features (such as Topics and Attribution Reporting) where your device offers them. You control those in Android's settings.</p>
+<p>Non-personalized ads may still use operational or device
+data. The gameplay analytics choice is not consent to every advertising use.</p>
+<p>Google's consent tool contacts Google on each launch, in every region, to find out whether a consent form is required where you are.</p>
 <p>You can reset or delete your advertising ID in Android's privacy settings. Provider policies:
 <a href="https://legal.applovin.com/privacy/">AppLovin</a>,
 <a href="https://policies.google.com/technologies/ads">Google</a>,
@@ -157,12 +204,11 @@ change. The gameplay analytics choice is not consent to every advertising use.</
 <a href="https://liftoff.io/privacy-policy/">Liftoff</a>.</p>
 
 <h2>Attribution and advertising measurement</h2>
-<p>When enabled in a release, Tenjin measures installation/session and advertising performance. The game
-applies your attribution choice before connecting. Opting out blocks our named gameplay, purchase and
-ad-revenue reports to Tenjin; its SDK may still connect in opted-out mode. Permitted reports can include
-app/session or advertising identifiers, event names and purchase/ad-revenue details. The game checks
-consent before sending its reports. See <a href="https://www.tenjin.com/privacy/">Tenjin's privacy policy</a>.
-An installed but unconfigured integration does not establish that a release sends attribution reports.</p>
+<p>Tenjin measures installation, session and advertising performance for us. For example, it tells us which ad campaign led to an install and how much revenue installs from that campaign produce.</p>
+<p>The game sets Tenjin to opted-in or opted-out mode before connecting it. It uses opted-in mode by default outside consent regions, and in consent regions only with your consent (see "Your choices"). It uses opted-out mode if you turn on Do Not Sell or Share, or if your advertising ID has been deleted or ad tracking is limited.</p>
+<p>Tenjin can receive your advertising ID, app and device information, your network address, a small set of named milestones (such as finishing the tutorial or a show), purchase details and ad-revenue details. Tenjin may share attribution results with the ad networks we buy ads from, so they can measure their campaigns.</p>
+<p>Opting out blocks our named gameplay, purchase and ad-revenue reports to Tenjin; its SDK may still connect in opted-out mode.</p>
+<p>Where consent is required, the game also passes Google's ad-data and ad-personalisation permissions to Tenjin based on your answers. See <a href="https://www.tenjin.com/privacy/">Tenjin's privacy policy</a>.</p>
 
 <h2>Reminders and permissions</h2>
 <p>Optional reminders are scheduled on your device after you enable them and grant Android's
@@ -170,17 +216,47 @@ notification permission. These local reminders do not require a push token. You 
 in the game or Android settings. Network access supports the configured services described here.
 The game does not request precise GPS location, contacts, photos or microphone access to judge a rhyme.</p>
 
+<h2>Why we use information (legal bases in the EEA, UK and Switzerland)</h2>
+<ul>
+<li><strong>Consent</strong> (given in Google's form): personalised advertising, install attribution and ad measurement, and gameplay analytics.</li>
+<li><strong>Performance of our contract with you</strong>: processing purchases, verifying them, restoring them and recovering accounts.</li>
+<li><strong>Legitimate interests</strong>: crash reporting to keep the game working, serving non-personalised ads to fund a free game, and fraud prevention and transaction security.</li>
+<li><strong>Legal obligations</strong>: keeping transaction records we are required to keep.</li>
+</ul>
+<p>Our service providers and partners are mostly based in the United States, so your information may be processed there. Where the law requires it, transfers rely on safeguards such as the European Commission's standard contractual clauses or the EU-U.S. Data Privacy Framework, as each provider states in its own policy.</p>
+<p>You have the right to access, correct, delete, restrict or object to processing of your personal data, and to data portability. You can withdraw consent at any time in Settings &rarr; Privacy choices. You may also complain to your local data protection authority.</p>
+
+<h2 id="us-privacy-rights">United States privacy rights, including California</h2>
+<p>Over the past 12 months, in the Unity game, we have disclosed the following categories of personal information to advertising partners (AppLovin and its mediated networks) and to Tenjin, in ways that may count as "selling" or "sharing" personal information for cross-context behavioral advertising, or as "targeted advertising", under US state laws: identifiers (advertising ID, installation identifiers, IP address); internet or other electronic network activity (gameplay events and ad interactions); commercial information (purchase events and ad revenue); and approximate geolocation derived from IP address. Our partners may draw inferences from this information to choose ads.</p>
+<p>We also use service providers, which may not use your information for their own purposes: PostHog (analytics), Sentry (crash reporting), our hosting provider (commerce service), and Google Play and Unity (purchases). We collect this information from your device and from the services named in this policy. We do not collect sensitive personal information as defined by California law, and we do not use personal information to infer characteristics about you.</p>
+<p><strong>Your rights.</strong> Depending on your state, you have the right to:</p>
+<ul>
+<li>opt out of the sale or sharing of your personal information and of targeted advertising, using <strong>Settings &rarr; DO NOT SELL OR SHARE MY PERSONAL INFORMATION</strong> in the game;</li>
+<li>know what personal information we collect, use, disclose, sell or share, and get a copy of it;</li>
+<li>delete personal information we collected from you;</li>
+<li>correct inaccurate personal information;</li>
+<li>appeal a decision we make on your request; and</li>
+<li>not be discriminated against for exercising these rights. We do not deny you the game, charge you different prices, or give you a different quality of service because you exercised a privacy right.</li>
+</ul>
+<p>The switch in Settings applies to this installation of the game. To exercise any other right, email <a href="mailto:kristine@dizzywalk.com?subject=BAR%20FLIP%20privacy%20request">kristine@dizzywalk.com</a> with the subject <strong>BAR FLIP privacy request</strong>. Our analytics data is pseudonymous, so we may ask you for details from the app to find the records that relate to you and to verify the request. An authorized agent may make a request for you with your signed permission. We respond within 45 days, or within the extended period the law allows, in which case we tell you why. If we decline a request, you can appeal by replying with the subject <strong>Appeal</strong>, and we will answer within the period your state's law sets.</p>
+<p>We do not ask for your age and do not knowingly sell or share the personal information of consumers under 16.</p>
+
+<h2>Other regions</h2>
+<p>If you are elsewhere, such as Brazil or Canada, you can use the Settings controls above and contact us to access, correct or delete your information, or to ask about how it is used.</p>
+
 <h2>Retention, security and deletion</h2>
 <p>Local progress, settings and recovery codes stay in private app storage until removed, subject to
 platform backup. Our commerce service retains purchase and spending history to restore paid value,
 prevent duplicate grants, reconcile refunds and protect transactions. Clearing local data does not
-request deletion of those server records. Providers apply their own retention policies. Transmitted
+request deletion of those server records.</p>
+<p>Gameplay analytics events are kept while they are needed to understand and improve the game, and are deleted according to our PostHog project's data-retention setting. Crash reports are kept according to our Sentry project's retention setting.</p>
+<p>Advertising partners and Tenjin apply their own retention policies. Transmitted
 data uses HTTPS; keep your recovery code private.</p>
 <p>Contact us about access, correction or deletion requests. Do not email payment-card details or your
 recovery code; we can explain the appropriate authenticated process. Some transaction/security records
 may need to be retained for applicable obligations or to prevent duplicate fulfillment. For records
 controlled independently by Google Play, Unity or advertising providers, their policies explain their
-own rights channels. Opting out affects future optional collection and does not undo a request already delivered.</p>
+own rights channels. Turning off a setting or withdrawing consent affects future collection and does not undo a report already delivered.</p>
 
 <h2>Audience and development</h2>
 <p>BAR FLIP is intended for teens and older and is not directed to children under 13. Contact us if you
@@ -191,7 +267,8 @@ AI-assisted development tools. No generative model runs in the game or judges pl
 <p>In the game, open <strong>Settings &rarr; Privacy &amp; delete account</strong> to reach these instructions.
 To request deletion, email <a href="mailto:kristine@dizzywalk.com?subject=BAR%20FLIP%20account%20deletion%20request">kristine@dizzywalk.com</a>
 with the subject <strong>BAR FLIP account deletion request</strong>. Tell us whether you want your
-purchase account, optional analytics data, or both deleted. If available, a Google Play order number
+purchase account, your analytics data, or both deleted.</p>
+<p>If available, a Google Play order number
 can help identify a purchase. <strong>Do not email your recovery code, password or payment-card details.</strong>
 We will explain the appropriate ownership-verification process before acting. Opening this page does
 not delete anything.</p>
@@ -200,13 +277,14 @@ server wallet, including remaining paid balances and purchased-equipment recover
 progress stays on the device unless you remove local app data. Deletion does not automatically refund
 purchases or erase Google Play's records. Pseudonymous account and transaction hashes, product identity
 and verification state are retained without a scheduled expiry to prevent replay of prior payments.
-Payment, analytics and advertising providers may retain separate records under their own policies.</p>
+Payment, analytics and advertising providers may retain separate records under their own policies.
+To ask advertising partners or Tenjin to delete data linked to your advertising ID, reset or delete the ID in Android's settings and contact them through the policies linked above.</p>
 
 <h2>Contact and changes</h2>
 <p>Contact Dizzywalk at <a href="mailto:kristine@dizzywalk.com">kristine@dizzywalk.com</a> about this
 policy or your data. If you email us, we receive the contact details and information you include.
 We update this page when data handling changes and revise the date above.</p>
-<footer><p>BAR FLIP &middot; Dizzywalk &middot; Effective 2026-09-18.
+<footer><p>BAR FLIP &middot; Dizzywalk &middot; Effective 2026-09-25.
 This policy applies to BAR FLIP, not to third-party sites or services it links to.</p></footer>
 </main>
 </body>
