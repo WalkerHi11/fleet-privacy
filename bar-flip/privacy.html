@@ -69,7 +69,7 @@ footer{margin-top:48px;padding-top:16px;border-top:1px solid #ddd;color:#888;fon
 <header>
 <h1>BAR FLIP — Privacy Policy</h1>
 <p class="sub">Published by Dizzywalk</p>
-<p class="meta">Effective date: 2026-09-25 &middot; Last updated: 2026-09-25</p>
+<p class="meta">Effective date: 2026-09-25 &middot; Last updated: 2026-09-29</p>
 </header>
 <p>This policy explains how Dizzywalk handles information for BAR FLIP, Android package
 <code>com.dizzywalk.barflip</code>. Capabilities depend on your installed version. The older
@@ -95,7 +95,7 @@ held by us or by payment, analytics and advertising providers.</li>
 <li><strong>Device and diagnostic information:</strong> device model, operating-system and app version, language, time zone, connection type, performance and crash information.</li>
 <li><strong>Network address and approximate location:</strong> every service the game connects to receives your IP address. Advertising partners, Tenjin, Unity and PostHog may use it to estimate your country or region. The game does not request GPS or precise location.</li>
 </ul>
-<p>Recipients: AppLovin (MAX mediation) and the ad networks it mediates in this release, which are Google (AdMob), Meta Audience Network, BIGO Ads and Vungle (Liftoff); Tenjin (install attribution and ad measurement); PostHog (gameplay analytics and game-tuning settings, processed on our behalf); Sentry (crash reporting, processed on our behalf); Google Play and Unity (purchases); and Google's User Messaging Platform (the consent tool).</p>
+<p>Recipients: AppLovin (MAX mediation) and the ad networks it mediates in this release, which are Google (AdMob), Meta Audience Network, BIGO Ads, Vungle (Liftoff), Pangle, Unity Ads and ironSource; Tenjin (install attribution and ad measurement); PostHog (gameplay analytics and game-tuning settings, processed on our behalf); Google Analytics for Firebase (app analytics and purchase/ad revenue measurement); Sentry (crash reporting, processed on our behalf); Google Play and Unity (purchases); and Google's User Messaging Platform (the consent tool).</p>
 <p>We do not collect your name, email address, phone number, contacts, photos, files, messages or precise location through the game, and we never collect the words you play.</p>
 
 <h2>Your choices</h2>
@@ -128,6 +128,9 @@ held by us or by payment, analytics and advertising providers.</li>
 <h2>Gameplay analytics and crash reports</h2>
 <p>While gameplay analytics is on, our first-party transport sends events to PostHog at
 <code>us.i.posthog.com</code>.</p>
+<p>The Android game also uses Google Analytics for Firebase to measure game-screen visits, progression, ad impressions and revenue, and purchases reported automatically by its SDK.</p>
+<p>Firebase Analytics starts only when gameplay analytics is allowed by the same privacy decision described above. Its SDK can collect app-instance and device identifiers, app and device information, app interactions, purchase history and approximate location derived from the network address. We pass Google's analytics-storage, advertising-storage, advertising-user-data and ad-personalisation consent choices from that decision. Advertising uses require the corresponding advertising permissions; the gameplay analytics choice alone does not grant them.</p>
+<p>Turning gameplay analytics off also disables Firebase Analytics collection and stops our custom Firebase event delivery. This does not delete events already delivered to a provider. See <a href="https://firebase.google.com/support/privacy">Firebase's privacy information</a> and <a href="https://policies.google.com/privacy">Google's privacy policy</a>.</p>
 <p>Events describe screen visits, shows,
 progression, tactics, scores, durations, and purchase or ad outcomes. They include build,
 platform and session information, and the random identifier the game creates for this installation.</p>
@@ -187,9 +190,10 @@ and <a href="https://unity.com/legal/privacy-policy">Privacy Policy</a> for its 
 
 <h2>Advertising</h2>
 <p>The Unity game uses AppLovin MAX for optional rewarded video offered for a stated game benefit.
-It does not use banners. A full-screen ad may appear between shows, never during one. Installed mediation adapters may include
-Google AdMob, Meta Audience Network, BIGO Ads and Vungle (Liftoff); the serving network depends on availability
+It may show a banner ad at the top of the screen. A full-screen ad may appear while the game opens, when you come back to it after a break, and between shows, never during one. Installed mediation adapters may include
+Google AdMob, Meta Audience Network, BIGO Ads, Vungle (Liftoff), Pangle, Unity Ads and ironSource; the serving network depends on availability
 and provider configuration.</p>
+<p>Unity Ads can check whether specific app stores are available on the device and discover its referral provider. These Android visibility declarations name those stores; they do not grant visibility of every installed application.</p>
 <p>Advertising SDKs can process advertising/device identifiers, network address, device/app information,
 ad interactions and diagnostics for delivery, measurement and fraud prevention.</p>
 <p>Unless you are in a consent region and declined, or you turned on Do Not Sell or Share, these partners may also use that information to personalise the ads you see, including based on your activity in other apps.</p>
@@ -212,8 +216,9 @@ data. The gameplay analytics choice is not consent to every advertising use.</p>
 <p>Where consent is required, the game also passes Google's ad-data and ad-personalisation permissions to Tenjin based on your answers. See <a href="https://www.tenjin.com/privacy/">Tenjin's privacy policy</a>.</p>
 
 <h2>Reminders and permissions</h2>
-<p>Optional reminders are scheduled on your device after you enable them and grant Android's
-notification permission. These local reminders do not require a push token. You can disable them
+<p>Reminders are scheduled on your device. The game turns them on after your first show win and, on
+Android 13 and later, asks for Android's notification permission at that moment; nothing is shown
+unless Android allows it. These local reminders do not require a push token. You can disable them
 in the game or Android settings. Network access supports the configured services described here.
 The game does not request precise GPS location, contacts, photos or microphone access to judge a rhyme.</p>
 
@@ -229,7 +234,7 @@ The game does not request precise GPS location, contacts, photos or microphone a
 
 <h2 id="us-privacy-rights">United States privacy rights, including California</h2>
 <p>Over the past 12 months, in the Unity game, we have disclosed the following categories of personal information to advertising partners (AppLovin and its mediated networks) and to Tenjin, in ways that may count as "selling" or "sharing" personal information for cross-context behavioral advertising, or as "targeted advertising", under US state laws: identifiers (advertising ID, installation identifiers, IP address); internet or other electronic network activity (gameplay events and ad interactions); commercial information (purchase events and ad revenue); and approximate geolocation derived from IP address. Our partners may draw inferences from this information to choose ads.</p>
-<p>We also use service providers, which may not use your information for their own purposes: PostHog (analytics), Sentry (crash reporting), our hosting provider (commerce service), and Google Play and Unity (purchases). We collect this information from your device and from the services named in this policy. We do not collect sensitive personal information as defined by California law, and we do not use personal information to infer characteristics about you.</p>
+<p>We also use service providers, which may not use your information for their own purposes: PostHog (analytics), Sentry (crash reporting), our hosting provider (commerce service), and Google Play and Unity (purchases). Google Analytics for Firebase also receives the analytics and consent-controlled advertising data described above. We collect this information from your device and from the services named in this policy. We do not collect sensitive personal information as defined by California law, and we do not use personal information to infer characteristics about you.</p>
 <p><strong>Your rights.</strong> Depending on your state, you have the right to:</p>
 <ul>
 <li>opt out of the sale or sharing of your personal information and of targeted advertising, using <strong>Settings &rarr; DO NOT SELL OR SHARE MY PERSONAL INFORMATION</strong> in the game;</li>
