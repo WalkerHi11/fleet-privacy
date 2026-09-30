@@ -218,7 +218,10 @@ data. The gameplay analytics choice is not consent to every advertising use.</p>
 <h2>Reminders and permissions</h2>
 <p>Reminders are scheduled on your device. The game turns them on after your first show win and, on
 Android 13 and later, asks for Android's notification permission at that moment; nothing is shown
-unless Android allows it. These local reminders do not require a push token. You can disable them
+unless Android allows it. Local reminders do not require a push token. If you enable notifications and
+allow analytics, Firebase Cloud Messaging also registers this installation with its provider token to
+deliver cloud reminders. Tokens remain with the Firebase SDK and are not sent in gameplay analytics.
+We count notification opens and registration outcomes without recording message contents. You can disable them
 in the game or Android settings. Network access supports the configured services described here.
 The game does not request precise GPS location, contacts, photos or microphone access to judge a rhyme.</p>
 
