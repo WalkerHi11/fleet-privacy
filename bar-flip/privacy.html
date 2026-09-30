@@ -162,15 +162,19 @@ can replay the run. It is not encrypted. You choose where to send it; recipients
 Our analytics may report that sharing happened, but do not contain the code or its words.</p>
 
 <h2>Purchases and recovery accounts</h2>
-<p>The Unity game offers fixed-content one-time and consumable purchases: a starter bundle,
-a permanent Tour Pass, a consumables pack and gem packs. There are no subscriptions or automatic
-renewals. Google Play supplies the price and processes payment. We do not receive payment-card details.</p>
+<p>The Unity game offers fixed-content one-time and consumable purchases, including bundles, passes,
+gem packs and permanent removal of forced ads. Headliner Club is an optional monthly subscription
+that renews automatically until canceled through Google Play. Its price, billing period and benefits
+are shown before purchase. Google Play supplies the price and processes payment. We do not receive
+payment-card details.</p>
 <p>Our commerce service receives purchase tokens, product identifiers and your recovery-code credential
 over HTTPS to verify and restore purchases. It asks Google Play about purchase status and retains
 account-linked transaction/refund history, purchased balances, paid-item spending and purchased-equipment
 ownership. Requests also carry operation identifiers and context needed for safe retries. The game
 checks signed responses before granting or spending paid value. Initialization and recovery can check
-purchases and balances even when you are not starting a new purchase.</p>
+purchases and balances even when you are not starting a new purchase. For subscriptions it also checks
+the plan, renewal, expiry and entitlement state. Daily subscription gem claims are recorded by account
+and day so restoring or reinstalling does not duplicate the grant.</p>
 <p>The game creates a random recovery code for its purchase account. Google Play receives
 one-way account/profile identifiers used to associate transactions with that account. The recovery code
 is an account credential: keep it private, save it securely, and do not include it in email or public
