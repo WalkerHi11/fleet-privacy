@@ -24,7 +24,7 @@ nav ul{columns:2;padding-left:18px}
 </head>
 <body>
 <main>
-<small>DIZZYWALK · Effective September 30, 2026</small>
+<small>DIZZYWALK · Effective October 11, 2026</small>
 <h1>SCRAPWARD Privacy Policy</h1>
 <p class="notice">This policy covers the Android game <strong>SCRAPWARD</strong> (package <strong>com.dizzywalk.scrapward</strong>), published by DIZZYWALK RECORDS LLC (“Dizzywalk”, “we”, “us”, “our”). It explains what information the game and its partners collect, why, who receives it and the choices you have. Please also read our <a href="https://fleet-privacy.onrender.com/scrapward/terms.html">Terms of Service</a>.</p>
 
@@ -33,6 +33,7 @@ nav ul{columns:2;padding-left:18px}
 <li><a href="#device">Data kept on your device</a></li>
 <li><a href="#analytics">Analytics (PostHog)</a></li>
 <li><a href="#diagnostics">Crash diagnostics</a></li>
+<li><a href="#replay">Session replay (UXCam)</a></li>
 <li><a href="#ads">Advertising (AppLovin MAX)</a></li>
 <li><a href="#partners">Ad partners</a></li>
 <li><a href="#attribution">Attribution (Tenjin)</a></li>
@@ -57,7 +58,7 @@ nav ul{columns:2;padding-left:18px}
 <li>SCRAPWARD does not ask for an email or password. It creates an <strong>anonymous purchase account</strong> to verify Google Play purchases. Campaign progress and your game wallet are saved <strong>only on your device</strong>; this version has no cloud save.</li>
 <li>We never ask for your name, email address, phone number, contacts, photos, camera, microphone or precise location.</li>
 <li>The game shows <strong>ads through AppLovin MAX</strong>. AppLovin and the ad partners that bid through it use your device’s advertising ID and device data to show and measure ads.</li>
-<li>We use <strong>PostHog</strong> for gameplay analytics under a random install identifier, <strong>Tenjin</strong> for campaign attribution, <strong>Google Analytics for Firebase</strong> for purchase and ad measurement, and <strong>Sentry</strong> for crash diagnostics.</li>
+<li>We use <strong>PostHog</strong> for gameplay analytics under a random install identifier, <strong>Tenjin</strong> for campaign attribution, <strong>Google Analytics for Firebase</strong> for purchase and ad measurement, <strong>Sentry</strong> for crash diagnostics, and <strong>UXCam</strong> to record how the game’s screens are used (session replay; not in the EEA, UK or Switzerland).</li>
 <li>Purchases go through <strong>Google Play Billing</strong>. We never receive your card or bank details.</li>
 <li>In the EEA, UK and Switzerland, Google’s consent form asks before ads are personalized. Everywhere, <strong>Settings → PRIVACY CHOICES</strong> lets you opt out of personalized ads and of the sharing described below.</li>
 </ul>
@@ -80,6 +81,11 @@ nav ul{columns:2;padding-left:18px}
 
 <h2 id="diagnostics">Crash diagnostics</h2>
 <p>Short error reports go to PostHog. We also use <strong>Sentry</strong> for managed and native crashes, stack traces, release-health sessions, app/build version and device/operating-system diagnostics. Sentry screenshot and view-hierarchy attachments and default personal-information collection are disabled. The service still receives ordinary network request information to deliver its service. See <a href="https://sentry.io/privacy/">Sentry’s privacy policy</a>. Google Play and Android may also collect crash and performance data under their own settings and policies.</p>
+
+<h2 id="replay">Session replay (UXCam)</h2>
+<p>We use <strong>UXCam Inc.</strong> as a service provider to understand how players use the game’s screens, so we can fix confusing steps, broken flows and store or ad screens that do not work. When it runs, UXCam’s SDK records a video-like replay of the game screen (screenshots of what the game draws) together with your taps and gestures, the names of the game screens you visit, the gameplay and store events listed under <a href="#analytics">Analytics</a> (by the same names), session start, length and order, and device information such as model, operating system, screen size, language and app version. It is linked to the same random install identifier PostHog uses (never your name, email, advertising ID or payment details), with the properties listed for PostHog (for example payer yes/no, highest mission band, test group, internal-test flag). The replay link of each recorded session is added to our PostHog events. UXCam receives your IP address with each request and uses it to estimate your country and city; UXCam states that it does not store the IP address.</p>
+<p>What is <strong>not</strong> recorded: the screen while any full-screen ad, the Google Play purchase sheet or another app is in front of the game; the on-screen keyboard; any text field; and the Settings, Restore Purchases, backup and account-deletion screens, which are hidden in the recording because they show your install or purchase-account IDs. UXCam’s crash reporting is off (crashes go to Sentry).</p>
+<p>Who is recorded: session replay runs for a share of installations that we set remotely (currently all new and existing installations), during the first days after install (currently 7), and can be turned off remotely. It does <strong>not</strong> run in the EEA, the UK or Switzerland; on a device whose time zone or language suggests one of those countries it waits until the ad service confirms the region. Data is sent over HTTPS to UXCam’s United States region and kept for as long as our UXCam plan retains it, then deleted. See <a href="https://uxcam.com/privacy-policy/" rel="noopener">UXCam’s privacy policy</a>.</p>
 
 <h2 id="ads">Advertising (AppLovin MAX)</h2>
 <p>SCRAPWARD shows optional <strong>rewarded ads</strong>, which you choose to watch for the stated reward, <strong>interstitial ads at natural breaks</strong> after the tutorial, banners and app-open ads. Interstitials can appear in your first session after the tutorial and are not shown during an expedition. VIP PASS FOREVER turns off forced ads (interstitial, app-open and banner) permanently; VIP PASS 30 DAYS and the Salvage Pack + VIP PASS 30 Days turn them off for 30 days on the device where they are bought (kept in the local save, not restored after a reinstall). Rewarded ads stay optional. The Salvage Pass subscription does not remove ads. Delivery also follows the game’s payer and acquisition-source settings.</p>
@@ -135,7 +141,7 @@ nav ul{columns:2;padding-left:18px}
 
 <h2 id="sharing">Who receives data</h2>
 <ul>
-<li><strong>Service providers</strong> that process data for us: PostHog (analytics and configuration), Sentry (crash diagnostics), and Render (page hosting and purchase verification).</li>
+<li><strong>Service providers</strong> that process data for us: PostHog (analytics and configuration), UXCam (session replay), Sentry (crash diagnostics), and Render (page hosting and purchase verification).</li>
 <li><strong>Advertising partners</strong>: AppLovin and the ad partners listed above, for their own advertising, measurement and fraud-prevention purposes as well as ours.</li>
 <li><strong>Attribution partner</strong>: Tenjin, and through Tenjin the advertising networks we buy campaigns from.</li>
 <li><strong>Google</strong>, which provides Google Play, Google Play Billing, the consent platform and Google Analytics for Firebase, linked to Google Ads for measurement.</li>
@@ -152,15 +158,15 @@ nav ul{columns:2;padding-left:18px}
 </ul>
 
 <h2 id="retention">Retention</h2>
-<p>Local data stays on your device until you clear it or uninstall the game. We keep analytics events in PostHog for as long as we need them to run and improve the game, and delete them when they are no longer needed or when the retention settings of our PostHog project expire them. AppLovin, the ad partners, Tenjin and Google keep data under their own retention policies. Purchase and revenue records in the Google Play Console are kept as long as tax and accounting law requires.</p>
+<p>Local data stays on your device until you clear it or uninstall the game. We keep analytics events in PostHog for as long as we need them to run and improve the game, and delete them when they are no longer needed or when the retention settings of our PostHog project expire them. UXCam session recordings are kept for the retention period of our UXCam plan and then deleted. AppLovin, the ad partners, Tenjin and Google keep data under their own retention policies. Purchase and revenue records in the Google Play Console are kept as long as tax and accounting law requires.</p>
 
 <h2 id="requests">Access and deletion requests</h2>
 <p>To ask for a copy of your data, email <a href="mailto:michael@dizzywalk.com">michael@dizzywalk.com</a>. To initiate deletion of your purchase account and associated server data, use <strong>Settings → RESTORE PURCHASES → REQUEST ACCOUNT DELETION</strong> or our public <a href="https://fleet-privacy.onrender.com/scrapward/delete-account.html">account deletion request page</a>. The page works without signing in or connecting the game's account service. It opens an email draft for you to send to <strong>michael@dizzywalk.com</strong>; requests are reviewed and fulfilled manually.</p>
-<p>In the game, <strong>COPY REQUEST IDENTIFIERS</strong> copies your non-secret purchase account ID and install ID for support. These help locate records but are not, by themselves, proof of ownership. If unavailable, you can still initiate a request. We may ask for an approximate installation date or device model to locate records and verify the request. If you made a purchase, a Google Play order ID is optional. <strong>Never email your private SWR recovery code, authentication tokens, payment details or full receipt.</strong> We remove eligible matching data we hold and request removal from our service providers where applicable. Necessary transaction records may remain for tax and accounting obligations, fraud prevention or legal disputes, only as needed for those purposes.</p>
+<p>In the game, <strong>COPY REQUEST IDENTIFIERS</strong> copies your non-secret purchase account ID and install ID for support. These help locate records but are not, by themselves, proof of ownership. If unavailable, you can still initiate a request. We may ask for an approximate installation date or device model to locate records and verify the request. If you made a purchase, a Google Play order ID is optional. <strong>Never email your private SWR recovery code, authentication tokens, payment details or full receipt.</strong> We remove eligible matching data we hold and request removal from our service providers where applicable, including UXCam session recordings linked to your install ID. Necessary transaction records may remain for tax and accounting obligations, fraud prevention or legal disputes, only as needed for those purposes.</p>
 <p>Clearing Android storage or uninstalling removes local progress and consumed items, which this version cannot recover from a cloud backup; it does not itself delete server records. A server deletion request does not erase the device's local save or cancel or refund a Google Play subscription. Manage subscriptions separately in Google Play. To request removal of data held independently by ad partners, use the contact links in their policies above.</p>
 
 <h2 id="transfers">International transfers</h2>
-<p>We and our partners process data in the United States and other countries whose data-protection laws may differ from yours. PostHog processes our analytics in the United States. Where we transfer personal data out of the EEA, UK or Switzerland, we rely on the partner’s adequacy status (for example certification under the EU–U.S. Data Privacy Framework and its UK and Swiss extensions) or on the European Commission’s Standard Contractual Clauses and the UK Addendum.</p>
+<p>We and our partners process data in the United States and other countries whose data-protection laws may differ from yours. PostHog processes our analytics in the United States, and UXCam stores session replays in its United States region. Where we transfer personal data out of the EEA, UK or Switzerland, we rely on the partner’s adequacy status (for example certification under the EU–U.S. Data Privacy Framework and its UK and Swiss extensions) or on the European Commission’s Standard Contractual Clauses and the UK Addendum.</p>
 
 <h2 id="gdpr">EEA, UK and Swiss rights</h2>
 <p>You have the right to access, correct, delete or port your personal data, to restrict or object to its use, and to withdraw consent at any time (without affecting earlier processing). You also have the right to complain to your data-protection authority. To use these rights, email us. Dizzywalk is the controller of the data described in this policy that the game sends to us; our partners are independent controllers of the data they collect for their own purposes.</p>
