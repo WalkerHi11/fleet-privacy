@@ -69,7 +69,7 @@ footer{margin-top:48px;padding-top:16px;border-top:1px solid #ddd;color:#888;fon
 <header>
 <h1>BAR FLIP — Privacy Policy</h1>
 <p class="sub">Published by Dizzywalk</p>
-<p class="meta">Effective date: 2026-09-25 &middot; Last updated: 2026-09-29</p>
+<p class="meta">Effective date: 2026-09-25 &middot; Last updated: 2026-10-12</p>
 </header>
 <p>This policy explains how Dizzywalk handles information for BAR FLIP, Android package
 <code>com.dizzywalk.barflip</code>. Capabilities depend on your installed version. The older
@@ -80,6 +80,7 @@ or attribution integrations described below. Those sections apply to the newer U
 <li>BAR FLIP is free and supported by ads. Our advertising partners and our measurement partner, Tenjin, use your device's advertising ID and related data to show, personalise and measure ads.</li>
 <li>In the EEA, the UK and Switzerland, Google's consent form asks for your choice after your first show, and until you answer the game does not request personalised ads or connect Tenjin. You can change your answer in Settings &rarr; Privacy choices.</li>
 <li>Everywhere else there is no privacy prompt. You can turn off sale and sharing of your information for advertising, and turn off gameplay analytics, in Settings.</li>
+<li>While gameplay analytics is on, the Android game records play sessions (a video of the game screen with your taps) with UXCam, so we can see where the game is confusing, slow or broken.</li>
 <li>Google Play and Unity In-App Purchasing handle purchases. Our commerce service keeps purchase records,
 remaining purchased balances and purchased equipment ownership for verification and recovery.</li>
 <li>A private recovery code identifies your purchase account. There is no email/password login in the game.</li>
@@ -89,14 +90,14 @@ held by us or by payment, analytics and advertising providers.</li>
 
 <h2>What we collect and who receives it</h2>
 <ul>
-<li><strong>Device identifiers:</strong> your device's resettable advertising ID, read by the advertising SDKs and by Tenjin; the app set ID and similar SDK installation identifiers, read by the advertising SDKs; a random identifier the game creates for this installation and attaches to gameplay analytics (it persists until you reinstall or clear the app's data); and a random installation identifier that Sentry creates for crash counts.</li>
-<li><strong>Gameplay and ad activity:</strong> screens, shows, progression, scores, durations, and purchase and ad outcomes (analytics); ad requests, impressions, clicks and rewards (advertising SDKs); and a small set of named milestones, purchases and ad revenue (Tenjin).</li>
+<li><strong>Device identifiers:</strong> your device's resettable advertising ID, read by the advertising SDKs and by Tenjin; the app set ID and similar SDK installation identifiers, read by the advertising SDKs; a random identifier the game creates for this installation and attaches to gameplay analytics and session recordings (it persists until you reinstall or clear the app's data); a random installation identifier that Sentry creates for crash counts; and your device's Android ID, which UXCam reads to tell devices apart in session recordings (Android keeps it the same for this app when you reinstall the game or clear its data; a factory reset changes it).</li>
+<li><strong>Gameplay and ad activity:</strong> screens, shows, progression, scores, durations, and purchase and ad outcomes (analytics); a video of the game screen with your taps and gestures (session recordings, UXCam); ad requests, impressions, clicks and rewards (advertising SDKs); and a small set of named milestones, purchases and ad revenue (Tenjin).</li>
 <li><strong>Purchase information:</strong> product, price, currency, order and purchase-token details, used by Google Play, Unity, our commerce service and, for measurement, Tenjin.</li>
 <li><strong>Device and diagnostic information:</strong> device model, operating-system and app version, language, time zone, connection type, performance and crash information.</li>
-<li><strong>Network address and approximate location:</strong> every service the game connects to receives your IP address. Advertising partners, Tenjin, Unity and PostHog may use it to estimate your country or region. The game does not request GPS or precise location.</li>
+<li><strong>Network address and approximate location:</strong> every service the game connects to receives your IP address. Advertising partners, Tenjin, Unity, PostHog and UXCam may use it to estimate your country or region. The game does not request GPS or precise location.</li>
 </ul>
-<p>Recipients: AppLovin (MAX mediation) and the ad networks it mediates in this release, which are Google (AdMob), Meta Audience Network, BIGO Ads, Vungle (Liftoff), Pangle, Unity Ads and ironSource; Tenjin (install attribution and ad measurement); PostHog (gameplay analytics and game-tuning settings, processed on our behalf); Google Analytics for Firebase (app analytics and purchase/ad revenue measurement); Sentry (crash reporting, processed on our behalf); Google Play and Unity (purchases); and Google's User Messaging Platform (the consent tool).</p>
-<p>We do not collect your name, email address, phone number, contacts, photos, files, messages or precise location through the game, and we never collect the words you play.</p>
+<p>Recipients: AppLovin (MAX mediation) and the ad networks it mediates in this release, which are Google (AdMob), Meta Audience Network, BIGO Ads, Vungle (Liftoff), Pangle, Unity Ads and ironSource; Tenjin (install attribution and ad measurement); PostHog (gameplay analytics and game-tuning settings, processed on our behalf); Google Analytics for Firebase (app analytics and purchase/ad revenue measurement); Sentry (crash reporting, processed on our behalf); UXCam (session recordings, processed on our behalf); Google Play and Unity (purchases); and Google's User Messaging Platform (the consent tool).</p>
+<p>We do not collect your name, email address, phone number, contacts, photos, files, messages or precise location through the game. Gameplay analytics events never contain the words you play; a session recording is a video of the game screen, so it can show words you play.</p>
 
 <h2>Your choices</h2>
 <h3>EEA, UK and Switzerland</h3>
@@ -107,6 +108,7 @@ held by us or by payment, analytics and advertising providers.</li>
 <li>Personalised ads are allowed only if you consent to storing or accessing information on your device, to creating and using an advertising profile, and to AppLovin as a vendor. Otherwise you still get ads and rewards, but they are not personalised.</li>
 <li>Install attribution and ad measurement (Tenjin) run only if you consent to storing or accessing information on your device.</li>
 <li>Gameplay analytics runs only if you consent to storing or accessing information on your device and to measuring content performance, and the analytics switch in Settings is on. Otherwise the events held in memory are discarded.</li>
+<li>Session recordings (UXCam) follow the same gameplay analytics answer.</li>
 </ul>
 <p>You can change or withdraw your consent at any time in <strong>Settings &rarr; Privacy choices</strong>, which reopens Google's form. Withdrawing consent affects future processing, not processing that already took place with your consent.</p>
 <p>When Google's consent tool asks for your choice again (for example after your earlier answer expires), the game shows the form again at the next opportunity, and your earlier choices stay in effect until you answer.</p>
@@ -115,7 +117,7 @@ held by us or by payment, analytics and advertising providers.</li>
 <p>Outside those regions the game does not show a privacy prompt. Gameplay analytics, personalised advertising and install attribution are on by default, and you can change them in Settings:</p>
 <ul>
 <li><strong>DO NOT SELL OR SHARE MY PERSONAL INFORMATION</strong> (off by default). If you turn it on, the game tells AppLovin not to sell or share your information, which it passes on to the ad networks it mediates, and it switches Tenjin to opted-out mode and withholds Google's ad-data and ad-personalisation permissions. Ads and rewards keep working.</li>
-<li><strong>SHARE PLAY DATA</strong> (on by default). Turning gameplay analytics off stops our PostHog event delivery and clears queued events.</li>
+<li><strong>SHARE PLAY DATA</strong> (on by default). Turning gameplay analytics off stops our PostHog event delivery and clears queued events. It also stops session recording and discards the recording in progress.</li>
 </ul>
 <p>Turning gameplay analytics off does not disable billing or guarantee that every SDK makes no network connection.</p>
 <p>While the game is waiting for Google's consent tool to tell it which rules apply to you, it does not start the advertising SDK or connect Tenjin, and it keeps gameplay events in memory only. It checks again on the next launch and when you return to the game.</p>
@@ -136,7 +138,7 @@ progression, tactics, scores, durations, and purchase or ad outcomes. They inclu
 platform and session information, and the random identifier the game creates for this installation.</p>
 <p>They do not include the words you play, your recovery code or payment-card details.</p>
 <p>Until the game knows which privacy rules apply to you, and in the EEA, UK and Switzerland until you answer Google's form, it keeps gameplay events in memory on your device. They are sent only if gameplay analytics is then on, and are discarded otherwise.</p>
-<p>We do not use PostHog autocapture, session recording or tracking cookies in the game.</p>
+<p>We do not use PostHog autocapture or PostHog session recording, and the game sets no tracking cookies. Session recordings are made with UXCam, described below.</p>
 <p>While gameplay analytics is on, the game also asks PostHog at launch for game-tuning settings (for example event timing and offer rules). That request carries the same installation identifier.</p>
 <p>Our in-game crash events use the same transport and follow the same analytics setting. They contain bounded error and stack information
 with file paths removed, plus app/session context. Events wait in a bounded queue in private app storage;
@@ -152,6 +154,17 @@ identifier that Sentry generates for this purpose only. It does not contain the 
 your recovery code, an advertising ID or payment details, no screenshots are attached, and our Sentry
 project is set not to store IP addresses. See <a href="https://sentry.io/privacy/">Sentry’s privacy policy</a>.</p>
 <p>The AppLovin SDK also includes its own crash reporter, which sends information about crashes to AppLovin.</p>
+
+<h3 id="session-recordings">Session recordings (UXCam)</h3>
+<p>While gameplay analytics is on, the Android game records play sessions with UXCam (UXCam Inc.), a service that processes this data on our behalf, so we can see where the game is confusing, slow or broken.</p>
+<p>A recording contains a video of the game screen, your taps and gestures, the names of the game screens you visit, gameplay events such as starting or finishing a show, an offer or ad being shown or a purchase completing, your device model, operating system and app version, the random identifier the game creates for this installation, and your device's Android ID.</p>
+<p>The video shows what is on the game screen, including the words you play.</p>
+<p>UXCam estimates your country and city from your network address.</p>
+<p>Screens that show your recovery code or purchase references are hidden from recordings, and text-entry fields are masked.</p>
+<p>Video recording pauses while a full-screen ad is on screen, while the game is in the background or behind another window such as the Google Play purchase sheet, and while the keyboard is open.</p>
+<p>UXCam's own crash reporting is turned off.</p>
+<p>Recording follows the same privacy decision as gameplay analytics: in the EEA, the UK and Switzerland the game records only after you consent, and everywhere turning gameplay analytics off stops recording and discards the recording in progress.</p>
+<p>UXCam stores recordings in the United States and keeps them for the retention period of our UXCam plan (UXCam's documented default is 90 days), after which they are deleted. To ask for your recordings to be deleted, contact us at the address below. See <a href="https://uxcam.com/privacy-policy/">UXCam's privacy policy</a>.</p>
 
 <h2>Your words and sharing</h2>
 <p>In the Unity game you swipe or tap a letter wheel. A bundled pronunciation dictionary and deterministic
@@ -231,7 +244,7 @@ The game does not request precise GPS location, contacts, photos or microphone a
 
 <h2>Why we use information (legal bases in the EEA, UK and Switzerland)</h2>
 <ul>
-<li><strong>Consent</strong> (given in Google's form): personalised advertising, install attribution and ad measurement, and gameplay analytics.</li>
+<li><strong>Consent</strong> (given in Google's form): personalised advertising, install attribution and ad measurement, and gameplay analytics, including session recordings.</li>
 <li><strong>Performance of our contract with you</strong>: processing purchases, verifying them, restoring them and recovering accounts.</li>
 <li><strong>Legitimate interests</strong>: crash reporting to keep the game working, serving non-personalised ads to fund a free game, and fraud prevention and transaction security.</li>
 <li><strong>Legal obligations</strong>: keeping transaction records we are required to keep.</li>
@@ -241,7 +254,7 @@ The game does not request precise GPS location, contacts, photos or microphone a
 
 <h2 id="us-privacy-rights">United States privacy rights, including California</h2>
 <p>Over the past 12 months, in the Unity game, we have disclosed the following categories of personal information to advertising partners (AppLovin and its mediated networks) and to Tenjin, in ways that may count as "selling" or "sharing" personal information for cross-context behavioral advertising, or as "targeted advertising", under US state laws: identifiers (advertising ID, installation identifiers, IP address); internet or other electronic network activity (gameplay events and ad interactions); commercial information (purchase events and ad revenue); and approximate geolocation derived from IP address. Our partners may draw inferences from this information to choose ads.</p>
-<p>We also use service providers, which may not use your information for their own purposes: PostHog (analytics), Sentry (crash reporting), our hosting provider (commerce service), and Google Play and Unity (purchases). Google Analytics for Firebase also receives the analytics and consent-controlled advertising data described above. We collect this information from your device and from the services named in this policy. We do not collect sensitive personal information as defined by California law, and we do not use personal information to infer characteristics about you.</p>
+<p>We also use service providers, which may not use your information for their own purposes: PostHog (analytics), UXCam (session recordings), Sentry (crash reporting), our hosting provider (commerce service), and Google Play and Unity (purchases). Google Analytics for Firebase also receives the analytics and consent-controlled advertising data described above. We collect this information from your device and from the services named in this policy. We do not collect sensitive personal information as defined by California law, and we do not use personal information to infer characteristics about you.</p>
 <p><strong>Your rights.</strong> Depending on your state, you have the right to:</p>
 <ul>
 <li>opt out of the sale or sharing of your personal information and of targeted advertising, using <strong>Settings &rarr; DO NOT SELL OR SHARE MY PERSONAL INFORMATION</strong> in the game;</li>
@@ -262,7 +275,7 @@ The game does not request precise GPS location, contacts, photos or microphone a
 platform backup. Our commerce service retains purchase and spending history to restore paid value,
 prevent duplicate grants, reconcile refunds and protect transactions. Clearing local data does not
 request deletion of those server records.</p>
-<p>Gameplay analytics events are kept while they are needed to understand and improve the game, and are deleted according to our PostHog project's data-retention setting. Crash reports are kept according to our Sentry project's retention setting.</p>
+<p>Gameplay analytics events are kept while they are needed to understand and improve the game, and are deleted according to our PostHog project's data-retention setting. Crash reports are kept according to our Sentry project's retention setting. Session recordings are kept according to our UXCam plan's retention period.</p>
 <p>Advertising partners and Tenjin apply their own retention policies. Transmitted
 data uses HTTPS; keep your recovery code private.</p>
 <p>Contact us about access, correction or deletion requests. Do not email payment-card details or your
@@ -280,7 +293,7 @@ AI-assisted development tools. No generative model runs in the game or judges pl
 <p>In the game, open <strong>Settings &rarr; Privacy &amp; delete account</strong> to reach these instructions.
 To request deletion, email <a href="mailto:kristine@dizzywalk.com?subject=BAR%20FLIP%20account%20deletion%20request">kristine@dizzywalk.com</a>
 with the subject <strong>BAR FLIP account deletion request</strong>. Tell us whether you want your
-purchase account, your analytics data, or both deleted.</p>
+purchase account, your analytics data (including session recordings), or both deleted.</p>
 <p>If available, a Google Play order number
 can help identify a purchase. <strong>Do not email your recovery code, password or payment-card details.</strong>
 We will explain the appropriate ownership-verification process before acting. Opening this page does
