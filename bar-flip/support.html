@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<meta name="robots" content="noindex">
+<title>BAR FLIP — Backstage help</title>
+<style>
+:root{color-scheme:light;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:#2a1830;color:#2b183c}
+*{box-sizing:border-box}
+body{margin:0;min-height:100svh;padding:24px 16px 48px;display:flex;justify-content:center}
+main{width:min(100%,560px)}
+.mark{color:#f6c35c;font-weight:900;letter-spacing:.16em;font-size:13px;text-transform:uppercase;margin:4px 4px 12px}
+article{background:#fff7ee;border-radius:22px;padding:24px 22px 26px;box-shadow:0 12px 30px #0006}
+h1{font-size:30px;letter-spacing:.02em;margin:0 0 6px;text-transform:uppercase;font-weight:900}
+p{line-height:1.55;color:#5c4a66;margin:8px 0}
+.ref{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:16px 0 6px;padding:14px;border:2px dashed #c9b3cf;border-radius:14px;background:#fffcf7}
+.ref code{font:800 20px/1.2 ui-monospace,Menlo,Consolas,monospace;letter-spacing:.06em;color:#43233e}
+.ref small{display:block;width:100%;color:#7d6a85;font-size:13px}
+.topic{display:inline-block;margin-top:4px;padding:4px 10px;border-radius:999px;background:#efe0f8;color:#5d2f86;font-weight:800;font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+a.ticket,button.ticket{display:flex;align-items:center;justify-content:center;width:100%;min-height:54px;margin:12px 0 0;border:0;border-bottom:4px solid #b9862c;border-radius:14px;background:#f6c35c;color:#2b183c;font:900 16px/1 system-ui,sans-serif;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;cursor:pointer}
+a.cream{background:#fffcf7;border:2px solid #43233e;border-bottom-width:4px}
+button.copy{min-height:44px;padding:0 14px;border:2px solid #43233e;border-radius:12px;background:#fff;color:#43233e;font-weight:800;cursor:pointer}
+ol{padding-left:20px;color:#5c4a66;line-height:1.6}
+.small{font-size:13px;color:#7d6a85}
+a:focus-visible,button:focus-visible{outline:3px solid #8557b1;outline-offset:3px}
+</style>
+</head>
+<body>
+<main>
+  <div class="mark">BAR FLIP · Backstage</div>
+  <article>
+    <h1>Backstage help</h1>
+    <p id="lead">Tell us what happened. Your reference lets us find it.</p>
+    <div class="ref" id="refbox" hidden>
+      <code id="ref"></code>
+      <button class="copy" id="copy" type="button">Copy</button>
+      <small>Build <span id="build"></span> · <span class="topic" id="topic"></span></small>
+    </div>
+    <a class="ticket" id="gmail" href="#" rel="noopener">Write in Gmail</a>
+    <a class="ticket cream" id="outlook" href="#" rel="noopener">Write in Outlook</a>
+    <a class="ticket cream" id="mail" href="#">Use another email app</a>
+    <p class="small">Or write to <strong>kristine@dizzywalk.com</strong> from any email and paste the reference.</p>
+    <h2 style="font-size:16px;margin:22px 0 4px;text-transform:uppercase;letter-spacing:.06em">Purchase missing?</h2>
+    <ol>
+      <li>Open BAR FLIP, then Settings, then <strong>Purchases</strong>, then <strong>Restore</strong>.</li>
+      <li>Still missing? Send us the reference above. Never send your card details or your recovery code.</li>
+    </ol>
+    <p class="small">This page sends nothing by itself: it only opens your own email with the reference written in. <a href="privacy.html">Privacy policy</a></p>
+  </article>
+</main>
+<script>
+(() => {
+  const q = new URLSearchParams(location.search);
+  const ok = s => /^BF-[0-9A-HJKMNP-TV-Z]{5}-[0-9A-HJKMNP-TV-Z]{5}$/.test(s || '');
+  const topics = { purchase_missing: 'Purchase missing', progress_missing: 'Progress missing', word_rejected: 'A word we rejected', something_else: 'Something else' };
+  const ref = ok(q.get('ref')) ? q.get('ref') : '';
+  const topic = topics[q.get('topic')] ? q.get('topic') : 'something_else';
+  const build = (q.get('build') || '').replace(/[^0-9A-Za-z.+\-]/g, '').slice(0, 32);
+  const to = 'kristine@dizzywalk.com';
+  const subject = 'BAR FLIP help ' + (ref || '');
+  const body = 'Reference: ' + (ref || 'none') + '\nTopic: ' + topic + '\nBuild: ' + (build || 'unknown') + '\n\nTell us what happened:\n';
+  if (ref) {
+    document.getElementById('refbox').hidden = false;
+    document.getElementById('ref').textContent = ref;
+    document.getElementById('build').textContent = build || 'unknown';
+    document.getElementById('topic').textContent = topics[topic];
+  }
+  const e = encodeURIComponent;
+  document.getElementById('gmail').href = 'https://mail.google.com/mail/?view=cm&fs=1&to=' + e(to) + '&su=' + e(subject) + '&body=' + e(body);
+  document.getElementById('outlook').href = 'https://outlook.live.com/mail/0/deeplink/compose?to=' + e(to) + '&subject=' + e(subject) + '&body=' + e(body);
+  document.getElementById('mail').href = 'mailto:' + to + '?subject=' + e(subject) + '&body=' + e(body);
+  document.getElementById('copy').addEventListener('click', async () => {
+    try { await navigator.clipboard.writeText(ref); document.getElementById('copy').textContent = 'Copied'; }
+    catch (_) { document.getElementById('copy').textContent = 'Select it above'; }
+  });
+})();
+</script>
+</body>
+</html>
