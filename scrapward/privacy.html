@@ -24,13 +24,14 @@ nav ul{columns:2;padding-left:18px}
 </head>
 <body>
 <main>
-<small>DIZZYWALK · Effective October 11, 2026</small>
+<small>DIZZYWALK · Effective October 20, 2026</small>
 <h1>SCRAPWARD Privacy Policy</h1>
 <p class="notice">This policy covers the Android game <strong>SCRAPWARD</strong> (package <strong>com.dizzywalk.scrapward</strong>), published by DIZZYWALK RECORDS LLC (“Dizzywalk”, “we”, “us”, “our”). It explains what information the game and its partners collect, why, who receives it and the choices you have. Please also read our <a href="https://fleet-privacy.onrender.com/scrapward/terms.html">Terms of Service</a>.</p>
 
 <nav><ul>
 <li><a href="#summary">Summary</a></li>
 <li><a href="#device">Data kept on your device</a></li>
+<li><a href="#backup">Campaign backup</a></li>
 <li><a href="#analytics">Analytics (PostHog)</a></li>
 <li><a href="#diagnostics">Crash diagnostics</a></li>
 <li><a href="#replay">Session replay (UXCam)</a></li>
@@ -55,7 +56,7 @@ nav ul{columns:2;padding-left:18px}
 
 <h2 id="summary">Summary</h2>
 <ul>
-<li>SCRAPWARD does not ask for an email or password. It creates an <strong>anonymous purchase account</strong> to verify Google Play purchases. Campaign progress and your game wallet are saved <strong>only on your device</strong>; this version has no cloud save.</li>
+<li>SCRAPWARD does not ask for an email or password. It creates an <strong>anonymous purchase account</strong> to verify Google Play purchases. Campaign progress and your game wallet are saved on your device and <strong>backed up to our game server</strong> under that anonymous account (see <a href="#backup">Campaign backup</a>).</li>
 <li>We never ask for your name, email address, phone number, contacts, photos, camera, microphone or precise location.</li>
 <li>The game shows <strong>ads through AppLovin MAX</strong>. AppLovin and the ad partners that bid through it use your device’s advertising ID and device data to show and measure ads.</li>
 <li>We use <strong>PostHog</strong> for gameplay analytics under a random install identifier, <strong>Tenjin</strong> for campaign attribution, <strong>Google Analytics for Firebase</strong> for purchase and ad measurement, <strong>Sentry</strong> for crash diagnostics, and <strong>UXCam</strong> to record how the game’s screens are used (session replay; not in the EEA, UK or Switzerland).</li>
@@ -64,7 +65,8 @@ nav ul{columns:2;padding-left:18px}
 </ul>
 
 <h2 id="device">Data kept on your device</h2>
-<p>The game stores on your device: your progress, currencies and items, purchase records (Google Play product IDs and order/transaction IDs, so a purchase is never granted twice), subscription status, ad frequency counters, your privacy and consent choices, notification settings, and your sound, vibration, text-size, colour-vision and language settings. This save file is not uploaded to us.</p>
+<p>The game stores on your device: your progress, currencies and items, purchase records (Google Play product IDs and order/transaction IDs, so a purchase is never granted twice), subscription status, ad frequency counters, your privacy and consent choices, notification settings, and your sound, vibration, text-size, colour-vision and language settings.</p>
+<p id="backup"><strong>Campaign backup.</strong> A copy of this save (your progress, currencies, items, purchase records and settings, with an integrity check) is uploaded over HTTPS to our game server on Render, under your anonymous purchase account, after meaningful events such as an expedition result, a purchase or a claim. Each copy is stamped with the game version and your install identifier. It never contains your recovery code, session credential, purchase tokens or payment details. On a new installation, or after you recover your purchase account, the game can restore the backup or ask which copy to keep. The backup does not grant purchases; Google Play rechecks those. It can be turned off remotely, and it is deleted with your purchase account.</p>
 <p><strong>Install identifier.</strong> On first launch the game creates a random identifier for this installation. It is not derived from your advertising ID, phone number, email or any hardware identifier. We use it to link analytics events from the same installation, fetch configuration, and assign test groups for individual game settings. Clearing the game’s storage or reinstalling creates a new identifier.</p>
 
 <h2 id="analytics">Analytics and remote configuration (PostHog)</h2>
@@ -89,22 +91,21 @@ nav ul{columns:2;padding-left:18px}
 
 <h2 id="ads">Advertising (AppLovin MAX)</h2>
 <p>SCRAPWARD shows optional <strong>rewarded ads</strong>, which you choose to watch for the stated reward, <strong>interstitial ads at natural breaks</strong> after the tutorial, banners and app-open ads. Interstitials can appear in your first session after the tutorial and are not shown during an expedition. VIP PASS FOREVER turns off forced ads (interstitial, app-open and banner) permanently; VIP PASS 30 DAYS and the Salvage Pack + VIP PASS 30 Days turn them off for 30 days on the device where they are bought (kept in the local save, not restored after a reinstall). Rewarded ads stay optional. The Salvage Pass subscription does not remove ads. Delivery also follows the game’s payer and acquisition-source settings.</p>
-<p>Ads are served by the AppLovin MAX software development kit (SDK 13.2.0) from AppLovin Corporation. AppLovin runs an auction in which AppLovin’s own demand and other ad partners (listed below) can bid to fill each ad. The game declares Android’s advertising ID permission. When the ad SDK runs, AppLovin and the ad partners that serve an ad may collect your device’s <strong>advertising ID</strong> and similar identifiers, <strong>device and network information</strong> (such as device model, operating system, language, carrier, connection type, IP address and the approximate location derived from it), and your <strong>ad interactions</strong> (impressions, clicks, installs). They use it to deliver, personalize and measure ads, to limit how often you see an ad, and to prevent fraud, under their own privacy policies (<a href="https://legal.applovin.com/privacy/">AppLovin privacy policy</a>). The game passes your consent and opt-out choices to AppLovin, which relays them to the bidding partners.</p>
+<p>Ads are served by the AppLovin MAX software development kit (Android SDK 13.6.4) from AppLovin Corporation. AppLovin runs an auction in which AppLovin’s own demand and other ad partners (listed below) can bid to fill each ad. The game declares Android’s advertising ID permission. When the ad SDK runs, AppLovin and the ad partners that serve an ad may collect your device’s <strong>advertising ID</strong> and similar identifiers, <strong>device and network information</strong> (such as device model, operating system, language, carrier, connection type, IP address and the approximate location derived from it), and your <strong>ad interactions</strong> (which ads you see, how long you watch, whether you close, skip, complete or tap an ad, and installs that follow). Ad interactions are collected and shared with these ad partners for advertising, analytics (ad measurement), and fraud prevention, security and compliance. They use it to deliver, personalize and measure ads, to limit how often you see an ad, and to prevent fraud, under their own privacy policies (<a href="https://legal.applovin.com/privacy/">AppLovin privacy policy</a>). The game passes your consent and opt-out choices to AppLovin, which relays them to the bidding partners. If you opt out of the sale or sharing of personal information in Google’s US state privacy message, the game sets AppLovin’s “Do Not Sell” signal before the ad SDK starts.</p>
+<p><strong>User ID sent to AppLovin.</strong> The game gives AppLovin the random install identifier described under <a href="#analytics">Analytics</a> as its user ID, so that AppLovin’s ad-revenue reports can be matched to this installation’s analytics. In the EEA, UK and Switzerland it is set only if you consent to personalized ads, and it is removed when you decline or withdraw that consent.</p>
 <p>Google’s consent form is shown where required, through AppLovin MAX and Google UMP. Outside regions requiring that form, ads and measurement start at boot. Where consent is required, measurement follows the stored consent decision; declining personalized ads still permits limited ads where the consent framework allows them.</p>
 
 <h2 id="partners">Ad partners</h2>
-<p>We may work with the following ad partners through AppLovin MAX. Which of them can bid on a given ad depends on our mediation setup, which changes over time. Each partner’s use of data is covered by its own policy:</p>
+<p>The current version of the game includes the software of the following ad partners, which can bid through AppLovin MAX. Which of them bids on a given ad depends on our mediation setup, which changes over time; we update this list when the game adds or removes a partner. Each partner’s use of data is covered by its own policy:</p>
 <ul>
 <li>AppLovin (AppLovin Exchange, AppLovin demand) — <a href="https://legal.applovin.com/privacy/">privacy policy</a></li>
 <li>Google AdMob / Google Ad Manager — <a href="https://policies.google.com/technologies/partner-sites">how Google uses data from partner apps</a>, <a href="https://policies.google.com/privacy">Google privacy policy</a></li>
 <li>Meta Audience Network — <a href="https://www.facebook.com/privacy/policy/">privacy policy</a></li>
 <li>Unity Ads — <a href="https://unity.com/legal/game-player-and-app-user-privacy-policy">privacy policy</a></li>
+<li>ironSource Ads (Unity) — <a href="https://unity.com/legal/privacy-policy">privacy policy</a></li>
 <li>Liftoff / Vungle — <a href="https://liftoff.io/privacy-policy/">privacy policy</a></li>
-<li>Mintegral — <a href="https://www.mintegral.com/en/privacy">privacy policy</a></li>
-<li>Pangle — <a href="https://www.pangleglobal.com/privacy/enduser-en">privacy policy</a></li>
-<li>Moloco — <a href="https://www.moloco.com/terms-and-policies/privacy-portal">privacy policy</a></li>
+<li>Pangle (ByteDance) — <a href="https://www.pangleglobal.com/privacy/enduser-en">privacy policy</a></li>
 <li>InMobi — <a href="https://advertising.inmobi.com/privacy-policy">privacy policy</a></li>
-<li>DT Exchange (Digital Turbine) — <a href="https://www.digitalturbine.com/legal/privacy-policy">privacy policy</a></li>
 <li>BIGO Ads — <a href="https://www.bigoads.com/privacy">privacy policy</a></li>
 </ul>
 
@@ -122,7 +123,7 @@ nav ul{columns:2;padding-left:18px}
 
 <h2 id="purchases">Purchases, subscriptions and randomized items</h2>
 <p>Optional in-app purchases are processed by <strong>Google Play Billing</strong>. Google handles your payment method and billing details under the <a href="https://policies.google.com/privacy">Google privacy policy</a>; we never receive your card or bank details. The game checks the signed receipt and sends the product ID, purchase token and anonymous purchase-account identity to our verification service on Render. That service checks purchase status, account binding and subscription expiry with Google. Its ledger stores the account ID, product ID, order ID, status, verification times and a one-way token hash to prevent duplicate or cross-account grants. The raw token is used for the Google verification request; it is not saved in that ledger. The game stores delivery records and subscription status on your device. We also receive purchase and revenue reports in the Google Play Console.</p>
-<p><strong>Purchase-account recovery.</strong> A random private recovery code is enrolled for your anonymous purchase account. Our service stores its hash; the private code and session credential remain on your device. You can explicitly copy the code in Settings → RESTORE PURCHASES and later paste it there to recover that purchase account. Keep the code private: someone who has it can recover the account. Recovering the account does not upload or restore campaign progress, a spent wallet, or consumed items. Google Play rechecks owned permanent purchases and active subscriptions; the same Play account is still required.</p>
+<p><strong>Purchase-account recovery.</strong> A random private recovery code is enrolled for your anonymous purchase account. Our service stores its hash; the private code and session credential remain on your device. You can explicitly copy the code in Settings → RESTORE PURCHASES and later paste it there to recover that purchase account. Keep the code private: someone who has it can recover the account. Recovering the account lets the game offer that account’s latest <a href="#backup">campaign backup</a>; it restores progress only as it was in that backup. Google Play rechecks owned permanent purchases and active subscriptions; the same Play account is still required.</p>
 <p>The <strong>Salvage Pass</strong> is an auto-renewing monthly subscription billed by Google Play. The game reads its status (active, renewing, cancelled or expired) from Google Play to grant its benefits; you manage or cancel it in Google Play.</p>
 <p>Some items, such as Elite Crates, Supply Crates and Gem Chests, contain <strong>randomly selected rewards</strong>. Their odds are shown in the game, and Elite Crates have two guarantees (“hard pity”): Epic or better within 5 crates and Legendary within 50. The counts toward them are kept in your local save.</p>
 
@@ -141,7 +142,7 @@ nav ul{columns:2;padding-left:18px}
 
 <h2 id="sharing">Who receives data</h2>
 <ul>
-<li><strong>Service providers</strong> that process data for us: PostHog (analytics and configuration), UXCam (session replay), Sentry (crash diagnostics), and Render (page hosting and purchase verification).</li>
+<li><strong>Service providers</strong> that process data for us: PostHog (analytics and configuration), UXCam (session replay), Sentry (crash diagnostics), and Render (page hosting, purchase verification and the campaign backup).</li>
 <li><strong>Advertising partners</strong>: AppLovin and the ad partners listed above, for their own advertising, measurement and fraud-prevention purposes as well as ours.</li>
 <li><strong>Attribution partner</strong>: Tenjin, and through Tenjin the advertising networks we buy campaigns from.</li>
 <li><strong>Google</strong>, which provides Google Play, Google Play Billing, the consent platform and Google Analytics for Firebase, linked to Google Ads for measurement.</li>
@@ -158,12 +159,12 @@ nav ul{columns:2;padding-left:18px}
 </ul>
 
 <h2 id="retention">Retention</h2>
-<p>Local data stays on your device until you clear it or uninstall the game. We keep analytics events in PostHog for as long as we need them to run and improve the game, and delete them when they are no longer needed or when the retention settings of our PostHog project expire them. UXCam session recordings are kept for the retention period of our UXCam plan and then deleted. AppLovin, the ad partners, Tenjin and Google keep data under their own retention policies. Purchase and revenue records in the Google Play Console are kept as long as tax and accounting law requires.</p>
+<p>Local data stays on your device until you clear it or uninstall the game. We keep analytics events in PostHog for as long as we need them to run and improve the game, and delete them when they are no longer needed or when the retention settings of our PostHog project expire them. UXCam session recordings are kept for the retention period of our UXCam plan and then deleted. The campaign backup holds only the latest copy and is kept while your purchase account exists; it is deleted with the account. AppLovin, the ad partners, Tenjin and Google keep data under their own retention policies. Purchase and revenue records in the Google Play Console are kept as long as tax and accounting law requires.</p>
 
 <h2 id="requests">Access and deletion requests</h2>
-<p>To ask for a copy of your data, email <a href="mailto:michael@dizzywalk.com">michael@dizzywalk.com</a>. To initiate deletion of your purchase account and associated server data, use <strong>Settings → RESTORE PURCHASES → REQUEST ACCOUNT DELETION</strong> or our public <a href="https://fleet-privacy.onrender.com/scrapward/delete-account.html">account deletion request page</a>. The page works without signing in or connecting the game's account service. It opens an email draft for you to send to <strong>michael@dizzywalk.com</strong>; requests are reviewed and fulfilled manually.</p>
+<p>To ask for a copy of your data, email <a href="mailto:michael@dizzywalk.com">michael@dizzywalk.com</a>. To initiate deletion of your purchase account and associated server data (including its campaign backup), use <strong>Settings → RESTORE PURCHASES → REQUEST ACCOUNT DELETION</strong> or our public <a href="https://fleet-privacy.onrender.com/scrapward/delete-account.html">account deletion request page</a>. The page works without signing in or connecting the game's account service. It opens an email draft for you to send to <strong>michael@dizzywalk.com</strong>; requests are reviewed and fulfilled manually.</p>
 <p>In the game, <strong>COPY REQUEST IDENTIFIERS</strong> copies your non-secret purchase account ID and install ID for support. These help locate records but are not, by themselves, proof of ownership. If unavailable, you can still initiate a request. We may ask for an approximate installation date or device model to locate records and verify the request. If you made a purchase, a Google Play order ID is optional. <strong>Never email your private SWR recovery code, authentication tokens, payment details or full receipt.</strong> We remove eligible matching data we hold and request removal from our service providers where applicable, including UXCam session recordings linked to your install ID. Necessary transaction records may remain for tax and accounting obligations, fraud prevention or legal disputes, only as needed for those purposes.</p>
-<p>Clearing Android storage or uninstalling removes local progress and consumed items, which this version cannot recover from a cloud backup; it does not itself delete server records. A server deletion request does not erase the device's local save or cancel or refund a Google Play subscription. Manage subscriptions separately in Google Play. To request removal of data held independently by ad partners, use the contact links in their policies above.</p>
+<p>Clearing Android storage or uninstalling removes the local save; progress can come back only from your <a href="#backup">campaign backup</a>, through the same purchase account or its recovery code. It does not itself delete server records. A server deletion request does not erase the device's local save or cancel or refund a Google Play subscription. Manage subscriptions separately in Google Play. To request removal of data held independently by ad partners, use the contact links in their policies above.</p>
 
 <h2 id="transfers">International transfers</h2>
 <p>We and our partners process data in the United States and other countries whose data-protection laws may differ from yours. PostHog processes our analytics in the United States, and UXCam stores session replays in its United States region. Where we transfer personal data out of the EEA, UK or Switzerland, we rely on the partner’s adequacy status (for example certification under the EU–U.S. Data Privacy Framework and its UK and Swiss extensions) or on the European Commission’s Standard Contractual Clauses and the UK Addendum.</p>
@@ -197,7 +198,7 @@ nav ul{columns:2;padding-left:18px}
 <p>The game sends data only over encrypted connections (HTTPS). The local save carries an integrity check. No method of transmission or storage is perfectly secure, but we limit what we collect to what the game needs.</p>
 
 <h2 id="earlier">Earlier development test accounts</h2>
-<p>Earlier development builds used optional game-service accounts and recovery snapshots. The current Android game uses that service for anonymous purchase identity and receipt verification, not campaign cloud saves. Historical recovery snapshots follow their existing deletion schedule. When you open this page, the web host processes standard request data, such as your IP address, to deliver it.</p>
+<p>Earlier development builds used optional game-service accounts and recovery snapshots. The current Android game uses that service for anonymous purchase identity, receipt verification and the campaign backup described above. Historical recovery snapshots follow their existing deletion schedule. When you open this page, the web host processes standard request data, such as your IP address, to deliver it.</p>
 
 <h2 id="changes">Changes</h2>
 <p>We will update this policy before the game adds new kinds of data collection, new recipients, accounts or cloud saves, and we will change the effective date above. Where the law requires, we will ask for your consent again.</p>
