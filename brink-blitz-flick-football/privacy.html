@@ -1,5 +1,9 @@
-<!-- Self-contained privacy page. Owner fills Dizzywalk, kristine@dizzywalk.com, 2026-07-12 before publishing. -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
 <title>Brink Blitz — Privacy Policy</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
 :root{color-scheme:light dark}
 *{box-sizing:border-box}
@@ -29,26 +33,112 @@ footer{margin-top:48px;padding-top:16px;border-top:1px solid #ddd;color:#888;fon
  footer{border-top-color:#2a2b30;color:#8a8a92}
 }
 </style>
+</head>
+<body>
 <main class="wrap">
 <header>
 <h1>Brink Blitz — Privacy Policy</h1>
 <p class="sub">Published by Dizzywalk</p>
-<p class="meta">Effective date: 2026-07-12 &middot; Last updated: 2026-07-12</p>
+<p class="meta">Effective date: 2026-07-12 &middot; Last updated: 2026-10-30</p>
 </header>
-<p>This Privacy Policy explains how Dizzywalk ("we", "us") handles information in
-connection with the game <strong>Brink Blitz</strong> (the "Game") on Google Play and related platforms.
-We built Brink Blitz to be fun without harvesting your personal life. This page describes exactly what the
-Game does and does not collect.</p>
-<div class="callout"><strong>Short version.</strong><ul><li>No account and no login — you can play without giving any personal information.</li><li>Your data stays on your device in this version — we transmit no gameplay analytics off your device.</li><li>We do not sell your data and show no third-party advertising.</li></ul></div><h2>Information we collect</h2>
-<p>In this version, the Game stores your progress and usage data <strong>only on your device</strong> and does not transmit gameplay analytics off your device. If we enable analytics in a future update, it will be anonymous and disclosed here first.</p><h2>We do not collect personal information</h2><p>The Game has <strong>no account system and no login</strong>. We do not ask for or collect your name, email address, phone number, contacts, photos, precise location, or any government identifier. You can play without providing any personal information.</p><h2>Third parties</h2><p>The Game does not share data with third-party advertising networks or data brokers, and does not embed third-party advertising SDKs.</p><h2>Online features</h2><p>Leaderboards and rival comparisons, where used, transmit only in-game score/run data tied to an anonymous, randomly-generated player id — never your name, email, or contacts.</p><h2>Children's privacy</h2><p>Brink Blitz is suitable for all ages. We do not knowingly collect personal information from anyone, including children, and show no behavioral advertising.</p><h2>Data retention and security</h2><p>On-device data lives only on your device until you remove it. Any anonymous analytics we process is retained only as long as needed to understand how the Game is used, then aggregated or deleted. We use reasonable technical measures to protect data in transit (encryption via HTTPS) and at rest.</p><h2>Your choices and rights</h2><p>Because the Game stores most data on your device, you can clear it at any time by clearing the app's data or uninstalling the Game. Where we process any anonymous analytics, you may contact us to ask what is held or to request deletion. Depending on where you live (for example under GDPR or the CCPA/CPRA), you may have rights to access, delete, or object to processing of information about you; contact us to exercise them. We honor Google Play's Data Safety declarations for the Game.</p>
-<h2>Contact us</h2>
-<p>Questions about this policy or your data? Email us at
-<a href="mailto:kristine@dizzywalk.com">kristine@dizzywalk.com</a>.</p>
-<h2>Changes to this policy</h2>
-<p>If we change how the Game handles data, we will update this page and revise the "Last updated" date
-above. Material changes will be reflected here before they take effect.</p>
+<p>This Privacy Policy explains how Dizzywalk ("we", "us") handles information for
+<strong>Brink Blitz</strong> (Android package <code>com.dizzywalk.brinkblitz</code>) on Google Play and
+related platforms. Capabilities depend on your installed version: the older web-wrapper Android release
+(version code 2) stored progress locally on your device and did not include Unity billing, advertising, or
+attribution SDKs. Native Unity releases starting with <strong>version code 304 (v1.2.0+)</strong> include
+Google Play Billing via Unity In-App Purchasing, AppLovin MAX advertising mediation with Google UMP consent,
+PostHog gameplay analytics, Tenjin attribution, Firebase Analytics, Sentry crash diagnostics, and optional
+local reminders as described below.</p>
+
+<div class="callout"><strong>At a glance</strong><ul>
+<li><strong>No account login required:</strong> You can play without providing your name, email address, phone number, contacts, photos, or precise GPS location.</li>
+<li><strong>Privacy choices &amp; consent:</strong> Where required by law (including the EEA, the UK, and Switzerland), Google's User Messaging Platform (UMP) consent form appears before personalized ads or measurement run, and you can update your choices anytime in <strong>Settings &rarr; Privacy Choices</strong>.</li>
+<li><strong>Purchases &amp; subscriptions:</strong> Google Play processes payments; we never receive your payment-card details. Subscriptions (Weekly VIP) can be managed or canceled anytime in <strong>Settings &rarr; Manage Subscription</strong> or Google Play &rarr; Subscriptions.</li>
+<li><strong>Local gameplay saves:</strong> Ordinary earned progress and settings are saved locally on your device.</li>
+</ul></div>
+
+<h2>1. Consent and your privacy choices</h2>
+<p>On native Unity releases (version code 304+), the game checks Google's User Messaging Platform (UMP) at
+startup to determine whether regional privacy consent is required (such as in the EEA, the UK, and
+Switzerland). Where required, the consent form is shown before personalized advertising or measurement is
+enabled. You can reopen privacy options at any time in <strong>Settings &rarr; Privacy Choices</strong>, and
+you can reset or delete your Advertising ID in Android's system privacy settings.</p>
+
+<h2>2. Gameplay analytics and crash diagnostics</h2>
+<p><strong>PostHog (<code>us.i.posthog.com</code>):</strong> Unity releases send structured gameplay,
+progression, store, and ad lifecycle events (such as session starts, drive outcomes, upgrade sinks, ad
+impressions, and verified purchase settlements) tied to a random app-scoped identifier
+(<code>distinct_id</code>). We do not use PostHog session recording or web tracking cookies. Where regional
+consent is required and declined, analytics transmission is suppressed. See
+<a href="https://posthog.com/privacy">PostHog's Privacy Policy</a>.</p>
+<p><strong>Google Firebase Analytics:</strong> Measures app lifecycle, progression milestones, verified
+purchases, and ad-revenue events using Google Consent Mode signals derived from your UMP choice. See
+<a href="https://policies.google.com/privacy">Google's Privacy Policy</a>.</p>
+<p><strong>Sentry (<code>sentry.io</code>):</strong> To diagnose crashes and maintain stability, Unity
+releases send crash stack traces, unhandled error diagnostics, session-health counts, device model, OS
+version, and build version against a random installation identifier, with default PII collection disabled and
+no screenshots attached. See <a href="https://sentry.io/privacy/">Sentry's Privacy Policy</a>.</p>
+
+<h2>3. Advertising (AppLovin MAX &amp; mediation partners)</h2>
+<p>Unity releases (version code 304+) use <strong>AppLovin MAX</strong> to serve optional rewarded video ads
+for stated in-game rewards, natural-break interstitial ads between drives, bottom banner ads (for non-exempt
+players), and app-open/resume ads. Integrated mediation networks may include AppLovin, Google AdMob, Meta
+Audience Network, Unity Ads, Liftoff (Vungle), Mintegral, InMobi, Pangle, Moloco, BidMachine, IronSource,
+Chartboost, and DT Exchange.</p>
+<p>Advertising SDKs may process the Android Advertising ID (<code>AD_ID</code>), IP address / coarse network
+location, device and app information, ad interactions, and diagnostics for ad delivery, frequency capping,
+measurement, and fraud prevention according to your consent status. Partner privacy policies:
+<a href="https://legal.applovin.com/privacy/">AppLovin</a>,
+<a href="https://policies.google.com/technologies/ads">Google</a>,
+<a href="https://www.facebook.com/about/privacy/">Meta</a>,
+<a href="https://unity.com/legal/game-player-and-app-user-privacy-policy">Unity</a>, and
+<a href="https://liftoff.io/privacy-policy/">Liftoff</a>.</p>
+
+<h2>4. Attribution and ad-revenue measurement (Tenjin)</h2>
+<p>Unity releases use <strong>Tenjin</strong> and the Google Play Install Referrer API to measure campaign
+attribution, install milestones, verified purchases, and impression-level ad revenue, applying your consent
+signals before connecting. See <a href="https://www.tenjin.com/privacy/">Tenjin's Privacy Policy</a>.</p>
+
+<h2>5. Purchases, subscriptions, and receipt verification</h2>
+<p>Unity releases (version code 304+) use <strong>Unity In-App Purchasing (5.4+)</strong> and
+<strong>Google Play Billing</strong> for optional one-time bundles, gem packs, season passes, and an
+auto-renewing Weekly VIP subscription (<code>vip_weekly</code>). Google Play processes all payments and
+never shares your payment-card details with us. To verify purchases, prevent duplicate grants, and support
+restoration, the app sends the product identifier, Google Play purchase token, and package name over HTTPS
+to our commerce verifier (<code>brink-blitz-ghost-api.onrender.com</code>), which validates purchase status
+with the Google Play Developer API before granting paid entitlements. See
+<a href="https://unity.com/legal/game-player-and-app-user-privacy-policy">Unity's Game Player and App User Privacy Policy</a>.</p>
+
+<h2>6. Local notifications and permissions</h2>
+<p>On Android 13 and newer, the game may ask for notification permission (<code>POST_NOTIFICATIONS</code>) so
+it can schedule optional local reminders on your device (for example when a timed Supply Crate is ready). You
+can turn notifications off at any time in Android Settings. The game does not request contacts, microphone,
+camera, photos, or precise GPS location.</p>
+
+<h2>7. Children's privacy</h2>
+<p>Brink Blitz is intended for general/teen audiences and is not directed to children under 13. We do not
+knowingly collect personal contact information from children. Contact us if you believe a child has submitted
+personal information.</p>
+
+<h2 id="data-deletion">8. Data retention, your rights, and deletion requests</h2>
+<p>On-device progress and settings remain in private app storage until you clear app data or uninstall the
+game. Server-side purchase-verification records and aggregate analytics are retained only as long as needed
+for fraud/replay prevention, accounting, and product improvement.</p>
+<p>To request access to or deletion of analytics or purchase-verification records associated with your
+installation, open <strong>Settings</strong> in the game to view your short Support ID (or include a Google
+Play order number such as <code>GPA....</code>) and email
+<a href="mailto:kristine@dizzywalk.com?subject=Brink%20Blitz%20data%20deletion%20request">kristine@dizzywalk.com</a>
+with the subject <strong>Brink Blitz data deletion request</strong>. Do not email payment-card details.</p>
+
+<h2>9. Contact and changes</h2>
+<p>Questions about this Privacy Policy? Email Dizzywalk at
+<a href="mailto:kristine@dizzywalk.com">kristine@dizzywalk.com</a>. When we update how the game handles
+information, we will update this page and revise the "Last updated" date above.</p>
+
 <footer>
-<p>Brink Blitz &middot; Dizzywalk &middot; Effective 2026-07-12.
-This policy applies only to Brink Blitz and not to any third-party site or service it may link to.</p>
+<p>Brink Blitz &middot; Dizzywalk &middot; Effective 2026-07-12 &middot; Updated 2026-10-30.
+This policy applies to Brink Blitz (<code>com.dizzywalk.brinkblitz</code>) and not to third-party sites or services it links to.</p>
 </footer>
 </main>
+</body>
+</html>
