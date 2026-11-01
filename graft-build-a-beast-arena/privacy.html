@@ -1,8 +1,10 @@
 <!doctype html>
-<!-- Privacy policy for com.dizzywalk.graft. Re-derived 2026-10-19 from the Unity build on autochess branch money/wave
-     (e03fa992): AppLovin MAX + the adapters in Assets/MaxSdk/Mediation, Google UMP before MAX init, Tenjin and PostHog
-     gated on the UMP/TCF answer, Unity IAP + Supabase verify-play-purchase (stateless), and the Play Data safety answers
-     in dizzywalk-ops/store/data-safety/com.dizzywalk.graft.csv. Keep the path: it is registered in Play and AdMob. -->
+<!-- Privacy policy for com.dizzywalk.graft. Re-derived 2026-10-19 and updated 2026-11-01 from the Unity build on
+     autochess main (Wave 15, 0.9.4): AppLovin MAX + the adapters in Assets/MaxSdk/Mediation, Google UMP before MAX init,
+     Tenjin, PostHog, Google Analytics for Firebase (Android) and first-party Fleet Replay masked session diagnostics
+     gated on the UMP/TCF answer, first-party configuration on Render, Unity IAP + Supabase verify-play-purchase /
+     verify-apple-purchase (stateless), optional local notification reminders, and the Play Data safety answers in
+     dizzywalk-ops/store/data-safety/com.dizzywalk.graft.csv. Keep the path: it is registered in Play and AdMob. -->
 <html lang="en">
 <head>
 <meta charset="utf-8">
@@ -43,11 +45,11 @@ footer{margin-top:48px;padding-top:16px;border-top:1px solid #ddd;color:#888;fon
 <header>
 <h1>KILLBOX PROTOCOL: Bot Mayhem — Privacy Policy</h1>
 <p class="sub">Listed on Google Play as GRAFT: Build-a-Beast Arena &middot; Published by Dizzywalk</p>
-<p class="meta">Effective date: 2026-10-19 &middot; Last updated: 2026-10-19</p>
+<p class="meta">Effective date: 2026-10-19 &middot; Last updated: 2026-11-01</p>
 </header>
 
 <p>This Privacy Policy explains how Dizzywalk ("we", "us") handles information in connection with the game
-<strong>KILLBOX PROTOCOL: Bot Mayhem (listed on Google Play as GRAFT: Build-a-Beast Arena)</strong>, Android package
+<strong>KILLBOX PROTOCOL: Bot Mayhem (listed on Google Play as GRAFT: Build-a-Beast Arena)</strong>, package / bundle
 <code>com.dizzywalk.graft</code> (the "Game"). Both names refer to the same app. Capabilities depend on the version you
 have installed; a section that describes something your version does not contain does not apply to it.</p>
 
@@ -55,10 +57,13 @@ have installed; a section that describes something your version does not contain
 <li>There is no account and no login. Your progress, settings and purchased items are stored on your device.</li>
 <li>The Game is free and supported by ads, served through AppLovin MAX and the ad networks it works with. They use your
 device's advertising ID and related data to show and measure ads.</li>
-<li>Tenjin measures which ad campaign led to an install, and PostHog records how the Game is played (analytics).</li>
-<li>In the EEA, the UK and Switzerland, Google's consent message asks for your choice before ads, attribution or
-analytics start, and the <strong>PRIVACY CHOICES</strong> button on the title screen lets you change it.</li>
-<li>Google Play processes purchases. We verify each purchase with Google Play and never receive your payment-card details.</li>
+<li>Tenjin measures which ad campaign led to an install, PostHog and Google Analytics for Firebase record how the Game
+is played, and our first-party diagnostic service (Fleet Replay) records low-rate masked in-game screen frames and
+gameplay events when analytics is allowed.</li>
+<li>In the EEA, the UK and Switzerland, Google's consent message asks for your choice before ads, attribution, analytics
+or session replay start, and the <strong>PRIVACY CHOICES</strong> button on the title screen lets you change it.</li>
+<li>Google Play (on Android) or the Apple App Store (where available on iOS) processes purchases. We verify each
+purchase with the store and never receive your payment-card details.</li>
 <li>We do not sell your name, email or contact details; the Game does not ask for them.</li>
 </ul></div>
 
@@ -66,26 +71,30 @@ analytics start, and the <strong>PRIVACY CHOICES</strong> button on the title sc
 <ul>
 <li><strong>Device and other identifiers:</strong> your device's resettable advertising ID and similar SDK identifiers
 (read by the advertising SDKs and Tenjin), and a random identifier the Game creates for this installation. The
-installation identifier is attached to analytics events and is passed to AppLovin as the Game's user identifier. It
-persists until you clear the app's data or uninstall.</li>
-<li><strong>App activity (app interactions):</strong> gameplay events such as opening the Game, tutorial steps, starting
-and finishing a bout, revives, shop and offer views, and ad and purchase outcomes.</li>
-<li><strong>Purchase history:</strong> product, price, currency, transaction or order identifiers and Google Play's
-purchase token and signed receipt.</li>
+installation identifier is attached to analytics events, game-tuning requests and first-party diagnostic session replays,
+and is passed to AppLovin as the Game's user identifier. It persists until you clear the app's data or uninstall.</li>
+<li><strong>App activity (app interactions and masked screen frames):</strong> gameplay events such as opening the Game,
+tutorial steps, starting and finishing a bout, revives, shop and offer views, ad and purchase outcomes, and — when
+analytics is allowed — low-rate in-game screen frames (approximately one 720&nbsp;px JPEG frame every 3&nbsp;seconds)
+captured by our first-party Fleet Replay diagnostic recorder, with Settings, consent forms, store purchase sheets and
+full-screen ads masked or paused.</li>
+<li><strong>Purchase history:</strong> product, price, currency, transaction or order identifiers and the store's
+purchase token or signed transaction receipt.</li>
 <li><strong>Approximate location:</strong> every service the Game connects to receives your IP address, and the
-advertising partners, Tenjin and PostHog may use it to estimate your country or region. The Game does not request GPS or
-precise location.</li>
+advertising partners, Tenjin, Firebase, PostHog and our first-party services may use it to estimate your country or
+region. The Game does not request GPS or precise location.</li>
 <li><strong>App info and performance:</strong> device model, operating-system and app version, language, connection
-type, and crash logs and diagnostics collected by the advertising SDKs (for example, the AppLovin SDK includes its own
-crash reporter that sends crash information to AppLovin).</li>
+type, first-party replay frame/session diagnostics, and crash logs and diagnostics collected by the advertising SDKs
+(for example, the AppLovin SDK includes its own crash reporter that sends crash information to AppLovin).</li>
 </ul>
 <p>The Game does not collect your name, email address, phone number, contacts, photos, files, messages or precise
 location, and it does not include a third-party crash-reporting service of its own (such as Sentry or Firebase
 Crashlytics).</p>
 <p><strong>Recipients:</strong> AppLovin (MAX mediation) and the ad networks it mediates; Tenjin (install attribution
-and ad measurement); PostHog (gameplay analytics and game-tuning settings, processed on our behalf); Google Play and
-Unity In-App Purchasing (purchases); Supabase (hosting for our purchase verification service); and Google's User
-Messaging Platform (the consent tool).</p>
+and ad measurement); PostHog and Google Analytics for Firebase (gameplay analytics, processed on our behalf); Render
+(hosting for our first-party game-tuning service and our first-party Fleet Replay diagnostic service); Google Play,
+Apple App Store (where available) and Unity In-App Purchasing (purchases); Supabase (hosting for our stateless purchase
+verification service); and Google's User Messaging Platform (the consent tool).</p>
 
 <h2>Advertising</h2>
 <p>The Game uses <a href="https://www.applovin.com/privacy/">AppLovin MAX</a> to show ads: rewarded videos that you
@@ -127,16 +136,34 @@ Game. Tenjin may share attribution results with the ad networks we buy ads from 
 if you consented to storing or accessing information on your device, and to opted-out mode otherwise; changing your answer
 in PRIVACY CHOICES updates it.</p>
 
-<h2>Gameplay analytics (PostHog)</h2>
-<p>We use <a href="https://posthog.com/privacy">PostHog</a> to understand how the Game is played. Events describe the
-app activity listed above, together with the app package, app version, platform and the random installation identifier.
-They do not contain your name, contact details or payment-card details. At launch the Game also asks PostHog for
-game-tuning settings (for example ad pacing and offer rules); that request carries the installation identifier only when
-analytics is allowed. PostHog receives the IP address used to connect and may use it to estimate an approximate
+<h2>Gameplay analytics, Firebase and first-party session diagnostics (PostHog, Firebase, Fleet Replay)</h2>
+<p>We use <a href="https://posthog.com/privacy">PostHog</a> and (on Android)
+<a href="https://firebase.google.com/support/privacy">Google Analytics for Firebase</a> to understand how the Game is
+played. Events describe the app activity listed above, together with the app package, app version, platform and the
+random installation identifier. They do not contain your name, contact details or payment-card details. At launch the
+Game also asks PostHog and our first-party configuration service (hosted on
+<a href="https://render.com/privacy">Render</a>) for game-tuning settings (for example difficulty bands, ad pacing,
+value-threshold rules and offer rules); requests carry the installation identifier only when analytics is allowed.
+PostHog, Firebase and Render receive the IP address used to connect and may use it to estimate an approximate
 location.</p>
-<p>Events wait in memory on your device until Google's consent tool has answered. In a consent region, they are sent only
-if you consented to storing or accessing information on your device; otherwise they are discarded and no further events
-are sent.</p>
+<p>To find where screens or game flows are confusing or broken, the Game also includes our first-party diagnostic
+recorder, <strong>Fleet Replay</strong> (operated by Dizzywalk and hosted on Render). When analytics is allowed, Fleet
+Replay captures low-rate frames of the Game's own screen (720&nbsp;px JPEG at quality&nbsp;70, roughly one frame every
+3&nbsp;seconds) alongside a reviewed subset of gameplay and store events and technical session metadata (screen name,
+app version, build number, country tier and experiment arm), linked to the same random installation identifier. Capture
+automatically pauses or masks the screen completely while Settings, privacy/consent forms, store purchase sheets or
+full-screen ads are open, and never captures text entry, payment-card details or anything outside the Game. Stored
+replays are subject to bounded project quotas and retention and are used solely by Dizzywalk to debug and improve the
+Game.</p>
+<p>Analytics events, Firebase collection and Fleet Replay wait on your device until Google's consent tool has answered.
+In a consent region, they run only if you consented to storing or accessing information on your device; otherwise
+queued events are discarded and no analytics events or replay frames are sent.</p>
+
+<h2>Local notification reminders</h2>
+<p>On first launch (after any required privacy prompt finishes), the Game asks once for your device's notification
+permission so it can schedule optional local on-device reminders (for example daily rewards or garage build completion).
+These reminders are scheduled locally on your device and do not register a remote push-notification token. You can
+decline the prompt or turn notifications off at any time in your device's system settings.</p>
 
 <h2>Your choices</h2>
 <h3>EEA, UK and Switzerland</h3>
@@ -145,33 +172,36 @@ whether a consent message is required where you are. Where it is (currently the 
 Kingdom and Switzerland), Google's consent message is shown, and your choices are recorded in the industry-standard IAB
 Transparency and Consent Framework format, which AppLovin, the ad networks and Tenjin read directly.</p>
 <ul>
-<li>No ad is requested, Tenjin does not connect and no analytics event is sent until the consent tool has answered.</li>
+<li>No ad is requested, Tenjin does not connect and no analytics event or Fleet Replay frame is sent until the consent
+tool has answered.</li>
 <li>Personalised ads are shown only if your choices allow them; otherwise ads and rewards keep working with
 non-personalised ads.</li>
-<li>Attribution (Tenjin) and analytics (PostHog) run only if you consent to storing or accessing information on your
-device.</li>
+<li>Attribution (Tenjin), analytics (PostHog and Firebase) and first-party session diagnostics (Fleet Replay) run only
+if you consent to storing or accessing information on your device.</li>
 <li>You can change or withdraw your consent at any time with the <strong>PRIVACY CHOICES</strong> button on the title
-screen, which reopens Google's privacy options form. Withdrawal affects future processing, not processing that already
-took place with your consent.</li>
+screen, which reopens Google's privacy options form. Withdrawal stops future analytics and Fleet Replay recording; it
+does not undo processing that already took place with your consent.</li>
 </ul>
 <h3>Everywhere else</h3>
 <p>Outside those regions Google's consent tool reports that no message is required, so there is no privacy prompt:
-advertising (including personalised advertising), attribution and analytics start once the tool has answered. You can
-limit ad personalisation by resetting or deleting your advertising ID in Android's settings, and you can contact us to
-exercise any rights you have under local law (see "Your rights").</p>
+advertising (including personalised advertising), attribution, analytics and Fleet Replay diagnostics start once the
+tool has answered. You can limit ad personalisation by resetting or deleting your advertising ID in your device's
+settings, and you can contact us to exercise any rights you have under local law (see "Your rights").</p>
 
 <h2>Purchases</h2>
 <p>The Game offers optional one-time and consumable purchases (for example starter packs, a season pass, a piggy bank
-and a VIP pack that removes forced ads). Prices and contents are shown before you buy. Google Play processes payment
-through Unity In-App Purchasing; we do not receive payment-card details. Unity In-App Purchasing can process device,
-purchase and diagnostic information as described in Unity's
+and a VIP pack that removes forced ads). Prices and contents are shown before you buy. Google Play (on Android) or the
+Apple App Store (where available on iOS) processes payment through Unity In-App Purchasing; we do not receive
+payment-card details. Unity In-App Purchasing can process device, purchase and diagnostic information as described in
+Unity's
 <a href="https://unity.com/legal/game-player-and-app-user-privacy-policy">Game Player and App User Privacy Policy</a>.</p>
-<p>Before an item is granted, the Game sends the package name, product identifier and Google Play purchase token over
-HTTPS to our verification service, hosted on <a href="https://supabase.com/privacy">Supabase</a>, which asks Google Play
-whether the purchase is valid and returns the result. The verification service does not store your purchase in a
-database; our hosting provider keeps routine request logs, including the IP address, for a limited period. Your purchase
-history and purchased items are recorded on your device, and purchase events are reported to PostHog and Tenjin as
-described above.</p>
+<p>Before an item is granted, the Game sends the package/bundle name, product identifier and the store's purchase token
+or signed transaction over HTTPS to our verification service, hosted on <a href="https://supabase.com/privacy">Supabase</a>,
+which verifies the purchase with Google Play or Apple and returns the result. The verification service does not store
+your purchase in a database; our hosting provider keeps routine request logs, including the IP address, for a limited
+period. Your purchase history and purchased items are recorded on your device (and durable non-consumable entitlements
+can be restored from the store after a reinstall), and purchase events are reported to PostHog, Firebase, Fleet Replay
+and Tenjin as described above.</p>
 
 <h2>Children's privacy</h2>
 <p>The Game is a robot-combat action game intended for a general audience aged 13 and older. It is not directed to
@@ -179,9 +209,11 @@ children under 13, and we do not knowingly collect personal information from chi
 under 13 has provided us information, contact us and we will delete it.</p>
 
 <h2>Data retention and security</h2>
-<p>Data on your device stays there until you clear the app's data or uninstall the Game (subject to Android backup).
-Analytics events are kept only as long as needed to understand and improve the Game. Providers retain the data they
-receive under their own policies, linked above. All data the Game transmits is encrypted in transit (HTTPS).</p>
+<p>Data on your device stays there until you clear the app's data or uninstall the Game (subject to platform backup).
+Analytics events and Fleet Replay diagnostic sessions are kept only as long as needed to understand, debug and improve
+the Game (Fleet Replay enforces bounded retention and storage quotas, after which old sessions and frames are
+automatically deleted). Providers retain the data they receive under their own policies, linked above. All data the Game
+transmits is encrypted in transit (HTTPS).</p>
 
 <h2>Your rights and deleting your data</h2>
 <p>Depending on where you live (for example under the GDPR, the UK GDPR or US state privacy laws such as the CCPA/CPRA),
