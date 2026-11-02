@@ -1503,3 +1503,5 @@ vdo.ai, 5995, RESELLER
 app-stock.com, 731135, RESELLER
 beapup.com, 583299, RESELLER
 clistltd.com, 431132, RESELLER
+# -- synced from dizzywalk.com/app-ads.txt 2026-11-02 (add-only)
+chartboost.com, 6ae78784fcd7a0e30facdca6, DIRECT
