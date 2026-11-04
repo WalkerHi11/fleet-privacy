@@ -69,7 +69,7 @@ footer{margin-top:48px;padding-top:16px;border-top:1px solid #ddd;color:#888;fon
 <header>
 <h1>BAR FLIP — Privacy Policy</h1>
 <p class="sub">Published by Dizzywalk</p>
-<p class="meta">Effective date: 2026-09-25 &middot; Last updated: 2026-11-01</p>
+<p class="meta">Effective date: 2026-09-25 &middot; Last updated: 2026-11-03</p>
 </header>
 <p>This policy explains how Dizzywalk handles information for BAR FLIP, Android package
 <code>com.dizzywalk.barflip</code>. Capabilities depend on your installed version. The older
@@ -96,8 +96,8 @@ held by us or by payment, analytics and advertising providers.</li>
 <li><strong>Device and diagnostic information:</strong> device model, operating-system and app version, language, time zone, connection type, performance and crash information.</li>
 <li><strong>Network address and approximate location:</strong> every service the game connects to receives your IP address. Advertising partners, Tenjin, Unity and PostHog may use it to estimate your country or region. The game does not request GPS or precise location.</li>
 </ul>
-<p>Recipients: AppLovin (MAX mediation) and the ad networks it mediates, which are Google AdMob, Meta Audience Network, BIGO Ads, Vungle (Liftoff), Pangle, Unity Ads and ironSource and, in versions that include them, InMobi, Mintegral, Moloco and DT Exchange (their SDKs start with AppLovin's and can receive this data even when they serve no ad); Tenjin (install attribution and ad measurement); PostHog (gameplay analytics and game-tuning settings, processed on our behalf); Google Analytics for Firebase (app analytics and purchase/ad revenue measurement); Sentry (crash reporting, processed on our behalf); Render (the hosting provider of our session replay service, Fleet Replay, processing on our behalf); Google Play and Unity (purchases); and Google's User Messaging Platform (the consent tool).</p>
-<p>We do not collect your name, email address, phone number, contacts, photos, files, messages or precise location through the game. Gameplay analytics events contain a word you play or type only when you dispute it (the refused word is sent so we can review the word list); a session recording is a series of pictures of the game screen, so it can show words you play.</p>
+<p>Recipients: AppLovin (MAX mediation) and the ad networks it mediates, which are Google AdMob, Meta Audience Network, BIGO Ads, Vungle (Liftoff), Pangle, Unity Ads and ironSource and, in versions that include them, InMobi, Mintegral, Moloco and DT Exchange (their SDKs start with AppLovin's and can receive this data even when they serve no ad); Tenjin (install attribution and ad measurement); Meta (Facebook SDK app events: app installs and app opens, only on installs where we have switched it on, see "Meta (Facebook SDK app events)" below); PostHog (gameplay analytics and game-tuning settings, processed on our behalf); Google Analytics for Firebase (app analytics and purchase/ad revenue measurement); Sentry (crash reporting, processed on our behalf); Render (the hosting provider of our session replay service, Fleet Replay, processing on our behalf); Google Play and Unity (purchases); and Google's User Messaging Platform (the consent tool).</p>
+<p>We do not collect your name, email address, phone number, contacts, photos, files, messages or precise location through the game. Gameplay analytics events never contain the words you play; a session recording is a series of pictures of the game screen, so it can show words you play.</p>
 
 <h2>Your choices</h2>
 <h3>EEA, UK and Switzerland</h3>
@@ -136,7 +136,7 @@ held by us or by payment, analytics and advertising providers.</li>
 <p>Events describe screen visits, shows,
 progression, tactics, scores, durations, and purchase or ad outcomes. They include build,
 platform and session information, and the random identifier the game creates for this installation.</p>
-<p>They do not include your recovery code or payment-card details, and they include a word you play or type only when you dispute it.</p>
+<p>They do not include the words you play, your recovery code or payment-card details.</p>
 <p>Until the game knows which privacy rules apply to you, and in the EEA, UK and Switzerland until you answer Google's form, it keeps gameplay events in memory on your device. They are sent only if gameplay analytics is then on, and are discarded otherwise.</p>
 <p>We do not use PostHog autocapture or PostHog session recording, and the game sets no tracking cookies. Session recordings are made with Fleet Replay, described below.</p>
 <p>While gameplay analytics is on, the game also asks PostHog at launch for game-tuning settings (for example event timing and offer rules). That request carries the same installation identifier.</p>
@@ -237,6 +237,12 @@ data. The gameplay analytics choice is not consent to every advertising use.</p>
 <p>Opting out blocks our named gameplay, purchase and ad-revenue reports to Tenjin; its SDK may still connect in opted-out mode.</p>
 <p>Where consent is required, the game also passes Google's ad-data and ad-personalisation permissions to Tenjin based on your answers. See <a href="https://www.tenjin.com/privacy/">Tenjin's privacy policy</a>.</p>
 
+<h3 id="meta-app-events">Meta (Facebook SDK app events)</h3>
+<p>The Android game includes Meta's Facebook SDK for app events only (app installs and app opens, with session timing), and it is switched off unless we switch it on remotely for a share of installs.</p>
+<p>While it is switched off, the game does not start it and nothing is sent through it. On an install where it is switched on, it tells Meta that the app was installed and opened, and how long sessions last, with app and device information, your network address and, while ads may be personalised, your advertising ID, so Meta can measure the ads we buy there. It never reports purchases, gameplay events or ad revenue.</p>
+<p>In the EEA, the UK and Switzerland it starts only after you consent to storing or accessing information on your device and to ad measurement. Everywhere else, if you turn on Do Not Sell or Share, the game sends it no advertising ID and asks Meta to apply Limited Data Use. Withdrawing consent stops its automatic reporting. See <a href="https://www.facebook.com/privacy/policy/">Meta's privacy policy</a>.</p>
+<p>On installs where it is switched off, Tenjin may tell Meta when the app is opened, as part of the attribution described above.</p>
+
 <h2>Reminders and permissions</h2>
 <p>Reminders are scheduled on your device. The game turns them on after your first show win and, on
 Android 13 and later, asks for Android's notification permission at that moment; nothing is shown
@@ -258,7 +264,7 @@ The game does not request precise GPS location, contacts, photos or microphone a
 <p>You have the right to access, correct, delete, restrict or object to processing of your personal data, and to data portability. You can withdraw consent at any time in Settings &rarr; Privacy choices. You may also complain to your local data protection authority.</p>
 
 <h2 id="us-privacy-rights">United States privacy rights, including California</h2>
-<p>Over the past 12 months, in the Unity game, we have disclosed the following categories of personal information to advertising partners (AppLovin and its mediated networks) and to Tenjin, in ways that may count as "selling" or "sharing" personal information for cross-context behavioral advertising, or as "targeted advertising", under US state laws: identifiers (advertising ID, installation identifiers, IP address); internet or other electronic network activity (gameplay events and ad interactions); commercial information (purchase events and ad revenue); and approximate geolocation derived from IP address. Our partners may draw inferences from this information to choose ads.</p>
+<p>Over the past 12 months, in the Unity game, we have disclosed the following categories of personal information to advertising partners (AppLovin and its mediated networks, and Meta on installs where its SDK is switched on) and to Tenjin, in ways that may count as "selling" or "sharing" personal information for cross-context behavioral advertising, or as "targeted advertising", under US state laws: identifiers (advertising ID, installation identifiers, IP address); internet or other electronic network activity (gameplay events and ad interactions); commercial information (purchase events and ad revenue); and approximate geolocation derived from IP address. Our partners may draw inferences from this information to choose ads.</p>
 <p>We also use service providers, which may not use your information for their own purposes: PostHog (analytics), Sentry (crash reporting), our hosting provider (commerce service and session recordings), and Google Play and Unity (purchases). Google Analytics for Firebase also receives the analytics and consent-controlled advertising data described above. We collect this information from your device and from the services named in this policy. We do not collect sensitive personal information as defined by California law, and we do not use personal information to infer characteristics about you.</p>
 <p><strong>Your rights.</strong> Depending on your state, you have the right to:</p>
 <ul>
