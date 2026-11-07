@@ -45,7 +45,7 @@ footer{margin-top:48px;padding-top:16px;border-top:1px solid #ddd;color:#888;fon
 <header>
 <h1>KILLBOX PROTOCOL: Bot Mayhem — Privacy Policy</h1>
 <p class="sub">Listed on Google Play as GRAFT: Build-a-Beast Arena &middot; Published by Dizzywalk</p>
-<p class="meta">Effective date: 2026-10-19 &middot; Last updated: 2026-11-02</p>
+<p class="meta">Effective date: 2026-10-19 &middot; Last updated: 2026-11-07</p>
 </header>
 
 <p>This Privacy Policy explains how Dizzywalk ("we", "us") handles information in connection with the game
@@ -111,6 +111,10 @@ diagnostics, for ad delivery, frequency control, measurement and fraud preventio
 and did not consent (see "Your choices"), they may also use this information to personalise the ads you see, including
 based on your activity in other apps. Non-personalised ads may still use operational and device data. Ad-enabled Android
 builds declare the advertising-ID permission.</p>
+<p>On iOS, the Game asks for permission through Apple's App Tracking Transparency prompt before the advertising SDKs
+can read your device's advertising identifier (IDFA). If you decline, or later turn off "Allow Apps to Request to Track"
+in Settings &gt; Privacy &amp; Security &gt; Tracking, the IDFA is not available to the Game or its SDKs and ads are
+not personalised based on your activity in other companies' apps.</p>
 <p>You can reset or delete your advertising ID in Android's settings (Settings &rarr; Privacy &rarr; Ads on most devices).
 Provider policies:
 <a href="https://www.applovin.com/privacy/">AppLovin</a>,
@@ -159,6 +163,13 @@ Game.</p>
 <p>Analytics events, Firebase collection and Fleet Replay wait on your device until Google's consent tool has answered.
 In a consent region, they run only if you consented to storing or accessing information on your device; otherwise
 queued events are discarded and no analytics events or replay frames are sent.</p>
+
+<h2>League rivals (squads other players face)</h2>
+<p>When you play the League, the Game uploads your squad to our first-party game server (Supabase) so it can appear as
+a rival in other players' League brackets: a one-way hash of the Game's installation identifier (never the advertising
+ID), a callsign the Game generates for you (you do not type a name), your chapter, and your bots' roles, star levels,
+lanes, cards and upgrade levels. Other players see the callsign and the squad. We use it only to run the League and
+keep it fair. It is deleted on request (see "Your rights and deleting your data").</p>
 
 <h2>Local notification reminders</h2>
 <p>On first launch (after any required privacy prompt finishes), the Game asks once for your device's notification
