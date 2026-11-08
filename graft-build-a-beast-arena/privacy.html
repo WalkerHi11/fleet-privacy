@@ -45,7 +45,7 @@ footer{margin-top:48px;padding-top:16px;border-top:1px solid #ddd;color:#888;fon
 <header>
 <h1>KILLBOX PROTOCOL: Bot Mayhem — Privacy Policy</h1>
 <p class="sub">Listed on Google Play as GRAFT: Build-a-Beast Arena &middot; Published by Dizzywalk</p>
-<p class="meta">Effective date: 2026-10-19 &middot; Last updated: 2026-11-07</p>
+<p class="meta">Effective date: 2026-10-19 &middot; Last updated: 2026-11-08</p>
 </header>
 
 <p>This Privacy Policy explains how Dizzywalk ("we", "us") handles information in connection with the game
@@ -91,7 +91,7 @@ type, first-party replay frame/session diagnostics, and crash logs and diagnosti
 location, and it does not include a third-party crash-reporting service of its own (such as Sentry or Firebase
 Crashlytics).</p>
 <p><strong>Recipients:</strong> AppLovin (MAX mediation) and the ad networks it mediates; Tenjin (install attribution
-and ad measurement); PostHog and Google Analytics for Firebase (gameplay analytics, processed on our behalf); Render
+and ad measurement); Meta (Facebook SDK app events, where switched on; see below); PostHog and Google Analytics for Firebase (gameplay analytics, processed on our behalf); Render
 (hosting for our first-party game-tuning service and our first-party Fleet Replay diagnostic service); Google Play,
 Apple App Store (where available) and Unity In-App Purchasing (purchases); Supabase (hosting for our stateless purchase
 verification service); and Google's User Messaging Platform (the consent tool).</p>
@@ -140,6 +140,18 @@ Game. Tenjin may share attribution results with the ad networks we buy ads from 
 <p>Tenjin connects only after Google's consent tool has answered. In a consent region, Tenjin is set to opted-in mode only
 if you consented to storing or accessing information on your device, and to opted-out mode otherwise; changing your answer
 in PRIVACY CHOICES updates it.</p>
+
+<h2>Meta (Facebook SDK app events)</h2>
+<p>Android versions from 0.9.5 include Meta's Facebook SDK core (app events only: no Facebook login, no sharing, no
+Facebook account link). It is switched off by default and is started only for a share of installs that we choose
+remotely, and only after Google's consent tool has answered; in a consent region it starts only if you consented to
+storing or accessing information on your device and your choices allow Meta. When it runs, it sends
+<a href="https://www.facebook.com/privacy/policy/">Meta</a> app-activation and session events (the Game opening and
+closing), device and app information, your IP address and, if ad personalisation is allowed, your advertising ID, so
+Meta can measure the ad campaigns we run on its platforms and show those ads to people likely to enjoy the Game. It
+sends no purchase, gameplay or custom events. If you opted out of the sale or sharing of personal information under a
+US state privacy law, it runs in Meta's Limited Data Use mode; withdrawing consent turns its event logging and
+advertising-ID collection off.</p>
 
 <h2>Gameplay analytics, Firebase and first-party session diagnostics (PostHog, Firebase, Fleet Replay)</h2>
 <p>We use <a href="https://posthog.com/privacy">PostHog</a> and (on Android)
