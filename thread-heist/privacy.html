@@ -1,0 +1,145 @@
+<!doctype html>
+<!--
+  Thread Heist: Unravel & Escape privacy policy (gql r2 motion fix, 2026-10-20).
+  Publish target: the fleet-privacy repo (Render static site), path thread-heist/privacy.html, served at
+  https://fleet-privacy.onrender.com/thread-heist/privacy.html. Once that URL returns 200 with this document, update
+  these three together: unity/Assets/Scripts/Telemetry/AdConfig.cs PrivacyPolicyUrl,
+  unity/ProjectSettings/AppLovinInternalSettings.json consentFlowPrivacyPolicyUrl, and
+  store/google-play.en-US.json privacyPolicyUrl (plus docs/STORE_LISTING.md and the Play Console field).
+  Every statement below was checked against the Unity build's code on 2026-10-20 (SDKs: AppLovin MAX 8.6.6 with the
+  Google adapter and the AppLovin/Google UMP consent flow, Tenjin, PostHog via direct HTTPS, Unity IAP / Google Play
+  Billing; no accounts, leaderboards or purchase-verification server).
+  2026-11-10 (th-ship): Fleet Replay session replay section (policy rev th-privacy-20261110); published at
+  https://fleet-privacy.onrender.com/thread-heist/privacy.html.
+  2026-11-03 (WO-20261103-79): Meta app events (facebook-core 18.3.0, dormant behind meta_sdk_launch_pct, consent-gated;
+  auto-logged install/activation only) added. Publish this revision in the same release that ships the SDK.
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Thread Heist: Unravel &amp; Escape · Privacy Policy</title>
+<style>
+  :root { --bg:#0b0d16; --panel:#141827; --ink:#f3ead6; --muted:#c9bfa8; --gold:#e6b85a; }
+  body { margin:0; background:var(--bg); color:var(--ink); font:16px/1.6 system-ui, -apple-system, "Segoe UI", sans-serif; }
+  main { max-width:760px; margin:0 auto; padding:32px 16px 64px; }
+  h1 { color:var(--gold); font-size:1.9rem; line-height:1.2; margin:0 0 4px; }
+  h2 { color:var(--gold); font-size:1.2rem; margin:32px 0 8px; border-bottom:1px solid #3a3220; padding-bottom:4px; }
+  .meta { color:var(--muted); margin:0 0 24px; }
+  .short { background:var(--panel); border:1px solid #3a3220; border-radius:10px; padding:12px 18px; }
+  a { color:var(--gold); }
+  li { margin:4px 0; }
+</style>
+</head>
+<body>
+<main>
+<h1>Thread Heist: Unravel &amp; Escape — Privacy Policy</h1>
+<p class="meta">Developer: Dizzywalk · Effective: 2026-10-20 · Last updated: 2026-11-10</p>
+<p>This policy explains what information the game <strong>Thread Heist: Unravel &amp; Escape</strong> (the "Game") on
+Google Play handles, why, and the choices you have.</p>
+
+<div class="short">
+<p><strong>Short version</strong></p>
+<ul>
+  <li>You do not need an account, name, email, contacts, photos or precise location to play.</li>
+  <li>Your progress and settings are stored on your device.</li>
+  <li>Ads are served through AppLovin MAX. Where the law requires it (for example in the EEA and UK), a consent form
+      appears before any ad is requested; the ad SDK is not started before then.</li>
+  <li>We use Tenjin for install attribution and PostHog for anonymous gameplay analytics. For some players, Meta's app
+      events SDK tells Meta when the Game is opened, so our ads on Facebook and Instagram reach people who play.</li>
+  <li>Google Play processes payments. We never see your card details.</li>
+</ul>
+</div>
+
+<h2>Information we collect</h2>
+<ul>
+  <li><strong>On your device:</strong> level progress, coins, gems, boosters, settings and similar game state. It stays
+      on the device unless you reinstall or clear app data.</li>
+  <li><strong>Analytics (PostHog):</strong> an anonymous, randomly generated player identifier, gameplay events (for
+      example level start, level complete, level failed, purchases started), app version, device model and OS version,
+      and coarse diagnostics. No name, email or precise location.</li>
+  <li><strong>Attribution (Tenjin):</strong> the advertising identifier where available, install referrer and campaign
+      information, selected in-game events, purchase details (product, price, currency and Google Play's signed purchase
+      record) and ad-impression revenue reported by the ad mediation SDK, so we can tell which campaigns bring players.</li>
+  <li><strong>Meta (Facebook SDK app events):</strong> for a share of players, rolled out gradually, the Game includes
+      Meta's app events SDK (facebook-core only: no Facebook login or sharing). It sends Meta that the app was installed
+      and opened, with device information, app version and, where your consent and device settings allow, the
+      advertising identifier, so Meta can measure and optimise our ads. It sends no purchases, gameplay or ad-revenue
+      events. Where the law requires consent (for example the EEA, UK and Switzerland) it starts only after you agree in
+      the consent form; if you opt out of the sale or sharing of personal information under a US state law, Meta's
+      Limited Data Use applies and the advertising identifier is not sent. Players without it send the same app-open
+      signal through Tenjin instead.</li>
+  <li><strong>Advertising (AppLovin MAX and its partners, including Google):</strong> device and advertising identifiers,
+      IP address and the approximate location derived from it, consent signals, device information, ad interactions
+      and diagnostics. The Game does not request precise location.</li>
+  <li id="fleet-replay"><strong>Session replay (Fleet Replay):</strong> for a sampled share of players, the Game uses
+      Fleet Replay, Dizzywalk's own session-replay service, to find confusing steps and broken screens. When it runs it
+      sends a reduced-size still image of what the Game itself draws about every 3 seconds (not video and not audio; at
+      most 720 pixels on the long edge), where you tapped, and a reviewed subset of the gameplay events described above
+      (for example level start, complete or fail, rewarded-ad offers and purchase steps), linked to the same random
+      analytics player identifier (never your name, email, advertising ID, payment details or location). Full-screen
+      ads, the Google Play purchase sheet, system screens and other apps are never recorded. It follows the same choice
+      as our analytics (in the EEA, the UK and Switzerland only after you agree in the consent form) and can be turned
+      off remotely. Recordings go over HTTPS to our Fleet Replay service, hosted by Render in the United States, are not
+      shared with other companies, and are deleted after 14 days.</li>
+  <li><strong>Purchases:</strong> Google Play handles payment. The Game receives the product, the purchase token and
+      the purchase status needed to deliver what you bought.</li>
+</ul>
+
+<h2>Advertising, analytics and consent</h2>
+<ul>
+  <li><strong>SDKs:</strong> Fleet Replay (Dizzywalk session replay), AppLovin MAX (with Google Mobile Ads mediation), the AppLovin consent flow with Google's
+      User Messaging Platform (UMP), Tenjin, PostHog, Meta app events (facebook-core, for a share of players) and Unity
+      In-App Purchasing (Google Play Billing).</li>
+  <li><strong>When ads start:</strong> a new player first plays the opening level, which shows no ads. The ad SDK and its
+      consent form start afterwards, before any ad is requested.</li>
+  <li><strong>Your ad choices:</strong> where required, the consent form lets you accept or decline personalised ads.
+      You can reopen the privacy choices from the Game's Settings, and reset or delete your advertising ID in your
+      device settings.</li>
+  <li><strong>Provider policies:</strong>
+      <a href="https://www.applovin.com/privacy/">AppLovin</a>,
+      <a href="https://policies.google.com/privacy">Google</a>,
+      <a href="https://tenjin.com/privacy/">Tenjin</a>,
+      <a href="https://posthog.com/privacy">PostHog</a>,
+      <a href="https://www.facebook.com/privacy/policy/">Meta</a>.</li>
+</ul>
+
+<h2>How we use information</h2>
+<ul>
+  <li>To run the Game, save progress and deliver purchases.</li>
+  <li>To understand how levels play (where players get stuck, crash or leave) and improve the Game.</li>
+  <li>To show ads that keep the Game free, and to measure which campaigns bring players.</li>
+</ul>
+<p>We do not sell your personal information. We share it only with the service providers named above, for the
+purposes above, and where the law requires.</p>
+
+<h2>Children</h2>
+<p>The Game is not directed to children under 13. If you believe a child has given us personal information, contact us
+and we will delete what we hold.</p>
+
+<h2>Retention and security</h2>
+<ul>
+  <li>Game data on your device stays until you clear app data or uninstall.</li>
+  <li>Analytics and attribution records are kept by the providers only as long as needed for the purposes above, and
+      purchase records as long as needed for refunds, fraud prevention, accounting and the law.</li>
+  <li>The Game sends data over encrypted HTTPS connections.</li>
+</ul>
+
+<h2>Your choices and rights</h2>
+<ul>
+  <li>Clear the Game's data or uninstall it to remove on-device data.</li>
+  <li>Use the Game's Settings to reopen the ad privacy choices, and your device settings to limit ad tracking.</li>
+  <li>To ask for access to or deletion of data we hold, email
+      <a href="mailto:kristine@dizzywalk.com?subject=Thread%20Heist%20data%20request">kristine@dizzywalk.com</a>
+      with the subject "Thread Heist data request". Requests about data held by AppLovin, Google, Tenjin, PostHog or Meta can
+      also go to those providers directly.</li>
+</ul>
+
+<h2>Contact</h2>
+<p>Dizzywalk · <a href="mailto:kristine@dizzywalk.com">kristine@dizzywalk.com</a></p>
+
+<h2>Changes to this policy</h2>
+<p>We will update this page and its "Last updated" date before any change in how the Game handles data takes effect.</p>
+</main>
+</body>
+</html>
