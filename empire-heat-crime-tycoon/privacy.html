@@ -1,4 +1,4 @@
-<!-- Self-contained privacy page. Owner fills Dizzywalk, kristine@dizzywalk.com, 2026-07-12 before publishing. -->
+<!-- Self-contained privacy page for Empire Heat / OMERTA (com.dizzywalk.empireheat). Updated 2026-11-16 (WO-20261110-860). -->
 <title>Empire Heat — Privacy Policy</title>
 <style>
 :root{color-scheme:light dark}
@@ -33,22 +33,54 @@ footer{margin-top:48px;padding-top:16px;border-top:1px solid #ddd;color:#888;fon
 <header>
 <h1>Empire Heat — Privacy Policy</h1>
 <p class="sub">Published by Dizzywalk</p>
-<p class="meta">Effective date: 2026-07-12 &middot; Last updated: 2026-08-14</p>
+<p class="meta">Effective date: 2026-07-12 &middot; Last updated: 2026-11-16</p>
 </header>
 <p>This Privacy Policy explains how Dizzywalk ("we", "us") handles information in
-connection with the game <strong>Empire Heat</strong> (the "Game") on Google Play and related platforms.
-We built Empire Heat to be fun without harvesting your personal life. This page describes exactly what the
-Game does and does not collect.</p>
-<div class="callout"><strong>Short version.</strong><ul><li>Your game save, settings, and gameplay diagnostics stay on your device in the default configuration.</li><li>The Android app includes RevenueCat, Supabase, AppLovin MAX, and Google User Messaging Platform (UMP). Purchase and advertising features remain disabled until separately enabled.</li><li>If advertising is enabled, Google UMP presents any required privacy choices before MAX may request an ad. We do not sell your personal data.</li></ul></div><h2>Information we collect</h2>
-<p>The Game stores your progress, settings, and a small gameplay-diagnostics buffer on your device. In the default configuration those diagnostics are not transmitted to a hosted analytics provider. If purchase features are enabled, a signed-in account identifier plus product and transaction history are sent to Supabase and RevenueCat to verify purchases, prevent replay, and restore entitlements. We do not receive your payment-card details.</p><h2>Accounts and personal information</h2><p>You can play the default configuration without giving us your name, email address, phone number, contacts, photos, precise location, or a government identifier. A non-anonymous Supabase account is required only when purchase features are enabled so purchases can remain bound to the same payer across devices. The exact sign-in fields offered by that release will be disclosed in its store Data Safety form.</p><h2>Advertising, consent, and third parties</h2><p>The Android package embeds <strong>AppLovin MAX</strong> and <strong>Google User Messaging Platform (UMP)</strong>, even while advertising is disabled. If an authorized release enables advertising, UMP must complete the regional consent/privacy-options flow before MAX requests an ad. MAX and configured mediation partners may then process device or advertising identifiers, approximate region, consent signals, ad interactions, diagnostics, and impression revenue for ad delivery, frequency control, fraud prevention, and measurement. UMP completing a form does not mean you consented to personalized advertising; your choices are passed through the provider consent framework. Purchase verification uses RevenueCat and Supabase. Provider policies are available at <a href="https://www.applovin.com/privacy/">AppLovin Privacy</a>, <a href="https://policies.google.com/privacy">Google Privacy</a>, <a href="https://www.revenuecat.com/privacy/">RevenueCat Privacy</a>, and <a href="https://supabase.com/privacy">Supabase Privacy</a>.</p><h2>Children's privacy</h2><p>Empire Heat is a crime-themed strategy game intended for teens and older; it is not directed to children under 13. We do not knowingly collect personal information from children.</p><h2>Data retention and security</h2><p>On-device data lives on your device until you remove it. Purchase and entitlement records may be retained as needed for restoration, refunds, fraud prevention, accounting, and legal obligations. Provider retention is governed by the linked provider policies. We use reasonable technical measures, including HTTPS in transit, to protect transmitted data.</p><h2>Your choices and rights</h2><p>You can erase the local save, diagnostics, and settings through the in-game Privacy &amp; Data screen, by clearing app data, or by uninstalling. Where required, the same screen opens the Google UMP privacy-options form so advertising choices can be reviewed or changed. You may contact us to request access to or deletion of account-side information; some transaction records may be retained where legally required. Depending on where you live (including under GDPR or the CCPA/CPRA), you may also have rights to access, delete, correct, or object to processing. We honor the Google Play Data Safety declaration for the released build.</p>
+connection with the game <strong>Empire Heat</strong> (also titled <strong>OMERTA</strong>, package <code>com.dizzywalk.empireheat</code>) on Google Play and related platforms. This page states only what is true of the Android build: every service listed below is compiled into that build.</p>
+
+<div class="callout"><strong>Short version.</strong><ul>
+<li>Your local settings, audio preferences, and scheduled local reminders are stored on your device.</li>
+<li>The Android app uses our game server (<code>empire-heat-api</code>), <strong>Google Play Billing</strong> for in-app purchases, <strong>AppLovin MAX</strong> with mediated ad partners for advertising, and <strong>Google User Messaging Platform (UMP)</strong> for consent in regulated regions.</li>
+<li>Analytics, attribution, and diagnostics run through <strong>PostHog</strong>, <strong>Firebase</strong> / <strong>Google Analytics</strong> (plus Firebase Cloud Messaging for notifications), <strong>Tenjin</strong>, <strong>Fleet Replay</strong> (masked session replay), and <strong>Sentry</strong> (crash reporting). We do not sell your personal data.</li>
+</ul></div>
+
+<h2>What stays on your device</h2>
+<ul>
+<li><strong>Settings and local copies of your game:</strong> audio levels, haptics, reduced motion, and a local cache of your empire.</li>
+<li><strong>Notification schedule:</strong> local reminders are scheduled on your device by Android.</li>
+</ul>
+
+<h2>What the game sends, and to whom</h2>
+<ul>
+<li><strong>Dizzywalk game server (<code>empire-heat-api</code>):</strong> random account ID (shown in Settings as your Syndicate ID), boss nickname, game actions/state, and Google Play purchase records (product, order ID, purchase token) to run the game and verify purchases.</li>
+<li><strong>Google Play Billing:</strong> processes your in-app purchases; Google handles payment and we never receive card details.</li>
+<li><strong>AppLovin MAX &amp; mediated ad partners:</strong> AppLovin SDK (with AppLovin Quality Service), AppLovin Exchange, <strong>Meta Audience Network</strong>, <strong>Pangle / ByteDance</strong>, <strong>Liftoff / Vungle</strong>, <strong>Mintegral</strong>, <strong>InMobi</strong>, <strong>Moloco</strong>, <strong>DT Exchange / Fyber</strong>, <strong>ironSource</strong>, <strong>Chartboost</strong>, and <strong>Bigo Ads</strong>. Receives your device's resettable advertising ID and app-set ID, device model, OS and app version, IP address (approximate location), ad views and taps, SDK diagnostics, and our random player ID to deliver, frequency-cap, and measure ads and prevent ad fraud.</li>
+<li><strong>Google User Messaging Platform (UMP):</strong> collects your consent choices and region at launch in the EEA, UK, and Switzerland before ads, analytics, replay, or attribution start.</li>
+<li><strong>PostHog:</strong> receives fixed gameplay events (including purchases and ad revenue), random install ID and player ID, device/OS/app version, connection type, country (IP GeoIP), and campaign attribution properties.</li>
+<li><strong>Firebase &amp; Google Analytics (plus Firebase Cloud Messaging):</strong> receives Consent Mode v2 state, random user ID, count-only gameplay and value-tier milestones, and push registration/timezone topic subscriptions when notifications are permitted.</li>
+<li><strong>Fleet Replay (<code>fleet-replay.onrender.com</code>):</strong> captures low-resolution masked still frames of the game screen every few seconds (with boss-name entry, Syndicate ID footer, and subscription terms blacked out, and paused during ads, Play checkout, or consent forms) alongside accepted gameplay events to find UI defects and crashes. Turning analytics off stops Fleet Replay.</li>
+<li><strong>Sentry:</strong> receives crash and error reports (message, stack trace, app version, session health, random player ID) at launch across regions to keep the app stable.</li>
+<li><strong>Tenjin:</strong> receives advertising ID, app-set ID, Google Play install referrer, device/OS, IP address, random player ID, count-only milestones, and verified purchase records for install attribution.</li>
+<li><strong>Google Play Games Services &amp; Google Play In-App Review:</strong> optional Play Games sign-in profile binding and Google's native rating prompt.</li>
+</ul>
+
+<p>The app declares Android's advertising-ID permission (<code>AD_ID</code>) so AppLovin MAX and Tenjin can read the advertising ID. You can reset or delete that ID anytime in your Android device settings. Provider policies: <a href="https://www.applovin.com/privacy/">AppLovin Privacy</a>, <a href="https://policies.google.com/privacy">Google Privacy</a>, <a href="https://posthog.com/privacy">PostHog Privacy</a>, <a href="https://sentry.io/privacy/">Sentry Privacy</a>, and <a href="https://www.tenjin.com/privacy-policy/">Tenjin Privacy</a>.</p>
+
+<h2>Consent and your choices</h2>
+<p>In the EEA, UK, and Switzerland, Google's consent form asks before ads, analytics, session replay, and attribution start; crash reporting runs to keep the game functional. Outside those regions, these services start at launch. You can review or withdraw choices anytime via <strong>Settings &rarr; Privacy &amp; Ad Consent</strong>; withdrawing analytics stops PostHog and Fleet Replay and rotates your analytics ID.</p>
+
+<h2>Delete my data</h2>
+<p>Email <a href="mailto:privacy@dizzywalk.com">privacy@dizzywalk.com</a> with your Syndicate ID (found at the bottom of Settings). We delete your server account and request deletion across PostHog, Fleet Replay, Sentry, Tenjin, Firebase, and AppLovin where applicable. Purchase records may be retained where legally required. Uninstalling removes local device state.</p>
+
+<h2>Children's privacy</h2>
+<p>Empire Heat targets a Teen rating (simulated crime themes, no gore) and is not directed at children under 13. We do not knowingly collect personal data from children.</p>
+
 <h2>Contact us</h2>
-<p>Questions about this policy or your data? Email us at
-<a href="mailto:kristine@dizzywalk.com">kristine@dizzywalk.com</a>.</p>
-<h2>Changes to this policy</h2>
-<p>If we change how the Game handles data, we will update this page and revise the "Last updated" date
-above. Material changes will be reflected here before they take effect.</p>
+<p>Privacy &amp; data requests: <a href="mailto:privacy@dizzywalk.com">privacy@dizzywalk.com</a> &middot; Operator support: <a href="mailto:support@dizzywalk.com">support@dizzywalk.com</a> (Dizzywalk Studio).</p>
+
+<h2>Changes</h2>
+<p>Material changes to this policy will be reflected at this URL with an updated date before the corresponding build ships.</p>
 <footer>
-<p>Empire Heat &middot; Dizzywalk &middot; Effective 2026-07-12.
-This policy applies only to Empire Heat and not to any third-party site or service it may link to.</p>
+<p>Empire Heat &middot; Dizzywalk &middot; Effective 2026-07-12.</p>
 </footer>
 </main>
